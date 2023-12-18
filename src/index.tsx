@@ -10,8 +10,8 @@ const LINKING_ERROR =
 const isTurboModuleEnabled = global.__turboModuleProxy != null;
 
 const CastledReactNativeModule = isTurboModuleEnabled
-  ? require('./NativeCastledNotifications').default
-  : NativeModules.RTNCastledNotifications;
+  ? require('./NativeCastledReactNativeSdk').default
+  : NativeModules.NativeCastledReactNativeSdk;
 
 const CastledReactNativeSdk = CastledReactNativeModule
   ? CastledReactNativeModule
@@ -25,8 +25,8 @@ const CastledReactNativeSdk = CastledReactNativeModule
     );
 
 export function multiply(a: number, b: number): Promise<number> {
-  CastledReactNativeSdk.initialize({ key: 'test' });
+  // CastledReactNativeSdk.initialize({ key: 'test' });
   return new Promise((resolve, reject) => {
-    resolve(99);
+    resolve(CastledReactNativeSdk.multiply(8, 5));
   });
 }
