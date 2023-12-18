@@ -9,12 +9,12 @@ const LINKING_ERROR =
 // @ts-expect-error
 const isTurboModuleEnabled = global.__turboModuleProxy != null;
 
-const CastledReactNativeSdkModule = isTurboModuleEnabled
-  ? require('./NativeCastledReactNativeSdk').default
-  : NativeModules.CastledReactNativeSdk;
+const CastledReactNativeModule = isTurboModuleEnabled
+  ? require('./NativeCastledNotifications').default
+  : NativeModules.RTNCastledNotifications;
 
-const CastledReactNativeSdk = CastledReactNativeSdkModule
-  ? CastledReactNativeSdkModule
+const CastledReactNativeSdk = CastledReactNativeModule
+  ? CastledReactNativeModule
   : new Proxy(
       {},
       {
@@ -25,5 +25,8 @@ const CastledReactNativeSdk = CastledReactNativeSdkModule
     );
 
 export function multiply(a: number, b: number): Promise<number> {
-  return CastledReactNativeSdk.multiply(a, b);
+  CastledReactNativeSdk.initialize({ key: 'test' });
+  return new Promise((resolve, reject) => {
+    resolve(99);
+  });
 }

@@ -44,7 +44,7 @@ def supportsNamespace() {
 
 android {
   if (supportsNamespace()) {
-    namespace "com.castledreactnativesdk"
+    namespace "io.castled.reactnative"
 
     sourceSets {
       main {
@@ -102,6 +102,7 @@ repositories {
 }
 
 def kotlin_version = getExtOrDefault("kotlinVersion")
+def castled_android_sdk_version = getExtOrDefault('androidSdkVersion')
 
 dependencies {
   // For < 0.71, this will be from the local maven repo
@@ -109,12 +110,14 @@ dependencies {
   //noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-native:+"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+  implementation "io.castled.android:castled-notifications:$castled_android_sdk_version"
+
 }
 
 if (isNewArchitectureEnabled()) {
   react {
     jsRootDir = file("../src/")
     libraryName = "CastledReactNativeSdk"
-    codegenJavaPackageName = "com.castledreactnativesdk"
+    codegenJavaPackageName = "io.castled.reactnative"
   }
 }
