@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0AFA16202B32E472001B49C7 /* CastledReactNativeSdk.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFA161F2B32E472001B49C7 /* CastledReactNativeSdk.m */; };
-		0AFA16212B32E472001B49C7 /* CastledReactNativeSdk.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0AFA161E2B32E472001B49C7 /* CastledReactNativeSdk.h */; };
+		0AFA8D782B3357AF00DF4DBE /* CastledReactNativeSdk.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0AFA8D772B3357AF00DF4DBE /* CastledReactNativeSdk.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -18,7 +17,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				0AFA16212B32E472001B49C7 /* CastledReactNativeSdk.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -26,8 +24,8 @@
 
 /* Begin PBXFileReference section */
 		0AFA161B2B32E472001B49C7 /* libCastledReactNativeSdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCastledReactNativeSdk.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		0AFA161E2B32E472001B49C7 /* CastledReactNativeSdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CastledReactNativeSdk.h; sourceTree = "<group>"; };
-		0AFA161F2B32E472001B49C7 /* CastledReactNativeSdk.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CastledReactNativeSdk.m; sourceTree = "<group>"; };
+		0AFA8D742B33578E00DF4DBE /* CastledReactNativeSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CastledReactNativeSdk.h; sourceTree = "<group>"; };
+		0AFA8D772B3357AF00DF4DBE /* CastledReactNativeSdk.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CastledReactNativeSdk.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +58,8 @@
 		0AFA161D2B32E472001B49C7 /* CastledReactNativeSdk */ = {
 			isa = PBXGroup;
 			children = (
-				0AFA161E2B32E472001B49C7 /* CastledReactNativeSdk.h */,
-				0AFA161F2B32E472001B49C7 /* CastledReactNativeSdk.m */,
+				0AFA8D742B33578E00DF4DBE /* CastledReactNativeSdk.h */,
+				0AFA8D772B3357AF00DF4DBE /* CastledReactNativeSdk.mm */,
 			);
 			path = CastledReactNativeSdk;
 			sourceTree = "<group>";
@@ -123,7 +121,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AFA16202B32E472001B49C7 /* CastledReactNativeSdk.m in Sources */,
+				0AFA8D782B3357AF00DF4DBE /* CastledReactNativeSdk.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

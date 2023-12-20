@@ -10,6 +10,16 @@
 @implementation CastledReactNativeSdk
 RCT_EXPORT_MODULE()
 
+RCT_EXPORT_METHOD(initialize:(NSDictionary *)configs) {
+    // Extract values from configs dictionary
+    // For example, if CtConfigs has properties `property1` and `property2`
+    NSLog(@"configs---- %@",configs);
+
+
+    // Your implementation here
+}
+
+ 
 // Example method
 // See // https://reactnative.dev/docs/native-modules-ios
 RCT_EXPORT_METHOD(multiply:(double)a

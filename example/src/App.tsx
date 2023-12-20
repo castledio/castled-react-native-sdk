@@ -1,18 +1,27 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'castled-react-native-sdk';
+import {
+  CastledNotifications,
+  CastledConfigs,
+  CastledLocation,
+} from 'castled-react-native-sdk';
+
+const configs = new CastledConfigs();
+configs.appId = '829c38e2e359d94372a2e0d35e1f74df';
+configs.location = CastledLocation.US;
+configs.enableInApp = true;
 
 export default function App() {
   const [result, setResult] = React.useState<number | undefined>();
 
   React.useEffect(() => {
-    multiply(3, 7).then(setResult);
+    CastledNotifications.initialize(configs);
   }, []);
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text>Result: Castled Init Successful!</Text>
     </View>
   );
 }
