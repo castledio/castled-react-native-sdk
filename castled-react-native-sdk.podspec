@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.platforms    = { :ios => "13.0" }
   s.source       = { :git => "https://github.com/castledio/castled-react-native-sdk.git", :tag => "#{s.version}" }
 
-  s.source_files = "ios/**/*.{h,m,mm}"
+  s.source_files =  "ios/**/*.{h,m,mm}"
   s.dependency "Castled"
 
   # Use install_modules_dependencies helper to install the dependencies if React Native version >=0.71.0.

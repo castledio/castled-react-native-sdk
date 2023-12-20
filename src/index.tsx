@@ -27,6 +27,6 @@ const CastledReactNativeSdk = CastledReactNativeModule
 export function multiply(a: number, b: number): Promise<number> {
   // CastledReactNativeSdk.initialize({ key: 'test' });
   return new Promise((resolve, reject) => {
-    resolve(CastledReactNativeSdk.multiply(8, 5));
+    resolve(CastledReactNativeSdk.multiply(12, 5));
   });
 }

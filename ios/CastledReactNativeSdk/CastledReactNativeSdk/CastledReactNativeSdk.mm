@@ -1,3 +1,10 @@
+//
+//  CastledReactNativeSdk.m
+//  CastledReactNativeSdk
+//
+//  Created by antony on 20/12/2023.
+//
+
 #import "CastledReactNativeSdk.h"
 
 @implementation CastledReactNativeSdk
@@ -11,14 +18,13 @@ RCT_EXPORT_METHOD(multiply:(double)a
                   reject:(RCTPromiseRejectBlock)reject)
 {
     NSNumber *result = @(a * b);
-
     resolve(result);
 }
 
 // Don't compile this code when we build for the old architecture.
 #ifdef RCT_NEW_ARCH_ENABLED
 - (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:
-    (const facebook::react::ObjCTurboModule::InitParams &)params
+(const facebook::react::ObjCTurboModule::InitParams &)params
 {
     return std::make_shared<facebook::react::NativeCastledReactNativeSdkSpecJSI>(params);
 }
