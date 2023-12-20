@@ -1,18 +1,39 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Button,
+  SafeAreaView,
+  Alert,
+} from 'react-native';
 import {
   CastledNotifications,
   CastledConfigs,
   CastledLocation,
 } from 'castled-react-native-sdk';
+import Header from './Header';
 
 const configs = new CastledConfigs();
 configs.appId = '829c38e2e359d94372a2e0d35e1f74df';
+configs.enableTracking = true;
 configs.location = CastledLocation.US;
 configs.enableInApp = true;
 
+const Separator = () => <View style={styles.separator} />;
+
 export default function App() {
+  const testData = {
+    user: 'frank@castled.io',
+    event: 'rn_test_event',
+    params: {
+      str: 'val1',
+      num: 10,
+      bool: true,
+    },
+  };
+
   const [result, setResult] = React.useState<number | undefined>();
 
   React.useEffect(() => {
@@ -20,21 +41,57 @@ export default function App() {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <Text>Result: Castled Init Successful!</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Header title={'Castled React SDK Test'}></Header>
+      <View style={styles.container}>
+        <Text style={styles.title}>Testing user identification</Text>
+        <Button
+          title="Identify"
+          onPress={() => CastledNotifications.setUserId(testData.user)}
+        />
+        <Separator />
+        <Text style={styles.title}>Testing event tracking</Text>
+        <Button
+          title="Log Event"
+          onPress={() =>
+            CastledNotifications.logCustomAppEvent(
+              testData.event,
+              testData.params
+            )
+          }
+        />
+        <Separator />
+        <Text style={styles.title}>Testing user attributes tracking</Text>
+        <Button
+          title="Log User Attributes"
+          onPress={() => Alert.alert('Not Implemented!')}
+        />
+        <Separator />
+        <Text style={styles.title}>Testing logout</Text>
+        <Button title="Logout" onPress={() => CastledNotifications.logout()} />
+      </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
+    marginHorizontal: 16,
+    backgroundColor: '#dadada',
   },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
+  title: {
+    textAlign: 'center',
+    marginVertical: 8,
+  },
+  fixToText: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  separator: {
+    marginVertical: 8,
+    borderBottomColor: '#737373',
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
 });
