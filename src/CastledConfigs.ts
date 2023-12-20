@@ -1,21 +1,18 @@
 // Enum values based on the Kotlin XiaomiRegion enum
 enum CastledLocation {
-  US, // United States
-  EU, // Europe
-  IN, // India
-  AP, // Asia Pacific
-  TEST, // Test
+  US = 'US', // United States
+  TEST = 'TEST', // Test
 }
 
 enum XiaomiRegion {
-  Global, // United States
-  India, // Europe
-  Europe, // India
+  Global = 'Global', // United States
+  India = 'India', // India
+  Europe = 'Europe', // Europe
 }
 
 enum PushTokenType {
-  FCM,
-  MI_PUSH
+  FCM = 'FCM',
+  MI_PUSH = 'MI_PUSH',
 }
 
 class CastledConfigs {
