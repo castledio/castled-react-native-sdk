@@ -9,11 +9,11 @@
 #ifdef RCT_NEW_ARCH_ENABLED
 #import "RNCastledReactNativeSdkSpec.h"
 
-@interface CastledReactNativeSdk : NSObject <NativeCastledNotificationsSpec>
+@interface RTNCastledNotifications : NSObject <NativeCastledNotificationsSpec>
 #else
 #import <React/RCTBridgeModule.h>
 
-@interface CastledReactNativeSdk : NSObject <RCTBridgeModule>
+@interface RTNCastledNotifications : NSObject <RCTBridgeModule>
 #endif
 
 @end

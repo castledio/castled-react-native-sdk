@@ -7,29 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0AFA8D782B3357AF00DF4DBE /* CastledReactNativeSdk.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0AFA8D772B3357AF00DF4DBE /* CastledReactNativeSdk.mm */; };
+		0AFA8D9F2B335C7000DF4DBE /* RTNCastledNotifications.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0AFA8D9E2B335C7000DF4DBE /* RTNCastledNotifications.mm */; };
+		0AFA8DA02B335C7000DF4DBE /* RTNCastledNotifications.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0AFA8D9D2B335C7000DF4DBE /* RTNCastledNotifications.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0AFA16192B32E472001B49C7 /* CopyFiles */ = {
+		0AFA8D982B335C7000DF4DBE /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				0AFA8DA02B335C7000DF4DBE /* RTNCastledNotifications.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0AFA161B2B32E472001B49C7 /* libCastledReactNativeSdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCastledReactNativeSdk.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		0AFA8D742B33578E00DF4DBE /* CastledReactNativeSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CastledReactNativeSdk.h; sourceTree = "<group>"; };
-		0AFA8D772B3357AF00DF4DBE /* CastledReactNativeSdk.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CastledReactNativeSdk.mm; sourceTree = "<group>"; };
+		0AFA8D9A2B335C7000DF4DBE /* libRTNCastledNotifications.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRTNCastledNotifications.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AFA8D9D2B335C7000DF4DBE /* RTNCastledNotifications.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTNCastledNotifications.h; sourceTree = "<group>"; };
+		0AFA8D9E2B335C7000DF4DBE /* RTNCastledNotifications.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RTNCastledNotifications.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0AFA16182B32E472001B49C7 /* Frameworks */ = {
+		0AFA8D972B335C7000DF4DBE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,66 +41,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0AFA16122B32E472001B49C7 = {
+		0AFA8D912B335C7000DF4DBE = {
 			isa = PBXGroup;
 			children = (
-				0AFA161D2B32E472001B49C7 /* CastledReactNativeSdk */,
-				0AFA161C2B32E472001B49C7 /* Products */,
+				0AFA8D9C2B335C7000DF4DBE /* RTNCastledNotifications */,
+				0AFA8D9B2B335C7000DF4DBE /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		0AFA161C2B32E472001B49C7 /* Products */ = {
+		0AFA8D9B2B335C7000DF4DBE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0AFA161B2B32E472001B49C7 /* libCastledReactNativeSdk.a */,
+				0AFA8D9A2B335C7000DF4DBE /* libRTNCastledNotifications.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0AFA161D2B32E472001B49C7 /* CastledReactNativeSdk */ = {
+		0AFA8D9C2B335C7000DF4DBE /* RTNCastledNotifications */ = {
 			isa = PBXGroup;
 			children = (
-				0AFA8D742B33578E00DF4DBE /* CastledReactNativeSdk.h */,
-				0AFA8D772B3357AF00DF4DBE /* CastledReactNativeSdk.mm */,
+				0AFA8D9D2B335C7000DF4DBE /* RTNCastledNotifications.h */,
+				0AFA8D9E2B335C7000DF4DBE /* RTNCastledNotifications.mm */,
 			);
-			path = CastledReactNativeSdk;
+			path = RTNCastledNotifications;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0AFA161A2B32E472001B49C7 /* CastledReactNativeSdk */ = {
+		0AFA8D992B335C7000DF4DBE /* RTNCastledNotifications */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0AFA16242B32E472001B49C7 /* Build configuration list for PBXNativeTarget "CastledReactNativeSdk" */;
+			buildConfigurationList = 0AFA8DA32B335C7000DF4DBE /* Build configuration list for PBXNativeTarget "RTNCastledNotifications" */;
 			buildPhases = (
-				0AFA16172B32E472001B49C7 /* Sources */,
-				0AFA16182B32E472001B49C7 /* Frameworks */,
-				0AFA16192B32E472001B49C7 /* CopyFiles */,
+				0AFA8D962B335C7000DF4DBE /* Sources */,
+				0AFA8D972B335C7000DF4DBE /* Frameworks */,
+				0AFA8D982B335C7000DF4DBE /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = CastledReactNativeSdk;
-			productName = CastledReactNativeSdk;
-			productReference = 0AFA161B2B32E472001B49C7 /* libCastledReactNativeSdk.a */;
+			name = RTNCastledNotifications;
+			productName = RTNCastledNotifications;
+			productReference = 0AFA8D9A2B335C7000DF4DBE /* libRTNCastledNotifications.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		0AFA16132B32E472001B49C7 /* Project object */ = {
+		0AFA8D922B335C7000DF4DBE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					0AFA161A2B32E472001B49C7 = {
+					0AFA8D992B335C7000DF4DBE = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
 				};
 			};
-			buildConfigurationList = 0AFA16162B32E472001B49C7 /* Build configuration list for PBXProject "CastledReactNativeSdk" */;
+			buildConfigurationList = 0AFA8D952B335C7000DF4DBE /* Build configuration list for PBXProject "RTNCastledNotifications" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -106,29 +108,29 @@
 				en,
 				Base,
 			);
-			mainGroup = 0AFA16122B32E472001B49C7;
-			productRefGroup = 0AFA161C2B32E472001B49C7 /* Products */;
+			mainGroup = 0AFA8D912B335C7000DF4DBE;
+			productRefGroup = 0AFA8D9B2B335C7000DF4DBE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0AFA161A2B32E472001B49C7 /* CastledReactNativeSdk */,
+				0AFA8D992B335C7000DF4DBE /* RTNCastledNotifications */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0AFA16172B32E472001B49C7 /* Sources */ = {
+		0AFA8D962B335C7000DF4DBE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AFA8D782B3357AF00DF4DBE /* CastledReactNativeSdk.mm in Sources */,
+				0AFA8D9F2B335C7000DF4DBE /* RTNCastledNotifications.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		0AFA16222B32E472001B49C7 /* Debug */ = {
+		0AFA8DA12B335C7000DF4DBE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -189,7 +191,7 @@
 			};
 			name = Debug;
 		};
-		0AFA16232B32E472001B49C7 /* Release */ = {
+		0AFA8DA22B335C7000DF4DBE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -244,11 +246,17 @@
 			};
 			name = Release;
 		};
-		0AFA16252B32E472001B49C7 /* Debug */ = {
+		0AFA8DA42B335C7000DF4DBE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2BYR4Y5453;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../../node_modules/react-native/React",
+					"$(SRCROOT)/../../../React",
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -256,11 +264,17 @@
 			};
 			name = Debug;
 		};
-		0AFA16262B32E472001B49C7 /* Release */ = {
+		0AFA8DA52B335C7000DF4DBE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2BYR4Y5453;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../../node_modules/react-native/React",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../../React",
+					"$(SRCROOT)/../../react-native/React",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -271,25 +285,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0AFA16162B32E472001B49C7 /* Build configuration list for PBXProject "CastledReactNativeSdk" */ = {
+		0AFA8D952B335C7000DF4DBE /* Build configuration list for PBXProject "RTNCastledNotifications" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0AFA16222B32E472001B49C7 /* Debug */,
-				0AFA16232B32E472001B49C7 /* Release */,
+				0AFA8DA12B335C7000DF4DBE /* Debug */,
+				0AFA8DA22B335C7000DF4DBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0AFA16242B32E472001B49C7 /* Build configuration list for PBXNativeTarget "CastledReactNativeSdk" */ = {
+		0AFA8DA32B335C7000DF4DBE /* Build configuration list for PBXNativeTarget "RTNCastledNotifications" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0AFA16252B32E472001B49C7 /* Debug */,
-				0AFA16262B32E472001B49C7 /* Release */,
+				0AFA8DA42B335C7000DF4DBE /* Debug */,
+				0AFA8DA52B335C7000DF4DBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 0AFA16132B32E472001B49C7 /* Project object */;
+	rootObject = 0AFA8D922B335C7000DF4DBE /* Project object */;
 }

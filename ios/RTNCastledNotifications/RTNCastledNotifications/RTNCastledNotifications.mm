@@ -5,9 +5,9 @@
 //  Created by antony on 20/12/2023.
 //
 
-#import "CastledReactNativeSdk.h"
+#import "RTNCastledNotifications.h"
 
-@implementation CastledReactNativeSdk
+@implementation RTNCastledNotifications
 RCT_EXPORT_MODULE()
 
 RCT_EXPORT_METHOD(initialize:(NSDictionary *)configs) {
@@ -19,7 +19,7 @@ RCT_EXPORT_METHOD(initialize:(NSDictionary *)configs) {
     // Your implementation here
 }
 
- 
+
 // Example method
 // See // https://reactnative.dev/docs/native-modules-ios
 RCT_EXPORT_METHOD(multiply:(double)a
@@ -31,12 +31,15 @@ RCT_EXPORT_METHOD(multiply:(double)a
     resolve(result);
 }
 
+
+
+
 // Don't compile this code when we build for the old architecture.
 #ifdef RCT_NEW_ARCH_ENABLED
 - (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:
 (const facebook::react::ObjCTurboModule::InitParams &)params
 {
-    return std::make_shared<facebook::react::NativeCastledReactNativeSdkSpecJSI>(params);
+    return std::make_shared<facebook::react::NativeCastledNotificationsSpecJSI>(params);
 }
 #endif
 
