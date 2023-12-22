@@ -15,26 +15,27 @@ import {
 } from 'castled-react-native-sdk';
 import Header from './Header';
 
+const Separator = () => <View style={styles.separator} />;
+
 const configs = new CastledConfigs();
 configs.appId = '829c38e2e359d94372a2e0d35e1f74df';
 configs.enableTracking = true;
 configs.location = CastledLocation.US;
 configs.enableInApp = true;
-
-const Separator = () => <View style={styles.separator} />;
+configs.enablePushBoost = true;
+configs.enablePush = true;
+configs.inAppFetchIntervalSec = 300;
 
 export default function App() {
   const testData = {
     user: 'frank@castled.io',
-    event: 'rn_test_event',
+    event: 'rn_test_event_2',
     params: {
       str: 'val1',
       num: 10,
       bool: true,
     },
   };
-
-  const [result, setResult] = React.useState<number | undefined>();
 
   React.useEffect(() => {
     CastledNotifications.initialize(configs);
@@ -54,10 +55,7 @@ export default function App() {
         <Button
           title="Log Event"
           onPress={() =>
-            CastledNotifications.logCustomAppEvent(
-              testData.event,
-              testData.params
-            )
+            CastledNotifications.logEvent(testData.event, testData.params)
           }
         />
         <Separator />

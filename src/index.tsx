@@ -2,7 +2,7 @@ import { CastledNotifications } from './CastledNotifications';
 import {
   CastledConfigs,
   CastledLocation,
-  PushTokenType,
+  CastledPushTokenType,
   XiaomiRegion,
 } from './CastledConfigs';
 import CastledUserAttributes from './CastledUserAttributes';
@@ -12,7 +12,7 @@ export {
   CastledNotifications,
   CastledLocation,
   XiaomiRegion,
-  PushTokenType,
+  CastledPushTokenType,
   CastledConfigs,
   CastledUserAttributes,
 };

@@ -10,7 +10,7 @@ enum XiaomiRegion {
   Europe = 'Europe', // Europe
 }
 
-enum PushTokenType {
+enum CastledPushTokenType {
   FCM = 'FCM',
   MI_PUSH = 'MI_PUSH',
 }
@@ -30,4 +30,4 @@ class CastledConfigs {
   xiaomiRegion: XiaomiRegion = XiaomiRegion.Global;
 }
 
-export { CastledLocation, XiaomiRegion, PushTokenType, CastledConfigs };
+export { CastledLocation, XiaomiRegion, CastledPushTokenType, CastledConfigs };

@@ -111,6 +111,10 @@ dependencies {
   implementation "com.facebook.react:react-native:+"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
   implementation "io.castled.android:castled-notifications:$castled_android_sdk_version"
+  
+  // Import the Firebase BoM
+  implementation platform('com.google.firebase:firebase-bom:31.0.3')
+  implementation 'com.google.firebase:firebase-messaging'
 
 }
 

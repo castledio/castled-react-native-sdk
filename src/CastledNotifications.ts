@@ -1,5 +1,5 @@
 import { NativeModules, Platform } from 'react-native';
-import { CastledConfigs, PushTokenType } from './CastledConfigs';
+import { CastledConfigs, CastledPushTokenType } from './CastledConfigs';
 import CastledUserAttributes from './CastledUserAttributes';
 import type { CastledEventParams } from './types/CastledEventParams';
 
@@ -40,18 +40,21 @@ class CastledNotifications {
     CastledReactNativeInstance.logout();
   }
 
-  static onTokenFetch(token: string, pushTokenType?: PushTokenType): void {
+  static setPushToken(
+    token: string,
+    pushTokenType?: CastledPushTokenType
+  ): void {
     if (Platform.OS === 'ios') {
       CastledReactNativeInstance.onTokenFetch(token);
     } else {
+      if (!pushTokenType) {
+        pushTokenType = CastledPushTokenType.FCM;
+      }
       CastledReactNativeInstance.onTokenFetch(token, pushTokenType);
     }
   }
 
-  static logCustomAppEvent(
-    eventName: string,
-    eventParams?: CastledEventParams
-  ): void {
+  static logEvent(eventName: string, eventParams?: CastledEventParams): void {
     CastledReactNativeInstance.logCustomAppEvent(eventName, eventParams);
   }
 
