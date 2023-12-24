@@ -47,7 +47,8 @@
   },
   "homepage": "https://github.com/castledio/castled-react-native-sdk#readme",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "tag": "latest"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.0.2",
@@ -69,6 +70,7 @@
     "react-native": "0.72.7",
     "react-native-builder-bob": "^0.23.2",
     "release-it": "^15.0.0",
+    "semantic-release": "^22.0.12",
     "turbo": "^1.10.7",
     "typescript": "^5.0.2"
   },
