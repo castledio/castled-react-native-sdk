@@ -3077,6 +3077,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@semantic-release/changelog@npm:^6.0.3":
+  version: 6.0.3
+  resolution: "@semantic-release/changelog@npm:6.0.3"
+  dependencies:
+    "@semantic-release/error": ^3.0.0
+    aggregate-error: ^3.0.0
+    fs-extra: ^11.0.0
+    lodash: ^4.17.4
+  peerDependencies:
+    semantic-release: ">=18.0.0"
+  checksum: 63283df7aaff7b2d5c08ac322faf362fd953d4ca4f2d2a1855ca51482ff8e973e38497a4c4a35a5b6ebec8373608895ef74d41072565e5bf3766850b4a6def37
+  languageName: node
+  linkType: hard
+
 "@semantic-release/commit-analyzer@npm:^11.0.0":
   version: 11.1.0
   resolution: "@semantic-release/commit-analyzer@npm:11.1.0"
@@ -3091,6 +3105,13 @@ __metadata:
   peerDependencies:
     semantic-release: ">=20.1.0"
   checksum: 773e855bfee6d917f4145e1c85940cdf028d00efa197dabea4a86b8d31c6d5609767da147c93ec61d4cc36b74b1c10703482cc15ecab9c468c52e4e177863262
+  languageName: node
+  linkType: hard
+
+"@semantic-release/error@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@semantic-release/error@npm:3.0.0"
+  checksum: 29c4391ecbefd9ea991f8fdf5ab3ceb9c4830281da56d9dbacd945c476cb86f10c3b55cd4a6597098c0ea3a59f1ec4752132abeea633e15972f49f4704e61d35
   languageName: node
   linkType: hard
 
@@ -4608,6 +4629,7 @@ __metadata:
     "@commitlint/config-conventional": ^17.0.2
     "@evilmartians/lefthook": ^1.5.0
     "@react-native/eslint-config": ^0.72.2
+    "@semantic-release/changelog": ^6.0.3
     "@types/jest": ^28.1.2
     "@types/react": ~17.0.21
     "@types/react-native": 0.70.0
@@ -8942,7 +8964,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.15, lodash@npm:^4.17.21":
+"lodash@npm:^4.17.15, lodash@npm:^4.17.21, lodash@npm:^4.17.4":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7
