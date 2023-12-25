@@ -16,21 +16,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+        fetch-depth: 0
+        persist-credentials: false
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '16'
+          node-version: '20'
           cache: 'yarn'
 
       - name: Verify dependencies
         run: yarn install --frozen-lockfile
-      
+
       - name: Prepare
         run: yarn prepare
 
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
         run: npm audit signatures
-        
+
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_BOT_PAT }}
