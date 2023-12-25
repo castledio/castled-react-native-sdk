@@ -26,7 +26,7 @@ jobs:
           cache: 'yarn'
 
       - name: Verify dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Prepare
         run: yarn prepare
