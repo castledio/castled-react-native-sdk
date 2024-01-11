@@ -1,4 +1,4 @@
-package com.castledreactnativesdkexample;
+package io.castled.reactnative.testapp;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

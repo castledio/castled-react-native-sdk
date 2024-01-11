@@ -1,0 +1,154 @@
+{
+  "project_info": {
+    "project_number": "366704610975",
+    "project_id": "castled-dev-44ede",
+    "storage_bucket": "castled-dev-44ede.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366704610975:android:3cd845b29c6329511d5caa",
+        "android_client_info": {
+          "package_name": "com.example.castled_dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "366704610975-e9brla890007mkkf7dbh3k0kmv6nanr0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMh8oo8hJOre0Uy_y_rrLnwM42ZmAtGbQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "366704610975-e9brla890007mkkf7dbh3k0kmv6nanr0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "366704610975-qc98qgbat3bgdrvsnenhms3sqg5f5vu8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.castled-dev-apple"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366704610975:android:96e1b0049aded9711d5caa",
+        "android_client_info": {
+          "package_name": "io.castled.android.demoapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "366704610975-e9brla890007mkkf7dbh3k0kmv6nanr0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMh8oo8hJOre0Uy_y_rrLnwM42ZmAtGbQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "366704610975-e9brla890007mkkf7dbh3k0kmv6nanr0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "366704610975-qc98qgbat3bgdrvsnenhms3sqg5f5vu8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.castled-dev-apple"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366704610975:android:ded9fb93f5e602ff1d5caa",
+        "android_client_info": {
+          "package_name": "io.castled.notifications"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "366704610975-e9brla890007mkkf7dbh3k0kmv6nanr0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMh8oo8hJOre0Uy_y_rrLnwM42ZmAtGbQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "366704610975-e9brla890007mkkf7dbh3k0kmv6nanr0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "366704610975-qc98qgbat3bgdrvsnenhms3sqg5f5vu8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.castled-dev-apple"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366704610975:android:36e1ca590ea5873c1d5caa",
+        "android_client_info": {
+          "package_name": "io.castled.reactnative.testapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "366704610975-e9brla890007mkkf7dbh3k0kmv6nanr0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMh8oo8hJOre0Uy_y_rrLnwM42ZmAtGbQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "366704610975-e9brla890007mkkf7dbh3k0kmv6nanr0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "366704610975-qc98qgbat3bgdrvsnenhms3sqg5f5vu8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.castled-dev-apple"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

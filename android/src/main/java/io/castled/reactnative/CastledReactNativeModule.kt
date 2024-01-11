@@ -6,12 +6,11 @@ package io.castled.reactnative
 import android.app.Application
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactMethod
-import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.bridge.ReadableMap
 import io.castled.android.notifications.CastledNotifications
 import io.castled.android.notifications.push.models.PushTokenType
 import io.castled.reactnative.extensions.toCastledConfigs
 import io.castled.reactnative.extensions.toMap
-
 
 class CastledReactNativeModule internal constructor(context: ReactApplicationContext) :
   NativeCastledNotificationsSpec(context) {

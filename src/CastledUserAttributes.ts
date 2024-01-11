@@ -1,5 +1,4 @@
 class CastledUserAttributes {
-
   static readonly FIRST_NAME = 'first_name';
   static readonly LAST_NAME = 'last_name';
   static readonly EMAIL = 'email';

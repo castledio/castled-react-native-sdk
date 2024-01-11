@@ -4,13 +4,20 @@ enum CastledLocation {
   TEST = 'TEST', // Test
 }
 
+enum CastledLogLevel {
+  NONE = 'none',
+  ERROR = 'error',
+  INFO = 'info',
+  DEBUG = 'debug',
+}
+
 enum XiaomiRegion {
   Global = 'Global', // United States
   India = 'India', // India
   Europe = 'Europe', // Europe
 }
 
-enum PushTokenType {
+enum CastledPushTokenType {
   FCM = 'FCM',
   MI_PUSH = 'MI_PUSH',
 }
@@ -28,6 +35,15 @@ class CastledConfigs {
   xiaomiAppId: string = '';
   xiaomiAppKey: string = '';
   xiaomiRegion: XiaomiRegion = XiaomiRegion.Global;
+  permittedBGIdentifier: string = '';
+  appgroupId: string = '';
+  logLevel: CastledLogLevel = CastledLogLevel.DEBUG;
 }
 
-export { CastledLocation, XiaomiRegion, PushTokenType, CastledConfigs };
+export {
+  CastledLocation,
+  XiaomiRegion,
+  CastledPushTokenType,
+  CastledConfigs,
+  CastledLogLevel,
+};
