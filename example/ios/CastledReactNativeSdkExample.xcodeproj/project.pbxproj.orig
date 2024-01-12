@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* CastledReactNativeSdkExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CastledReactNativeSdkExampleTests.m */; };
-		0A0F1DCF2B5143B100C461A3 /* AppdelgateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F1DCE2B5143B100C461A3 /* AppdelgateTest.swift */; };
-		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; settings = {COMPILER_FLAGS = "-fcxx-modules"; }; };
+		0AFA8E302B34CA1E00DF4DBE /* FileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFA8E2F2B34CA1E00DF4DBE /* FileTest.swift */; };
+		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		1A5761A79E7C59851B5B1752 /* libPods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7CBB6205D45CC301BF0287 /* libPods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.a */; };
+		273E3446FBE0F4B38E20363E /* libPods-CastledReactNativeSdkExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A391B34297944ACA4650ED2C /* libPods-CastledReactNativeSdkExample.a */; };
+		275BB75BBD901456E47732BE /* libPods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 012BC0373FC4C5C849F99D11 /* libPods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		B5FC96AF4BA3F4292535064E /* libPods-CastledReactNativeSdkExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB2038EBC957E17107BBB82 /* libPods-CastledReactNativeSdkExample.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,22 +31,21 @@
 		00E356EE1AD99517003FC87E /* CastledReactNativeSdkExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CastledReactNativeSdkExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* CastledReactNativeSdkExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CastledReactNativeSdkExampleTests.m; sourceTree = "<group>"; };
-		07E647108601333996BD8C3C /* Pods-CastledReactNativeSdkExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastledReactNativeSdkExample.release.xcconfig"; path = "Target Support Files/Pods-CastledReactNativeSdkExample/Pods-CastledReactNativeSdkExample.release.xcconfig"; sourceTree = "<group>"; };
-		0A0F1DCE2B5143B100C461A3 /* AppdelgateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppdelgateTest.swift; sourceTree = "<group>"; };
-		0ABE79EC2B4460DD002FE2A6 /* CastledReactNativeSdkExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = CastledReactNativeSdkExample.entitlements; path = CastledReactNativeSdkExample/CastledReactNativeSdkExample.entitlements; sourceTree = "<group>"; };
+		012BC0373FC4C5C849F99D11 /* libPods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AFA8E2E2B34CA1D00DF4DBE /* CastledReactNativeSdkExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CastledReactNativeSdkExample-Bridging-Header.h"; sourceTree = "<group>"; };
-		0FCC9743A63C27EB485E195B /* Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.release.xcconfig"; path = "Target Support Files/Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests/Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		0AFA8E2F2B34CA1E00DF4DBE /* FileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTest.swift; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* CastledReactNativeSdkExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CastledReactNativeSdkExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = CastledReactNativeSdkExample/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = CastledReactNativeSdkExample/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CastledReactNativeSdkExample/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = CastledReactNativeSdkExample/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = CastledReactNativeSdkExample/main.m; sourceTree = "<group>"; };
-		336DB2994B6C1F350C2B6092 /* Pods-CastledReactNativeSdkExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastledReactNativeSdkExample.debug.xcconfig"; path = "Target Support Files/Pods-CastledReactNativeSdkExample/Pods-CastledReactNativeSdkExample.debug.xcconfig"; sourceTree = "<group>"; };
-		3A7CBB6205D45CC301BF0287 /* libPods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A1C31125D8B1BB9C15A17BF /* Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests/Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1F4DB917E9DA2E94CA5622E0 /* Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.release.xcconfig"; path = "Target Support Files/Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests/Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		5E4D08486856F60B87A39631 /* Pods-CastledReactNativeSdkExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastledReactNativeSdkExample.debug.xcconfig"; path = "Target Support Files/Pods-CastledReactNativeSdkExample/Pods-CastledReactNativeSdkExample.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = CastledReactNativeSdkExample/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8AB2038EBC957E17107BBB82 /* libPods-CastledReactNativeSdkExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CastledReactNativeSdkExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A391B34297944ACA4650ED2C /* libPods-CastledReactNativeSdkExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CastledReactNativeSdkExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B556B7BD7693E6AA4E0041D5 /* Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests/Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E6F258DED0D9A3E4EA6FD5BF /* Pods-CastledReactNativeSdkExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastledReactNativeSdkExample.release.xcconfig"; path = "Target Support Files/Pods-CastledReactNativeSdkExample/Pods-CastledReactNativeSdkExample.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -55,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A5761A79E7C59851B5B1752 /* libPods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.a in Frameworks */,
+				275BB75BBD901456E47732BE /* libPods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5FC96AF4BA3F4292535064E /* libPods-CastledReactNativeSdkExample.a in Frameworks */,
+				273E3446FBE0F4B38E20363E /* libPods-CastledReactNativeSdkExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,14 +89,13 @@
 		13B07FAE1A68108700A75B9A /* CastledReactNativeSdkExample */ = {
 			isa = PBXGroup;
 			children = (
-				0ABE79EC2B4460DD002FE2A6 /* CastledReactNativeSdkExample.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
-				0A0F1DCE2B5143B100C461A3 /* AppdelgateTest.swift */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				0AFA8E2F2B34CA1E00DF4DBE /* FileTest.swift */,
 				0AFA8E2E2B34CA1D00DF4DBE /* CastledReactNativeSdkExample-Bridging-Header.h */,
 			);
 			name = CastledReactNativeSdkExample;
@@ -107,8 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				8AB2038EBC957E17107BBB82 /* libPods-CastledReactNativeSdkExample.a */,
-				3A7CBB6205D45CC301BF0287 /* libPods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.a */,
+				A391B34297944ACA4650ED2C /* libPods-CastledReactNativeSdkExample.a */,
+				012BC0373FC4C5C849F99D11 /* libPods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -147,10 +145,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				336DB2994B6C1F350C2B6092 /* Pods-CastledReactNativeSdkExample.debug.xcconfig */,
-				07E647108601333996BD8C3C /* Pods-CastledReactNativeSdkExample.release.xcconfig */,
-				4A1C31125D8B1BB9C15A17BF /* Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.debug.xcconfig */,
-				0FCC9743A63C27EB485E195B /* Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.release.xcconfig */,
+				5E4D08486856F60B87A39631 /* Pods-CastledReactNativeSdkExample.debug.xcconfig */,
+				E6F258DED0D9A3E4EA6FD5BF /* Pods-CastledReactNativeSdkExample.release.xcconfig */,
+				B556B7BD7693E6AA4E0041D5 /* Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.debug.xcconfig */,
+				1F4DB917E9DA2E94CA5622E0 /* Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -162,12 +160,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "CastledReactNativeSdkExampleTests" */;
 			buildPhases = (
-				F4C44E8299823CABB170D7EC /* [CP] Check Pods Manifest.lock */,
+				C42904621DE9AB7FE4127E52 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				E02A0B4E5D0905DBDF1D0F6B /* [CP] Embed Pods Frameworks */,
-				867A113A9AA7033CFB4470AE /* [CP] Copy Pods Resources */,
+				0947ADC8156384EE40FAB7B3 /* [CP] Embed Pods Frameworks */,
+				025C97A30EDC050F3AA411A6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -183,14 +181,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "CastledReactNativeSdkExample" */;
 			buildPhases = (
-				C5EC0CCC0450861471AD1279 /* [CP] Check Pods Manifest.lock */,
+				3F9AAC097E564C2CFC7B1E91 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				CE039B10AD6F28C4D632AB94 /* [CP] Embed Pods Frameworks */,
-				5E1ED3B3280B51FBE35397C1 /* [CP] Copy Pods Resources */,
+				33D77C7A5F4958B534FF7231 /* [CP] Embed Pods Frameworks */,
+				AF195F7C76EB7D5566BC5968 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -273,24 +271,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		5E1ED3B3280B51FBE35397C1 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CastledReactNativeSdkExample/Pods-CastledReactNativeSdkExample-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CastledReactNativeSdkExample/Pods-CastledReactNativeSdkExample-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CastledReactNativeSdkExample/Pods-CastledReactNativeSdkExample-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		867A113A9AA7033CFB4470AE /* [CP] Copy Pods Resources */ = {
+		025C97A30EDC050F3AA411A6 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -307,7 +288,41 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests/Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C5EC0CCC0450861471AD1279 /* [CP] Check Pods Manifest.lock */ = {
+		0947ADC8156384EE40FAB7B3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests/Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests/Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests/Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		33D77C7A5F4958B534FF7231 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CastledReactNativeSdkExample/Pods-CastledReactNativeSdkExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CastledReactNativeSdkExample/Pods-CastledReactNativeSdkExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CastledReactNativeSdkExample/Pods-CastledReactNativeSdkExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3F9AAC097E564C2CFC7B1E91 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -329,41 +344,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CE039B10AD6F28C4D632AB94 /* [CP] Embed Pods Frameworks */ = {
+		AF195F7C76EB7D5566BC5968 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CastledReactNativeSdkExample/Pods-CastledReactNativeSdkExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-CastledReactNativeSdkExample/Pods-CastledReactNativeSdkExample-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CastledReactNativeSdkExample/Pods-CastledReactNativeSdkExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-CastledReactNativeSdkExample/Pods-CastledReactNativeSdkExample-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CastledReactNativeSdkExample/Pods-CastledReactNativeSdkExample-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CastledReactNativeSdkExample/Pods-CastledReactNativeSdkExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E02A0B4E5D0905DBDF1D0F6B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests/Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests/Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests/Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F4C44E8299823CABB170D7EC /* [CP] Check Pods Manifest.lock */ = {
+		C42904621DE9AB7FE4127E52 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -419,7 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A0F1DCF2B5143B100C461A3 /* AppdelgateTest.swift in Sources */,
+				0AFA8E302B34CA1E00DF4DBE /* FileTest.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
@@ -438,17 +436,16 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A1C31125D8B1BB9C15A17BF /* Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.debug.xcconfig */;
+			baseConfigurationReference = B556B7BD7693E6AA4E0041D5 /* Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 2BYR4Y5453;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = CastledReactNativeSdkExampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,7 +456,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.castled.react-demo.--PRODUCT-NAME-rfc1034identifier-";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CastledReactNativeSdkExample.app/CastledReactNativeSdkExample";
 			};
@@ -467,14 +464,13 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0FCC9743A63C27EB485E195B /* Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.release.xcconfig */;
+			baseConfigurationReference = 1F4DB917E9DA2E94CA5622E0 /* Pods-CastledReactNativeSdkExample-CastledReactNativeSdkExampleTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = 2BYR4Y5453;
 				INFOPLIST_FILE = CastledReactNativeSdkExampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -485,7 +481,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.castled.react-demo.--PRODUCT-NAME-rfc1034identifier-";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CastledReactNativeSdkExample.app/CastledReactNativeSdkExample";
 			};
@@ -493,30 +489,13 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 336DB2994B6C1F350C2B6092 /* Pods-CastledReactNativeSdkExample.debug.xcconfig */;
+			baseConfigurationReference = 5E4D08486856F60B87A39631 /* Pods-CastledReactNativeSdkExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = CastledReactNativeSdkExample/CastledReactNativeSdkExample.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2BYR4Y5453;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"${PODS_ROOT}/BrazeLocation\"",
-					"\"${PODS_ROOT}/Flipper-DoubleConversion/Frameworks\"",
-					"\"${PODS_ROOT}/Flipper-Glog/Frameworks\"",
-					"\"${PODS_ROOT}/OpenSSL-Universal/Frameworks\"",
-					"\"${PODS_ROOT}/Realm/core\"",
-					"\"${PODS_ROOT}/hermes-engine/destroot/Library/Frameworks/universal\"",
-					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/BrazeKit\"",
-					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/BrazeLocation\"",
-					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/Flipper-DoubleConversion\"",
-					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/Flipper-Glog\"",
-					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL-Universal\"",
-					"\"${PODS_ROOT}/Castled\"",
-					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built\"",
-				);
 				INFOPLIST_FILE = CastledReactNativeSdkExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -535,7 +514,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.castled.CastledPushDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = CastledReactNativeSdkExample;
 				SWIFT_OBJC_BRIDGING_HEADER = "CastledReactNativeSdkExample-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -546,11 +525,10 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 07E647108601333996BD8C3C /* Pods-CastledReactNativeSdkExample.release.xcconfig */;
+			baseConfigurationReference = E6F258DED0D9A3E4EA6FD5BF /* Pods-CastledReactNativeSdkExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = CastledReactNativeSdkExample/CastledReactNativeSdkExample.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2BYR4Y5453;
 				INFOPLIST_FILE = CastledReactNativeSdkExample/Info.plist;
@@ -572,7 +550,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.castled.CastledPushDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = CastledReactNativeSdkExample;
 				SWIFT_OBJC_BRIDGING_HEADER = "CastledReactNativeSdkExample-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -630,14 +608,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers",
-					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers/react/nativemodule/core",
-					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers/platform/ios",
-					"${PODS_CONFIGURATION_BUILD_DIR}/React-NativeModulesApple/React_NativeModulesApple.framework/Headers",
-					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers/react/renderer/graphics/platform/ios",
-				);
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
@@ -650,12 +620,19 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = "$(inherited)  ";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
+<<<<<<< HEAD
+=======
+					" ",
+>>>>>>> main
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -713,14 +690,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers",
-					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers/react/nativemodule/core",
-					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers/platform/ios",
-					"${PODS_CONFIGURATION_BUILD_DIR}/React-NativeModulesApple/React_NativeModulesApple.framework/Headers",
-					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers/react/renderer/graphics/platform/ios",
-				);
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
@@ -732,12 +701,19 @@
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_CFLAGS = "$(inherited)  ";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
+<<<<<<< HEAD
+=======
+					" ",
+>>>>>>> main
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",

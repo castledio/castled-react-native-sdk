@@ -4,6 +4,7 @@ import {
   CastledLocation,
   CastledPushTokenType,
   XiaomiRegion,
+  CastledLogLevel,
 } from './CastledConfigs';
 import CastledUserAttributes from './CastledUserAttributes';
 import type { CastledEventParams } from './types/CastledEventParams';
@@ -15,6 +16,7 @@ export {
   CastledPushTokenType,
   CastledConfigs,
   CastledUserAttributes,
+  CastledLogLevel,
 };
 
 export type { CastledEventParams };

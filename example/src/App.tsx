@@ -12,23 +12,25 @@ import {
   CastledNotifications,
   CastledConfigs,
   CastledLocation,
+  CastledLogLevel,
 } from 'castled-react-native-sdk';
 import Header from './Header';
 
 const Separator = () => <View style={styles.separator} />;
 
 const configs = new CastledConfigs();
-configs.appId = '829c38e2e359d94372a2e0d35e1f74df';
+configs.appId = '718c38e2e359d94367a2e0d35e1fd4df';
 configs.enableTracking = true;
 configs.location = CastledLocation.US;
 configs.enableInApp = true;
 configs.enablePushBoost = true;
 configs.enablePush = true;
 configs.inAppFetchIntervalSec = 300;
-
+configs.appgroupId = '';
+configs.logLevel = CastledLogLevel.DEBUG;
 export default function App() {
   const testData = {
-    user: 'frank@castled.io',
+    user: 'antony@castled.io',
     event: 'rn_test_event_2',
     params: {
       str: 'val1',
