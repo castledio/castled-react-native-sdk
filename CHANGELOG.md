@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.1.0...v1.2.0) (2024-01-12)
+
+
+### Features
+
+* added the missing ios bridging files ([f5d600a](https://github.com/castledio/castled-react-native-sdk/commit/f5d600a816985ac9cb68998f742708ce1a2852dd))
+
 # [1.1.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.0.0...v1.1.0) (2024-01-12)
 
 
