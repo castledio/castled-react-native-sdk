@@ -8,7 +8,6 @@
 import Castled
 import Foundation
 
-
  extension CastledLocation {
      static func getLocation(from regionStr: String) -> CastledLocation {
          switch regionStr {

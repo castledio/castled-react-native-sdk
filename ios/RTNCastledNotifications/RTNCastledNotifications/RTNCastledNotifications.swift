@@ -67,7 +67,6 @@ public class RTNCastledNotifications: NSObject {
     }
 
     // MARK: - PUSH METHODS
-
     @objc public func setPushToken(_ token: String) {
         if Castled.sharedInstance.isCastledInitialized() {
             Castled.sharedInstance.setPushToken(token)
