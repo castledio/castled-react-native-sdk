@@ -1,3 +1,14 @@
+# [1.1.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.0.0...v1.1.0) (2024-01-12)
+
+
+### Features
+
+* ios bridge ([4f6e504](https://github.com/castledio/castled-react-native-sdk/commit/4f6e5049aee422d0b721dfe17c3a58bfa32b4ecf))
+* ios bridge ([483e4ac](https://github.com/castledio/castled-react-native-sdk/commit/483e4ac9b88a065a000a429f08a82cb828bd76f7))
+* ios bridge ([bc82365](https://github.com/castledio/castled-react-native-sdk/commit/bc823657b3f33ee6b4aee87f39cf680c474646b8))
+* ios bridge ([f1ef9cc](https://github.com/castledio/castled-react-native-sdk/commit/f1ef9cc2a5fbac1e2671bd66e696fa13c2c3b753))
+* ios bridge ([39ffa35](https://github.com/castledio/castled-react-native-sdk/commit/39ffa354147b8961d8902dd0e28e88a37dad4b1a))
+
 # 1.0.0 (2023-12-25)
 
 
