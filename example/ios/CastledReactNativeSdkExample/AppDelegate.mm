@@ -3,6 +3,7 @@
 #import "CastledReactBridge.h"
 #import <UserNotifications/UserNotifications.h>
 #import <React/RCTLinkingManager.h>
+#import <React/RCTRootView.h>
 
 //#import <Castled/Castled>
 
@@ -25,6 +26,7 @@
 
   [self registerForPush];
   [[CastledReactBridge sharedInstance] setLaunchOptions:launchOptions];
+ 
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
