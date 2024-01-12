@@ -9,9 +9,6 @@
 #import "castled_react_native_sdk-Swift.h"
 #import <React/RCTEventEmitter.h>
 
-
-
-
 static CastledReactBridge *sharedInstance = nil;
 @interface CastledReactBridge() {
 

@@ -9,7 +9,7 @@
 
 /* Argument types cheatsheet
  * | Objective C                                   | JavaScript         |
- * |-----------------------------------------------|--------------------|
+ * **********************************************************************
  * | NSString                                      | string, ?string    |
  * | BOOL                                          | boolean            |
  * | NSNumber                                      | ?boolean           |
@@ -20,6 +20,8 @@
  * | RCTResponseSenderBlock                        | Function (success) |
  * | RCTResponseSenderBlock, RCTResponseErrorBlock | Function (failure) |
  * | RCTPromiseResolveBlock, RCTPromiseRejectBlock | Promise            |
+ ************************************************************************
+
  */
 
 
