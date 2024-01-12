@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.2.0...v1.3.0) (2024-01-12)
+
+
+### Features
+
+* swift support fo iOS bridge ([6374d10](https://github.com/castledio/castled-react-native-sdk/commit/6374d109a565906d7c9426e167b4ffc50fa4ce3e))
+
 # [1.2.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.1.0...v1.2.0) (2024-01-12)
 
 
