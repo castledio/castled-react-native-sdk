@@ -27,18 +27,26 @@ public class RTNCastledNotifications: NSObject {
     // MARK: - REACT BRIDGING
 
     @objc func initialize(_ configs: NSDictionary) {
-        let config = CastledConfigs.initialize(appId: (configs["appId"] as? String) ?? "")
-        config.enableAppInbox = (configs["enableAppInbox"] as? Bool) ?? false
-        config.enableInApp = (configs["enableInApp"] as? Bool) ?? false
-        config.enablePush = (configs["enablePush"] as? Bool) ?? false
-        config.enableTracking = (configs["enableTracking"] as? Bool) ?? false
-        config.permittedBGIdentifier = (configs["permittedBGIdentifier"] as? String) ?? ""
-        config.inAppFetchIntervalSec = Int((configs["inAppFetchIntervalSec"] as? String) ?? "") ?? 900
-        config.appGroupId = (configs["appgroupId"] as? String) ?? ""
-        config.location = CastledLocation.getLocation(from: (configs["location"] as? String) ?? "US")
-        config.logLevel = CastledLogLevel.getLogLevel(from: (configs["logLevel"] as? String) ?? "debug")
-        Castled.initialize(withConfig: config, andDelegate: nil)
-        doTheSetupAfterInitialization()
+        DispatchQueue.main.async {
+            let config = CastledConfigs.initialize(appId: (configs["appId"] as? String) ?? "")
+            config.enableAppInbox = (configs["enableAppInbox"] as? Bool) ?? false
+            config.enableInApp = (configs["enableInApp"] as? Bool) ?? false
+            config.enablePush = (configs["enablePush"] as? Bool) ?? false
+            config.enableTracking = (configs["enableTracking"] as? Bool) ?? false
+            config.permittedBGIdentifier = (configs["permittedBGIdentifier"] as? String) ?? ""
+            config.inAppFetchIntervalSec = Int((configs["inAppFetchIntervalSec"] as? String) ?? "") ?? 900
+            config.appGroupId = (configs["appgroupId"] as? String) ?? ""
+            config.location = CastledLocation.getLocation(from: (configs["location"] as? String) ?? "US")
+            config.logLevel = CastledLogLevel.getLogLevel(from: (configs["logLevel"] as? String) ?? "debug")
+            Castled.initialize(withConfig: config, andDelegate: nil)
+            if let notificationDelegate = UIApplication.shared.delegate as? UNUserNotificationCenterDelegate {
+                UNUserNotificationCenter.current().delegate = notificationDelegate
+            }
+            else {
+                print("AppDelegate does not conform to UNUserNotificationCenterDelegate.")
+            }
+            self.doTheSetupAfterInitialization()
+        }
     }
 
     private func doTheSetupAfterInitialization() {
@@ -66,7 +74,12 @@ public class RTNCastledNotifications: NSObject {
         Castled.sharedInstance.setUserAttributes(params: attributes as? [String: Any] ?? [:])
     }
 
+    @objc func logout() {
+        //  Castled.sharedInstance.logout()
+    }
+
     // MARK: - PUSH METHODS
+
     @objc public func setPushToken(_ token: String) {
         if Castled.sharedInstance.isCastledInitialized() {
             Castled.sharedInstance.setPushToken(token)
@@ -104,7 +117,7 @@ public class RTNCastledNotifications: NSObject {
 
     @objc public func setLaunchOptions(launchOptions: [UIApplication.LaunchOptionsKey: Any]) {
         if Castled.sharedInstance.isCastledInitialized() {
-            Castled.sharedInstance.setLaunchOptions(launchOptions: launchOptions)
+            Castled.sharedInstance.setLaunchOptions(launchOptions)
             RTNCastledNotifications.launchOptions = nil
         }
         else {
