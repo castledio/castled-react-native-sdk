@@ -1,5 +1,5 @@
 //
-//  RNCastledEventEmitter.swift
+//  RTNCastledEventEmitter.swift
 //  castled-react-native-sdk
 //
 //  Created by antony on 12/01/2024.
@@ -8,13 +8,13 @@
 import Foundation
 import React
 
-@objc(RNCastledEventEmitter)
-class RNCastledEventEmitter: RCTEventEmitter {
-    static var shared: RNCastledEventEmitter?
+@objc(RTNCastledEventEmitter)
+class RTNCastledEventEmitter: RCTEventEmitter {
+    static var shared: RTNCastledEventEmitter?
 
     override init() {
         super.init()
-        RNCastledEventEmitter.shared = self
+        RTNCastledEventEmitter.shared = self
     }
 
     override func supportedEvents() -> [String] {

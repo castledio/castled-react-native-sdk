@@ -1,5 +1,5 @@
 //
-//  RNCastledEventEmitter.m
+//  RTNCastledEventEmitter.m
 //  castled-react-native-sdk
 //
 //  Created by antony on 12/01/2024.
@@ -10,9 +10,9 @@
 
 #ifdef RCT_NEW_ARCH_ENABLED
 #import "RNCastledReactNativeSdkSpec.h"
-@interface RCT_EXTERN_MODULE(RNCastledEventEmitter, NSObject<NativeCastledNotificationsSpecJSI>)
+@interface RCT_EXTERN_MODULE(RTNCastledEventEmitter, NSObject<NativeCastledNotificationsSpecJSI>)
 #else
-@interface RCT_EXTERN_MODULE(RNCastledEventEmitter, RCTEventEmitter)
+@interface RCT_EXTERN_MODULE(RTNCastledEventEmitter, RCTEventEmitter)
 #endif
 
 RCT_EXTERN_METHOD(supportedEvents)

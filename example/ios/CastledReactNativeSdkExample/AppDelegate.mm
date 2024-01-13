@@ -24,9 +24,10 @@
 
   self.initialProps = @{};
 
-  [self registerForPush];
+//  [self registerForPush];
+  [[CastledReactBridge sharedInstance] setNotificationCategoriesWithItems:[self getNotificationCategories]];
   [[CastledReactBridge sharedInstance] setLaunchOptions:launchOptions];
- 
+
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
@@ -57,6 +58,24 @@
   }];
 }
 
+- (NSSet<UNNotificationCategory *> *)getNotificationCategories {
+  // Create the custom actions
+  UNNotificationAction *action1 = [UNNotificationAction actionWithIdentifier:@"ACCEPT" title:@"Accept" options:UNNotificationActionOptionForeground];
+  UNNotificationAction *action2 = [UNNotificationAction actionWithIdentifier:@"DECLINE" title:@"Decline" options:0];
+
+  // Create the category with the custom actions
+  UNNotificationCategory *customCategory1 = [UNNotificationCategory categoryWithIdentifier:@"ACCEPT_DECLINE" actions:@[action1, action2] intentIdentifiers:@[] options:0];
+
+  UNNotificationAction *action3 = [UNNotificationAction actionWithIdentifier:@"YES" title:@"Yes" options:UNNotificationActionOptionForeground];
+  UNNotificationAction *action4 = [UNNotificationAction actionWithIdentifier:@"NO" title:@"No" options:0];
+
+  // Create the category with the custom actions
+  UNNotificationCategory *customCategory2 = [UNNotificationCategory categoryWithIdentifier:@"YES_NO" actions:@[action3, action4] intentIdentifiers:@[] options:0];
+
+  NSSet<UNNotificationCategory *> *categoriesSet = [NSSet setWithObjects:customCategory1, customCategory2, nil];
+
+  return categoriesSet;
+}
 /*************************************************************IMPPORTANT*************************************************************/
 //If you disabled the swizzling in plist you should call the required functions in the delegate methods
 
@@ -85,20 +104,16 @@
   NSLog(@"failed to register for remote notifications: %@ %@", self.description, error.localizedDescription);
 }
 -(void) userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler{
-  NSLog(@"didReceiveNotificationResponse: %@", self.description);
   [[CastledReactBridge sharedInstance] userNotificationCenter:center didReceiveNotificationResponse:response];
-
   completionHandler();
 }
 
 -(void) userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler{
-  NSLog(@"willPresentNotification: %@", self.description);
   [[CastledReactBridge sharedInstance] userNotificationCenter:center willPresentNotification:notification];
   completionHandler(UNAuthorizationOptionAlert | UNAuthorizationOptionBadge | UNAuthorizationOptionSound);
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
-  NSLog(@"didReceiveRemoteNotification with completionHandler: %@ %@", self.description, userInfo);
   [[CastledReactBridge sharedInstance] didReceiveRemoteNotificationInApplication:application withInfo:userInfo fetchCompletionHandler:^(UIBackgroundFetchResult) {
     completionHandler(UIBackgroundFetchResultNewData);
 
