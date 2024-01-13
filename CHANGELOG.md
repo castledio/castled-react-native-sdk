@@ -1,3 +1,11 @@
+# [1.4.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.3.0...v1.4.0) (2024-01-13)
+
+
+### Features
+
+* logout functionality ([7165974](https://github.com/castledio/castled-react-native-sdk/commit/716597418e9a1e414a1040fc68147c54cc557070))
+* logout functionality ([bc5cfe0](https://github.com/castledio/castled-react-native-sdk/commit/bc5cfe0af26b6f9e7ff37b857f583856a7c78794))
+
 # [1.3.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.2.0...v1.3.0) (2024-01-12)
 
 
