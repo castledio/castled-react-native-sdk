@@ -6,7 +6,7 @@
 #import <React/RCTRootView.h>
 
 //#import <Castled/Castled>
-
+#import <UserNotifications/UserNotifications.h>
 @interface AppDelegate ()<UIApplicationDelegate,UNUserNotificationCenterDelegate>
 {
 
