@@ -10,7 +10,7 @@
 
 #ifdef RCT_NEW_ARCH_ENABLED
 #import "RNCastledReactNativeSdkSpec.h"
-@interface RCT_EXTERN_MODULE(RTNCastledEventEmitter, NSObject<NativeCastledNotificationsSpecJSI>)
+@interface RCT_EXTERN_MODULE(RTNCastledEventEmitter, NSObject<NativeCastledNotificationsSpec>)
 #else
 @interface RCT_EXTERN_MODULE(RTNCastledEventEmitter, RCTEventEmitter)
 #endif

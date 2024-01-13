@@ -27,7 +27,7 @@
 
 #ifdef RCT_NEW_ARCH_ENABLED
 #import "RNCastledReactNativeSdkSpec.h"
-@interface RCT_EXTERN_MODULE(RTNCastledNotifications, NSObject<NativeCastledNotificationsSpecJSI>)
+@interface RCT_EXTERN_MODULE(RTNCastledNotifications, NSObject<NativeCastledNotificationsSpec>)
 #else
 @interface RCT_EXTERN_MODULE(RTNCastledNotifications, NSObject<RCTBridgeModule>)
 #endif
