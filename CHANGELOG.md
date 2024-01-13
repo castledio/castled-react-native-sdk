@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.4.0...v1.5.0) (2024-01-13)
+
+
+### Features
+
+* new architecture support ([c672f51](https://github.com/castledio/castled-react-native-sdk/commit/c672f51e10e1089e57859189b0d8fcd2f3b1771f))
+
 # [1.4.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.3.0...v1.4.0) (2024-01-13)
 
 
