@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.5.0...v1.6.0) (2024-01-14)
+
+
+### Features
+
+* push delivery fixes ([82bac62](https://github.com/castledio/castled-react-native-sdk/commit/82bac62470af7f4069e93a5152faf03cb4029cf5))
+
 # [1.5.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.4.0...v1.5.0) (2024-01-13)
 
 
