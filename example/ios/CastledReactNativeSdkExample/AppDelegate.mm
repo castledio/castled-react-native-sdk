@@ -24,7 +24,7 @@
 
   self.initialProps = @{};
 
-//  [self registerForPush];
+   [self registerForPush];
   [[CastledReactBridge sharedInstance] setNotificationCategoriesWithItems:[self getNotificationCategories]];
   [[CastledReactBridge sharedInstance] setLaunchOptions:launchOptions];
 
