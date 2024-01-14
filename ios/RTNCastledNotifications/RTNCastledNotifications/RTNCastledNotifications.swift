@@ -59,7 +59,7 @@ public class RTNCastledNotifications: NSObject {
         if let launcOptions = RTNCastledNotifications.launchOptions {
             setLaunchOptions(launchOptions: launcOptions)
         }
-        Castled.sharedInstance.logAppOpenedEventIfAny()
+        Castled.sharedInstance.appBecomeActive()
     }
 
     @objc func setUserId(_ userId: String, userToken: String?) {

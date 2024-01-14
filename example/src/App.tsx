@@ -19,9 +19,9 @@ import Header from './Header';
 const Separator = () => <View style={styles.separator} />;
 
 const configs = new CastledConfigs();
-configs.appId = '718c38e2e359d94367a2e0d35e1fd4df';
+configs.appId = 'e8a4f68bfb6a58b40a77a0e6150eca0b';
 configs.enableTracking = true;
-configs.location = CastledLocation.US;
+configs.location = CastledLocation.TEST;
 configs.enableInApp = true;
 configs.enablePushBoost = true;
 configs.enablePush = true;
