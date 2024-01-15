@@ -19,7 +19,7 @@
 
 ## :star: Introduction
 
-Castled React Native SDK enables React Native mobile applications running on iOS and Android devices to receive messages send from the Castled Customer Engagement Platform. This SDK facilitates:
+Castled React Native SDK enables React Native mobile applications running on iOS and Android devices to receive messages send from the Castled Customer Engagement Platform. It is implemented as a Turbo Native Module with backward compatability. Turbo Native Modules are the next iteration on React Native Modules for apps based on the New Architecture. This SDK facilitates:
 
 - Receiving push notifications.
 - Displaying in-app messages and app inbox notifications.
