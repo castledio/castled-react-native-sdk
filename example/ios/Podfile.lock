@@ -1,10 +1,10 @@
 PODS:
   - boost (1.76.0)
-  - Castled (3.0.0):
+  - Castled (3.1.1):
     - RealmSwift (~> 10.43.0)
     - SDWebImage (~> 5.11)
   - castled-react-native-sdk (0.1.0):
-    - Castled (>= 3.0.0)
+    - Castled (>= 3.1.0)
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
   - CocoaAsyncSocket (7.6.5)
@@ -507,7 +507,6 @@ PODS:
 
 DEPENDENCIES:
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
-  - Castled (from `/Users/antony/Documents/Antony/iOS/Castled/iOS/Repo/castled-ios-sdk`)
   - castled-react-native-sdk (from `../..`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
@@ -576,6 +575,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Castled
     - CocoaAsyncSocket
     - Flipper
     - Flipper-Boost-iOSX
@@ -597,8 +597,6 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   boost:
     :podspec: "../node_modules/react-native/third-party-podspecs/boost.podspec"
-  Castled:
-    :path: "/Users/antony/Documents/Antony/iOS/Castled/iOS/Repo/castled-ios-sdk"
   castled-react-native-sdk:
     :path: "../.."
   DoubleConversion:
@@ -681,8 +679,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: 57d2868c099736d80fcd648bf211b4431e51a558
-  Castled: 8f8986083c3fabd45540361768df5601058f43c7
-  castled-react-native-sdk: fa531e06b31be0c0787d49d95743060c351bf9ab
+  Castled: 87ce5aeeac8a80846b78203f18249a1dce24d0f7
+  castled-react-native-sdk: be551eac65cbedf789ee43d1d57a09a6510d3629
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: 5fbbff1d7734827299274638deb8ba3024f6c597
@@ -739,6 +737,6 @@ SPEC CHECKSUMS:
   Yoga: 4c3aa327e4a6a23eeacd71f61c81df1bcdf677d5
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 0ad2a05802be68b4ac733dd4a2eab678b5c273d9
+PODFILE CHECKSUM: be7126c69e2f50023685c5421acd36de27e615ee
 
 COCOAPODS: 1.14.3
