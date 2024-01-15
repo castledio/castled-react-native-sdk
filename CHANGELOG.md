@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.7.0...v1.8.0) (2024-01-15)
+
+
+### Features
+
+* updated iOS project settings ([8c0d1cd](https://github.com/castledio/castled-react-native-sdk/commit/8c0d1cd19a19fd1f9087984d24347487518b5b00))
+
 # [1.7.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.6.1...v1.7.0) (2024-01-15)
 
 
