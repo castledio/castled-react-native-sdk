@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.6.1...v1.7.0) (2024-01-15)
+
+
+### Features
+
+* push token fetch method modified ([bb480aa](https://github.com/castledio/castled-react-native-sdk/commit/bb480aaf30297ee1b7a4939bd5eb8591e416867b))
+
 ## [1.6.1](https://github.com/castledio/castled-react-native-sdk/compare/v1.6.0...v1.6.1) (2024-01-15)
 
 
