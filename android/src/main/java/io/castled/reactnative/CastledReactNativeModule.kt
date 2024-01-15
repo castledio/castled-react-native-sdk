@@ -13,7 +13,7 @@ import io.castled.reactnative.extensions.toCastledConfigs
 import io.castled.reactnative.extensions.toMap
 
 class CastledReactNativeModule internal constructor(context: ReactApplicationContext) :
-  NativeCastledNotificationsSpec(context) {
+  CastledReactNativeModuleSpec(context) {
 
   override fun getName(): String {
      return NAME

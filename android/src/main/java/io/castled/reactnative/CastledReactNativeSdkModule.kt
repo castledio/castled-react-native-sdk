@@ -5,7 +5,7 @@ import com.facebook.react.bridge.ReactMethod
 import com.facebook.react.bridge.Promise
 
 class CastledReactNativeSdkModule internal constructor(context: ReactApplicationContext) :
-  NativeCastledReactNativeSdkSpec(context) {
+  CastledReactNativeSdkSpec(context) {
 
   override fun getName(): String {
     return NAME
