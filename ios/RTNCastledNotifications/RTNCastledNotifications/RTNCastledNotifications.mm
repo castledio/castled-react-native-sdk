@@ -36,7 +36,7 @@ RCT_EXTERN_METHOD(initialize:(NSDictionary *)configs)
 RCT_EXTERN_METHOD(setUserId:(NSString *)userId userToken:(NSString *)userToken);
 RCT_EXTERN_METHOD(logCustomAppEvent:(NSString *)eventName eventParams:(NSDictionary *)eventParams);
 RCT_EXTERN_METHOD(setUserAttributes:(NSDictionary *)attributes);
-RCT_EXTERN_METHOD(setPushToken:(NSString *)token);
+RCT_EXTERN_METHOD(onTokenFetch:(NSString *)token);
 RCT_EXTERN_METHOD(logout);
 RCT_EXTERN_METHOD(userNotificationCenter:(NSDictionary *)userInfo);
 RCT_EXTERN_METHOD(willPresentNotification:(NSDictionary *)notificationInfo);

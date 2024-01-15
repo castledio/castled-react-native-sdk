@@ -51,7 +51,7 @@ public class RTNCastledNotifications: NSObject {
 
     private func doTheSetupAfterInitialization() {
         if !RTNCastledNotifications.pushToken.isEmpty {
-            setPushToken(RTNCastledNotifications.pushToken)
+            onTokenFetch(RTNCastledNotifications.pushToken)
         }
         if let categories = RTNCastledNotifications.notificationCategories {
             setNotificationCategories(withItems: categories)
@@ -80,7 +80,7 @@ public class RTNCastledNotifications: NSObject {
 
     // MARK: - PUSH METHODS
 
-    @objc public func setPushToken(_ token: String) {
+    @objc public func onTokenFetch(_ token: String) {
         if Castled.sharedInstance.isCastledInitialized() {
             Castled.sharedInstance.setPushToken(token)
             RTNCastledNotifications.pushToken = ""

@@ -35,7 +35,7 @@ static CastledReactBridge *sharedInstance = nil;
 }
 
 - (void)setPushToken:(NSString *)token{
-    [[RTNCastledNotifications sharedInstance] setPushToken:token];
+    [[RTNCastledNotifications sharedInstance] onTokenFetch:token];
  }
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response{
