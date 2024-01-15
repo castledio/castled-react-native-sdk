@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/castledio/castled-react-native-sdk/compare/v1.6.0...v1.6.1) (2024-01-15)
+
+
+### Bug Fixes
+
+* support for android old arch ([697ea6b](https://github.com/castledio/castled-react-native-sdk/commit/697ea6bb7b4a10e7d1e83c0568d7f5ce2bf0830c))
+
 # [1.6.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.5.0...v1.6.0) (2024-01-14)
 
 
