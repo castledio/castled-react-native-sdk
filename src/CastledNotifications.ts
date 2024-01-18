@@ -1,4 +1,4 @@
-import { NativeModules, Platform } from 'react-native';
+import { NativeModules, Platform, NativeEventEmitter } from 'react-native';
 import { CastledConfigs, CastledPushTokenType } from './CastledConfigs';
 import CastledUserAttributes from './CastledUserAttributes';
 import type { CastledEventParams } from './types/CastledEventParams';
@@ -28,6 +28,11 @@ const CastledReactNativeInstance = CastledReactNativeModule
     );
 
 class CastledNotifications {
+  // static eventEmitter = new NativeEventEmitter(CastledReactNativeModule);
+  static eventEmitter: NativeEventEmitter = new NativeEventEmitter(
+    CastledReactNativeModule
+  );
+
   static initialize(configs: CastledConfigs): void {
     CastledReactNativeInstance.initialize(configs);
   }
@@ -60,6 +65,13 @@ class CastledNotifications {
 
   static setUserAttributes(attrs: CastledUserAttributes): void {
     CastledReactNativeInstance.setUserAttributes(attrs);
+  }
+
+  static addListener(
+    event: string,
+    subscriber: { (event: Object): void; (event: any): void }
+  ) {
+    return CastledNotifications.eventEmitter.addListener(event, subscriber);
   }
 }
 

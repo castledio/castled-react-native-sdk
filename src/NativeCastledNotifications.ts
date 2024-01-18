@@ -13,6 +13,13 @@ export interface Spec extends TurboModule {
   logCustomAppEvent(eventName: string, eventParams?: Object): void;
 
   setUserAttributes(attributes: Object): void;
+
+  // addEventListener<K extends NotificationEventName>(
+  //   event: K,
+  //   listener: (event: Object) => void
+  // ): void;
+  addListener(event: string, subscriber: (event: any) => void): void;
+  removeListeners: (count: number) => void;
 }
 
 export default TurboModuleRegistry.getEnforcing<Spec>(

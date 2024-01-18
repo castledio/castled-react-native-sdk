@@ -29,7 +29,7 @@ target 'CastledReactNativeSdkExample' do
   config = use_native_modules!
 # pod 'Castled', :path => '/Users/antony/Documents/Antony/iOS/Castled/iOS/Repo/castled-ios-sdk'
   pod 'SDWebImage', '~> 5.11', :modular_headers => true
-  pod 'Realm', :modular_headers => true
+  pod 'Realm', '~> 10.43.0', :modular_headers => true
 
 
 

@@ -1,11 +1,10 @@
 #import "AppDelegate.h"
 #import <React/RCTBundleURLProvider.h>
-#import "CastledReactBridge.h"
-#import <UserNotifications/UserNotifications.h>
 #import <React/RCTLinkingManager.h>
 #import <React/RCTRootView.h>
 
-//#import <Castled/Castled>
+#import "AppDelegate.h"
+#import "CastledReactBridge.h"
 #import <UserNotifications/UserNotifications.h>
 @interface AppDelegate ()<UIApplicationDelegate,UNUserNotificationCenterDelegate>
 {
@@ -17,14 +16,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
   self.moduleName = @"TestApp";
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
-
   self.initialProps = @{};
-
-   [self registerForPush];
+  [self registerForPush];
   [[CastledReactBridge sharedInstance] setNotificationCategoriesWithItems:[self getNotificationCategories]];
   [[CastledReactBridge sharedInstance] setLaunchOptions:launchOptions];
 
@@ -46,7 +42,6 @@
 #pragma mark - UNUserNotificationCenter Delegate Methods
 
 - (void)registerForPush {
-
   UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
   center.delegate = (id)self;
   [center requestAuthorizationWithOptions:(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error){

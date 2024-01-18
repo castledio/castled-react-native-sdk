@@ -19,9 +19,9 @@ import Header from './Header';
 const Separator = () => <View style={styles.separator} />;
 
 const configs = new CastledConfigs();
-configs.appId = 'e8a4f68bfb6a58b40a77a0e6150eca0b';
+configs.appId = '718c38e2e359d94367a2e0d35e1fd4df';
 configs.enableTracking = true;
-configs.location = CastledLocation.TEST;
+configs.location = CastledLocation.US;
 configs.enableInApp = true;
 configs.enablePushBoost = true;
 configs.enablePush = true;
@@ -40,6 +40,9 @@ export default function App() {
   };
 
   React.useEffect(() => {
+    CastledNotifications.addListener('onNotificationClick', (event: Object) => {
+      console.log('CastledNotifications: notification clicked:', event);
+    });
     CastledNotifications.initialize(configs);
   }, []);
 

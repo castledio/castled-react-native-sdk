@@ -9,19 +9,16 @@ import Foundation
 import React
 
 @objc(RTNCastledNotifications)
-public class RTNCastledNotifications: NSObject {
+public class RTNCastledNotifications: RCTEventEmitter {
     private static var pushToken = ""
     private static var launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     private static var notificationCategories: Set<UNNotificationCategory>?
+    @objc private static var sharedLocal: RTNCastledNotifications?
+    @objc public static var sharedInstance = RTNCastledNotifications.sharedLocal ?? RTNCastledNotifications()
 
-    @objc public static var sharedInstance = RTNCastledNotifications()
-
-    override private init() {
+    @objc override public init() {
         super.init()
-    }
-
-    @objc static func requiresMainQueueSetup() -> Bool {
-        true
+        RTNCastledNotifications.sharedLocal = self
     }
 
     // MARK: - REACT BRIDGING
@@ -46,6 +43,7 @@ public class RTNCastledNotifications: NSObject {
                 print("AppDelegate does not conform to UNUserNotificationCenterDelegate.")
             }
             self.doTheSetupAfterInitialization()
+            self.handleNotificationClick(configs as! [AnyHashable : Any])
         }
     }
 
@@ -99,6 +97,7 @@ public class RTNCastledNotifications: NSObject {
     @objc public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) {
         if Castled.sharedInstance.isCastledInitialized() {
             Castled.sharedInstance.userNotificationCenter(center, willPresent: notification)
+            sendEvent(withName: "onNotificationClick", body: notification.request.content.userInfo)
             //  RNCastledEventEmitter.shared?.handleReceivedNotification(notification.request.content.userInfo)
         }
     }

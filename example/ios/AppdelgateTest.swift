@@ -13,7 +13,27 @@ class AppDelegateC: UIResponder, UIApplicationDelegate {
 
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
   CastledReactBridge.sharedInstance().setLaunchOptions(launchOptions)
+  CastledReactBridge.sharedInstance().setNotificationCategoriesWithItems(getNotificationCategories())
   return true
+}
+
+func getNotificationCategories() -> Set<UNNotificationCategory> {
+  // Create the custom actions
+  let action1 = UNNotificationAction(identifier: "ACCEPT", title: "Accept", options: UNNotificationActionOptions.foreground)
+  let action2 = UNNotificationAction(identifier: "DECLINE", title: "Decline", options: UNNotificationActionOptions.foreground)
+
+  // Create the category with the custom actions
+  let customCategory1 = UNNotificationCategory(identifier: "ACCEPT_DECLINE", actions: [action1, action2], intentIdentifiers: [], options: [])
+
+  let action3 = UNNotificationAction(identifier: "YES", title: "Yes", options: [UNNotificationActionOptions.foreground])
+  let action4 = UNNotificationAction(identifier: "NO", title: "No", options: [])
+
+  // Create the category with the custom actions
+  let customCategory2 = UNNotificationCategory(identifier: "YES_NO", actions: [action3, action4], intentIdentifiers: [], options: [])
+
+  let categoriesSet = Set([customCategory1, customCategory2])
+
+  return categoriesSet
 }
 
 extension AppDelegateC: UNUserNotificationCenterDelegate {

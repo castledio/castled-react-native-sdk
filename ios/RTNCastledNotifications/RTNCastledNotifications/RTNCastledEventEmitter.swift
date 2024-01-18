@@ -8,36 +8,32 @@
 import Foundation
 import React
 
-@objc(RTNCastledEventEmitter)
-class RTNCastledEventEmitter: RCTEventEmitter {
-    static var shared: RTNCastledEventEmitter?
+public extension RTNCastledNotifications {
+    @objc override func supportedEvents() -> [String] {
+        let listenersArray = CastledListeners.allCases.map { $0.rawValue }
 
-    override init() {
-        super.init()
-        RTNCastledEventEmitter.shared = self
+        return listenersArray
     }
 
-    override func supportedEvents() -> [String] {
-        return ["onReceivedNotification", "onNotificationClick"]
-    }
+    @objc override func startObserving() {}
 
     @objc override static func requiresMainQueueSetup() -> Bool {
-        true
+        return true
     }
 
     // Other SDK methods...
 
-    @objc func handleReceivedNotification(_ userInfo: [AnyHashable: Any]) {
+    @objc internal func handleReceivedNotification(_ userInfo: [AnyHashable: Any]) {
         // Handle the received notification in your SDK
 
         // Notify JavaScript side
-        sendEvent(withName: "onReceivedNotification", body: ["userInfo": userInfo])
+        sendEvent(withName: CastledListeners.CastledListenerPushReceived.rawValue, body: ["userInfo": userInfo])
     }
 
-    @objc func handleNotificationClick(_ userInfo: [AnyHashable: Any]) {
+    @objc internal func handleNotificationClick(_ userInfo: [AnyHashable: Any]) {
         // Handle the notification click in your SDK
 
         // Notify JavaScript side
-       // sendEvent(withName: "onNotificationClick", body: ["userInfo": userInfo])
+        sendEvent(withName: CastledListeners.CastledListenerPushClicked.rawValue, body: ["userInfo": userInfo])
     }
 }
