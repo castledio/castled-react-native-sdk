@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/castledio/castled-react-native-sdk/compare/v1.8.0...v1.8.1) (2024-01-20)
+
+
+### Bug Fixes
+
+* android version update ([3e3e052](https://github.com/castledio/castled-react-native-sdk/commit/3e3e0521a4b089328febc6439390892fc5d7bd63))
+
 # [1.8.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.7.0...v1.8.0) (2024-01-15)
 
 
