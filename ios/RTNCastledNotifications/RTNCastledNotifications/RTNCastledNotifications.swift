@@ -9,19 +9,13 @@ import Foundation
 import React
 
 @objc(RTNCastledNotifications)
-public class RTNCastledNotifications: NSObject {
+public class RTNCastledNotifications: RCTEventEmitter {
     private static var pushToken = ""
     private static var launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     private static var notificationCategories: Set<UNNotificationCategory>?
 
-    @objc public static var sharedInstance = RTNCastledNotifications()
-
     override private init() {
         super.init()
-    }
-
-    @objc static func requiresMainQueueSetup() -> Bool {
-        true
     }
 
     // MARK: - REACT BRIDGING
@@ -45,19 +39,19 @@ public class RTNCastledNotifications: NSObject {
             else {
                 Castled.sharedInstance.logMessage("AppDelegate does not conform to UNUserNotificationCenterDelegate. Please confirm to UIApplicationDelegate protocol(Native setup > iOS > Step 2) https://docs.castled.io/developer-resources/sdk-integration/reactnative/push-notifications#native-setup", .error)
             }
-            self.doTheSetupAfterInitialization()
+            RTNCastledNotifications.doTheSetupAfterInitialization()
         }
     }
 
-    private func doTheSetupAfterInitialization() {
+    private static func doTheSetupAfterInitialization() {
         if !RTNCastledNotifications.pushToken.isEmpty {
-            onTokenFetch(RTNCastledNotifications.pushToken)
+            RTNCastledNotifications.onTokenFetch(RTNCastledNotifications.pushToken)
         }
         if let categories = RTNCastledNotifications.notificationCategories {
-            setNotificationCategories(withItems: categories)
+            RTNCastledNotifications.setNotificationCategories(withItems: categories)
         }
         if let launcOptions = RTNCastledNotifications.launchOptions {
-            setLaunchOptions(launchOptions: launcOptions)
+            RTNCastledNotifications.setLaunchOptions(launchOptions: launcOptions)
         }
         Castled.sharedInstance.appBecomeActive()
     }
@@ -84,9 +78,11 @@ public class RTNCastledNotifications: NSObject {
         //  Castled.sharedInstance.logout()
     }
 
+
+
     // MARK: - PUSH METHODS
 
-    @objc public func onTokenFetch(_ token: String) {
+    @objc public static func onTokenFetch(_ token: String) {
         if Castled.sharedInstance.isCastledInitialized() {
             Castled.sharedInstance.setPushToken(token)
             RTNCastledNotifications.pushToken = ""
@@ -96,20 +92,20 @@ public class RTNCastledNotifications: NSObject {
         }
     }
 
-    @objc public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) {
+    @objc public static func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) {
         if Castled.sharedInstance.isCastledInitialized() {
             Castled.sharedInstance.userNotificationCenter(center, didReceive: response)
         }
     }
 
-    @objc public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) {
+    @objc public static func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) {
         if Castled.sharedInstance.isCastledInitialized() {
             Castled.sharedInstance.userNotificationCenter(center, willPresent: notification)
             //  RNCastledEventEmitter.shared?.handleReceivedNotification(notification.request.content.userInfo)
         }
     }
 
-    @objc public func didReceiveRemoteNotification(inApplication application: UIApplication, withInfo userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    @objc public static func didReceiveRemoteNotification(inApplication application: UIApplication, withInfo userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         if Castled.sharedInstance.isCastledInitialized() {
             Castled.sharedInstance.didReceiveRemoteNotification(inApplication: application, withInfo: userInfo, fetchCompletionHandler: { data in
                 completionHandler(data)
@@ -121,7 +117,7 @@ public class RTNCastledNotifications: NSObject {
         }
     }
 
-    @objc public func setLaunchOptions(launchOptions: [UIApplication.LaunchOptionsKey: Any]) {
+    @objc public static func setLaunchOptions(launchOptions: [UIApplication.LaunchOptionsKey: Any]) {
         if Castled.sharedInstance.isCastledInitialized() {
             Castled.sharedInstance.setLaunchOptions(launchOptions)
             RTNCastledNotifications.launchOptions = nil
@@ -131,7 +127,7 @@ public class RTNCastledNotifications: NSObject {
         }
     }
 
-    @objc public func setNotificationCategories(withItems items: Set<UNNotificationCategory>) {
+    @objc public static func setNotificationCategories(withItems items: Set<UNNotificationCategory>) {
         if Castled.sharedInstance.isCastledInitialized() {
             Castled.sharedInstance.setNotificationCategories(withItems: items)
             RTNCastledNotifications.notificationCategories = nil

@@ -7,7 +7,6 @@
 
 #import "CastledReactBridge.h"
 #import "castled_react_native_sdk-Swift.h"
-#import <React/RCTEventEmitter.h>
 
 static CastledReactBridge *sharedInstance = nil;
 @interface CastledReactBridge() {
@@ -35,33 +34,31 @@ static CastledReactBridge *sharedInstance = nil;
 }
 
 - (void)setPushToken:(NSString *)token{
-    [[RTNCastledNotifications sharedInstance] onTokenFetch:token];
+    [RTNCastledNotifications onTokenFetch:token];
  }
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response{
-    [[RTNCastledNotifications sharedInstance] userNotificationCenter:center didReceive:response];
+    [RTNCastledNotifications userNotificationCenter:center didReceive:response];
 }
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification{
-    [[RTNCastledNotifications sharedInstance] userNotificationCenter:center willPresent:notification];
+    [RTNCastledNotifications userNotificationCenter:center willPresent:notification];
 }
 
 - (void)didReceiveRemoteNotificationInApplication:(UIApplication *)application withInfo:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler{
-    [[RTNCastledNotifications sharedInstance] didReceiveRemoteNotificationInApplication:application withInfo:userInfo fetchCompletionHandler:^(UIBackgroundFetchResult result) {
+    [RTNCastledNotifications didReceiveRemoteNotificationInApplication:application withInfo:userInfo fetchCompletionHandler:^(UIBackgroundFetchResult result) {
         completionHandler(result);
     }];
 }
 
 - (void)setNotificationCategoriesWithItems:(NSSet<UNNotificationCategory *> *)items{
-    [[RTNCastledNotifications sharedInstance] setNotificationCategoriesWithItems:items];
+    [RTNCastledNotifications setNotificationCategoriesWithItems:items];
 }
 
 - (void)setLaunchOptions:(nullable NSDictionary<UIApplicationLaunchOptionsKey, id> * )launchOptions {
     if (launchOptions) {
-        [[RTNCastledNotifications sharedInstance] setLaunchOptionsWithLaunchOptions:launchOptions];
+        [RTNCastledNotifications setLaunchOptionsWithLaunchOptions:launchOptions];
     }
 }
-
-
 
 @end
