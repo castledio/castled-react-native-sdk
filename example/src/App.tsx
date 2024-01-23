@@ -19,9 +19,9 @@ import Header from './Header';
 const Separator = () => <View style={styles.separator} />;
 
 const configs = new CastledConfigs();
-configs.appId = 'e8a4f68bfb6a58b40a77a0e6150eca0b';
+configs.appId = '829c38e2e359d94372a2e0d35e1f74df';
 configs.enableTracking = true;
-configs.location = CastledLocation.TEST;
+configs.location = CastledLocation.US;
 configs.enableInApp = true;
 configs.enablePushBoost = true;
 configs.enablePush = true;
@@ -30,7 +30,7 @@ configs.appgroupId = '';
 configs.logLevel = CastledLogLevel.DEBUG;
 export default function App() {
   const testData = {
-    user: 'antony@castled.io',
+    user: 'frank@castled.io',
     event: 'rn_test_event_2',
     params: {
       str: 'val1',

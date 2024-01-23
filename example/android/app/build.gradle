@@ -119,6 +119,8 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+    // implementation "io.castled.android:castled-notifications:2.2.6"
+
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
