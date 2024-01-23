@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.8.1...v1.9.0) (2024-01-23)
+
+
+### Features
+
+* threading issue while setting user along with initialization ([b624e11](https://github.com/castledio/castled-react-native-sdk/commit/b624e1185b0f74ba7af037f4ca5dd2ca0756b043))
+
 ## [1.8.1](https://github.com/castledio/castled-react-native-sdk/compare/v1.8.0...v1.8.1) (2024-01-20)
 
 
