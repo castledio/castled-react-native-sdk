@@ -1,3 +1,10 @@
+## [1.9.1](https://github.com/castledio/castled-react-native-sdk/compare/v1.9.0...v1.9.1) (2024-01-23)
+
+
+### Bug Fixes
+
+* android version update ([99f0452](https://github.com/castledio/castled-react-native-sdk/commit/99f045291ebd18dac457ab50e3a1f3c426588d5c))
+
 # [1.9.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.8.1...v1.9.0) (2024-01-23)
 
 
