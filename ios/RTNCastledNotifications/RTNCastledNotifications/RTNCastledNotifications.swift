@@ -43,7 +43,7 @@ public class RTNCastledNotifications: NSObject {
                 UNUserNotificationCenter.current().delegate = notificationDelegate
             }
             else {
-                print("AppDelegate does not conform to UNUserNotificationCenterDelegate.")
+                Castled.sharedInstance.logMessage("AppDelegate does not conform to UNUserNotificationCenterDelegate. Please confirm to UIApplicationDelegate protocol(Native setup > iOS > Step 2) https://docs.castled.io/developer-resources/sdk-integration/reactnative/push-notifications#native-setup", .error)
             }
             self.doTheSetupAfterInitialization()
         }
@@ -63,15 +63,21 @@ public class RTNCastledNotifications: NSObject {
     }
 
     @objc func setUserId(_ userId: String, userToken: String?) {
-        Castled.sharedInstance.setUserId(userId, userToken: userToken)
+        DispatchQueue.main.async {
+            Castled.sharedInstance.setUserId(userId, userToken: userToken)
+        }
     }
 
     @objc func logCustomAppEvent(_ eventName: String, eventParams: NSDictionary?) {
-        Castled.sharedInstance.logCustomAppEvent(eventName: eventName, params: eventParams as? [String: Any] ?? [:])
+        DispatchQueue.main.async {
+            Castled.sharedInstance.logCustomAppEvent(eventName: eventName, params: eventParams as? [String: Any] ?? [:])
+        }
     }
 
     @objc func setUserAttributes(_ attributes: NSDictionary) {
-        Castled.sharedInstance.setUserAttributes(params: attributes as? [String: Any] ?? [:])
+        DispatchQueue.main.async {
+            Castled.sharedInstance.setUserAttributes(params: attributes as? [String: Any] ?? [:])
+        }
     }
 
     @objc func logout() {
