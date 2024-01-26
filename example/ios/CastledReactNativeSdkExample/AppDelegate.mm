@@ -26,7 +26,7 @@
 
    [self registerForPush];
   [[CastledReactBridge sharedInstance] setNotificationCategoriesWithItems:[self getNotificationCategories]];
-  [[CastledReactBridge sharedInstance] setLaunchOptions:launchOptions];
+//  [[CastledReactBridge sharedInstance] setLaunchOptions:launchOptions];
 
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
@@ -61,7 +61,7 @@
 - (NSSet<UNNotificationCategory *> *)getNotificationCategories {
   // Create the custom actions
   UNNotificationAction *action1 = [UNNotificationAction actionWithIdentifier:@"ACCEPT" title:@"Accept" options:UNNotificationActionOptionForeground];
-  UNNotificationAction *action2 = [UNNotificationAction actionWithIdentifier:@"DECLINE" title:@"Decline" options:0];
+  UNNotificationAction *action2 = [UNNotificationAction actionWithIdentifier:@"DECLINE" title:@"Decline" options:UNNotificationActionOptionForeground];
 
   // Create the category with the custom actions
   UNNotificationCategory *customCategory1 = [UNNotificationCategory categoryWithIdentifier:@"ACCEPT_DECLINE" actions:@[action1, action2] intentIdentifiers:@[] options:0];
@@ -119,13 +119,26 @@
 
   }];
 }
+ 
 
+#pragma mark - Linking
 
+// Deep Linking
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
 {
+  NSLog(@"Calling RCTLinkingManager with url %@", url);
   return [RCTLinkingManager application:application openURL:url options:options];
 }
 
+// Universal links
+- (BOOL)application:(UIApplication *)application
+continueUserActivity:(NSUserActivity *)userActivity
+ restorationHandler:(void (^)(NSArray<id<UIUserActivityRestoring>> *restorableObjects))restorationHandler
+{
+  return [RCTLinkingManager application:application
+                   continueUserActivity:userActivity
+                     restorationHandler:restorationHandler];
+} 
 @end

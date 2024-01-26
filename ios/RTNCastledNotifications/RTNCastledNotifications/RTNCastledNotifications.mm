@@ -5,31 +5,14 @@
 //  Created by antony on 20/12/2023.
 //
 
-#import <React/RCTBridgeModule.h>
-
-/* Argument types cheatsheet
- * | Objective C                                   | JavaScript         |
- * **********************************************************************
- * | NSString                                      | string, ?string    |
- * | BOOL                                          | boolean            |
- * | NSNumber                                      | ?boolean           |
- * | double                                        | number             |
- * | NSNumber                                      | ?number            |
- * | NSArray                                       | Array, ?Array      |
- * | NSDictionary                                  | Object, ?Object    |
- * | RCTResponseSenderBlock                        | Function (success) |
- * | RCTResponseSenderBlock, RCTResponseErrorBlock | Function (failure) |
- * | RCTPromiseResolveBlock, RCTPromiseRejectBlock | Promise            |
- ************************************************************************
-
- */
-
+#import <React/RCTEventEmitter.h>
 
 #ifdef RCT_NEW_ARCH_ENABLED
 #import "RNCastledReactNativeSdkSpec.h"
-@interface RCT_EXTERN_MODULE(RTNCastledNotifications, NSObject<NativeCastledNotificationsSpec>)
+@interface RCT_EXTERN_MODULE(RTNCastledNotifications, RCTEventEmitter<NativeCastledNotificationsSpec>)
 #else
-@interface RCT_EXTERN_MODULE(RTNCastledNotifications, NSObject<RCTBridgeModule>)
+#import <React/RCTBridgeModule.h>
+@interface RCT_EXTERN_MODULE(RTNCastledNotifications, RCTEventEmitter<RCTBridgeModule>)
 #endif
 
 RCT_EXTERN_METHOD(initialize:(NSDictionary *)configs)
