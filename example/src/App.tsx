@@ -30,7 +30,7 @@ configs.appgroupId = '';
 configs.logLevel = CastledLogLevel.DEBUG;
 export default function App() {
   const testData = {
-    user: 'antony@castled.io',
+    user: 'frank@castled.io',
     event: 'rn_test_event_2',
     params: {
       str: 'val1',
