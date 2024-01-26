@@ -28,6 +28,9 @@ const CastledReactNativeInstance = CastledReactNativeModule
     );
 
 class CastledNotifications {
+  /*static eventEmitter: NativeEventEmitter = new NativeEventEmitter(
+    CastledReactNativeModule
+  );*/
   static initialize(configs: CastledConfigs): void {
     CastledReactNativeInstance.initialize(configs);
   }
@@ -61,6 +64,12 @@ class CastledNotifications {
   static setUserAttributes(attrs: CastledUserAttributes): void {
     CastledReactNativeInstance.setUserAttributes(attrs);
   }
+  /*static addListener(
+    eventName: string,
+    listener: (event: NotificationEvent) => void
+  ): EmitterSubscription {
+    return CastledNotifications.eventEmitter.addListener(eventName, listener);
+  }*/
 }
 
 export { CastledNotifications };

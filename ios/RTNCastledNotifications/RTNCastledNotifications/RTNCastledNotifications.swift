@@ -10,7 +10,6 @@ import React
 
 @objc(RTNCastledNotifications)
 public class RTNCastledNotifications: RCTEventEmitter {
-    private static var pushToken = ""
     private static var launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     private static var notificationCategories: Set<UNNotificationCategory>?
 
@@ -44,9 +43,6 @@ public class RTNCastledNotifications: RCTEventEmitter {
     }
 
     private static func doTheSetupAfterInitialization() {
-        if !RTNCastledNotifications.pushToken.isEmpty {
-            RTNCastledNotifications.onTokenFetch(RTNCastledNotifications.pushToken)
-        }
         if let categories = RTNCastledNotifications.notificationCategories {
             RTNCastledNotifications.setNotificationCategories(withItems: categories)
         }
@@ -54,6 +50,7 @@ public class RTNCastledNotifications: RCTEventEmitter {
             RTNCastledNotifications.setLaunchOptions(launchOptions: launcOptions)
         }
         Castled.sharedInstance.appBecomeActive()
+        RTNCastledNotificationManager.shared.isReactSdkInitialized = true
     }
 
     @objc func setUserId(_ userId: String, userToken: String?) {
@@ -78,43 +75,29 @@ public class RTNCastledNotifications: RCTEventEmitter {
         //  Castled.sharedInstance.logout()
     }
 
-
-
     // MARK: - PUSH METHODS
 
     @objc public static func onTokenFetch(_ token: String) {
-        if Castled.sharedInstance.isCastledInitialized() {
-            Castled.sharedInstance.setPushToken(token)
-            RTNCastledNotifications.pushToken = ""
-        }
-        else {
-            RTNCastledNotifications.pushToken = token
-        }
+        Castled.sharedInstance.setPushToken(token)
     }
 
     @objc public static func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) {
-        if Castled.sharedInstance.isCastledInitialized() {
-            Castled.sharedInstance.userNotificationCenter(center, didReceive: response)
-        }
+        Castled.sharedInstance.userNotificationCenter(center, didReceive: response)
+        let event1: [String: Any] = ["actionKey": "actionValue"]
+        let event2: [String: Any] = ["infoKey": "infoValue"]
+        // RTNCastledNotifications.handleNotificationClick(["action": event1, "info": event2])
+        RTNCastledNotificationManager.shared.processClickedItem(item: response.notification.request.content.userInfo)
     }
 
     @objc public static func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) {
-        if Castled.sharedInstance.isCastledInitialized() {
-            Castled.sharedInstance.userNotificationCenter(center, willPresent: notification)
-            //  RNCastledEventEmitter.shared?.handleReceivedNotification(notification.request.content.userInfo)
-        }
+        Castled.sharedInstance.userNotificationCenter(center, willPresent: notification)
     }
 
     @objc public static func didReceiveRemoteNotification(inApplication application: UIApplication, withInfo userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        if Castled.sharedInstance.isCastledInitialized() {
-            Castled.sharedInstance.didReceiveRemoteNotification(inApplication: application, withInfo: userInfo, fetchCompletionHandler: { data in
-                completionHandler(data)
+        Castled.sharedInstance.didReceiveRemoteNotification(inApplication: application, withInfo: userInfo, fetchCompletionHandler: { data in
+            completionHandler(data)
 
-            })
-        }
-        else {
-            completionHandler(.newData)
-        }
+        })
     }
 
     @objc public static func setLaunchOptions(launchOptions: [UIApplication.LaunchOptionsKey: Any]) {
