@@ -83,9 +83,6 @@ public class RTNCastledNotifications: RCTEventEmitter {
 
     @objc public static func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) {
         Castled.sharedInstance.userNotificationCenter(center, didReceive: response)
-        let event1: [String: Any] = ["actionKey": "actionValue"]
-        let event2: [String: Any] = ["infoKey": "infoValue"]
-        // RTNCastledNotifications.handleNotificationClick(["action": event1, "info": event2])
         RTNCastledNotificationManager.shared.processClickedItem(item: response.notification.request.content.userInfo)
     }
 
