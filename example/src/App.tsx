@@ -30,7 +30,7 @@ configs.appgroupId = '';
 configs.logLevel = CastledLogLevel.DEBUG;
 export default function App() {
   const testData = {
-    user: 'frank@castled.io',
+    user: 'antony@castled.io',
     event: 'rn_test_event_2',
     params: {
       str: 'val1',
@@ -42,16 +42,37 @@ export default function App() {
   React.useEffect(() => {
     CastledNotifications.initialize(configs);
   }, []);
-  /*const subscription = CastledNotifications.addListener(
+  /*CastledNotifications.promptForPushNotification();
+  const clickedsSubscription = CastledNotifications.addListener(
     'onNotificationClick',
-    (event: Object) => {
+    (event: CastledNotificationEvent) => {
       // Handle the event data
       setTimeout(() => {
         // Code to be executed after the delay
         Alert.alert('CastledNotifications: notification clicked!');
       }, 1000);
 
-      console.log('CastledNotifications: notification clicked:', event);
+      console.log(
+        'CastledNotifications clicked: clickAction:',
+        event.clickAction
+      );
+      console.log(
+        'CastledNotifications clicked: notification',
+        event.notification
+      );
+    }
+  );
+  const receivedSubscription = CastledNotifications.addListener(
+    'onReceivedNotification',
+    (event: CastledNotificationEvent) => {
+      console.log(
+        'CastledNotifications received:  clickAction:',
+        event.clickAction
+      );
+      console.log(
+        'CastledNotifications  received: notification',
+        event.notification
+      );
     }
   );*/
   return (

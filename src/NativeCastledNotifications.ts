@@ -13,6 +13,8 @@ export interface Spec extends TurboModule {
   logCustomAppEvent(eventName: string, eventParams?: Object): void;
 
   setUserAttributes(attributes: Object): void;
+
+  promptForPushNotification(): void;
 }
 
 export default TurboModuleRegistry.getEnforcing<Spec>(

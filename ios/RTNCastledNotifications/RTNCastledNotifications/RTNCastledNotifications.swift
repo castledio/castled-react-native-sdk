@@ -42,17 +42,6 @@ public class RTNCastledNotifications: RCTEventEmitter {
         }
     }
 
-    private static func doTheSetupAfterInitialization() {
-        if let categories = RTNCastledNotifications.notificationCategories {
-            RTNCastledNotifications.setNotificationCategories(withItems: categories)
-        }
-        if let launcOptions = RTNCastledNotifications.launchOptions {
-            RTNCastledNotifications.setLaunchOptions(launchOptions: launcOptions)
-        }
-        Castled.sharedInstance.appBecomeActive()
-        RTNCastledNotificationManager.shared.isReactSdkInitialized = true
-    }
-
     @objc func setUserId(_ userId: String, userToken: String?) {
         DispatchQueue.main.async {
             Castled.sharedInstance.setUserId(userId, userToken: userToken)
@@ -75,6 +64,21 @@ public class RTNCastledNotifications: RCTEventEmitter {
         //  Castled.sharedInstance.logout()
     }
 
+    @objc func promptForPushNotification() {
+        Castled.sharedInstance.promptForPushNotification()
+    }
+
+    private static func doTheSetupAfterInitialization() {
+        if let categories = RTNCastledNotifications.notificationCategories {
+            RTNCastledNotifications.setNotificationCategories(withItems: categories)
+        }
+        if let launcOptions = RTNCastledNotifications.launchOptions {
+            RTNCastledNotifications.setLaunchOptions(launchOptions: launcOptions)
+        }
+        Castled.sharedInstance.appBecomeActive()
+        RTNCastledNotificationManager.shared.isReactSdkInitialized = true
+    }
+
     // MARK: - PUSH METHODS
 
     @objc public static func onTokenFetch(_ token: String) {
@@ -83,7 +87,7 @@ public class RTNCastledNotifications: RCTEventEmitter {
 
     @objc public static func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) {
         Castled.sharedInstance.userNotificationCenter(center, didReceive: response)
-        RTNCastledNotificationManager.shared.processClickedItem(item: response.notification.request.content.userInfo)
+//        RTNCastledNotificationManager.shared.processClickedItem(item: response.notification.request.content.userInfo)
     }
 
     @objc public static func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) {

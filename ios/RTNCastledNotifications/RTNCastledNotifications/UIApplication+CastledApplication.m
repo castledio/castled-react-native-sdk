@@ -7,7 +7,7 @@
 
 #import "UIApplication+CastledApplication.h"
 #import "castled_react_native_sdk-Swift.h"
-
+#import <UserNotifications/UserNotifications.h>
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
 
@@ -17,6 +17,7 @@
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        [RTNCastledNotificationManager setCastledDelegate];
         if ([self shouldPerformSwizzling]) {
             // Swizzle the setDelegate method with setSwizzledDelegate
             method_exchangeImplementations(class_getInstanceMethod(self, @selector(setDelegate:)), class_getInstanceMethod(self, @selector(setSwizzledDelegate:)));
@@ -51,7 +52,14 @@
 
     if ([self respondsToSelector:@selector(swizzledApplication:didFinishLaunchingWithOptions:)]){
         [RTNCastledNotificationManager initializeCastledSDK];
-        // Call the original implementation if available
+        id<UIApplicationDelegate, UNUserNotificationCenterDelegate> appDelegate = [[UIApplication sharedApplication] delegate];
+        // Check if the delegate conforms to the UNUserNotificationCenterDelegate protocol
+        if ([appDelegate conformsToProtocol:@protocol(UNUserNotificationCenterDelegate)]) {
+            // Set the delegate for UNUserNotificationCenter
+            [[UNUserNotificationCenter currentNotificationCenter] setDelegate:appDelegate];
+        } else {
+            NSLog(@"AppDelegate does not conform to UNUserNotificationCenterDelegate. Please confirm to UIApplicationDelegate protocol(Native setup > iOS > Step 2) https://docs.castled.io/developer-resources/sdk-integration/reactnative/push-notifications#native-setup");
+        }
         return [self swizzledApplication:application didFinishLaunchingWithOptions:launchOptions];
     }
     // Default behavior if the original method is not implemented

@@ -21,11 +21,11 @@
   self.moduleName = @"TestApp";
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
-
+  [UNUserNotificationCenter currentNotificationCenter].delegate = self;
   self.initialProps = @{};
 
-   [self registerForPush];
-  [[CastledReactBridge sharedInstance] setNotificationCategoriesWithItems:[self getNotificationCategories]];
+  // [self registerForPush];
+//  [[CastledReactBridge sharedInstance] setNotificationCategoriesWithItems:[self getNotificationCategories]];
 //  [[CastledReactBridge sharedInstance] setLaunchOptions:launchOptions];
 
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
