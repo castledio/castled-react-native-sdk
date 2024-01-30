@@ -8,9 +8,12 @@
 import Castled
 import Foundation
 
+
 enum CastledListeners: String, CaseIterable {
     case CastledListenerPushReceived = "onReceivedNotification"
     case CastledListenerPushClicked = "onNotificationClick"
+    case CastledListenerInAppMessageClicked = "onInAppMessageClick"
+
 }
 
 extension CastledLocation {

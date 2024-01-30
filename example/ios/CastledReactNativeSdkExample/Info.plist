@@ -69,7 +69,7 @@
 	<false/>
 	<key>CastledSwizzlingDisabled</key>
 	<true/>
-	<key>CASTLED_SKIP_AUTO_URL_OPENING</key>
-	<false/>
+	<key>CastledSkipUrlHandling</key>
+	<true/>
 </dict>
 </plist>

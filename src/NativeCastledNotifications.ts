@@ -14,7 +14,7 @@ export interface Spec extends TurboModule {
 
   setUserAttributes(attributes: Object): void;
 
-  promptForPushNotification(): void;
+  requestPushPermission(): void;
 }
 
 export default TurboModuleRegistry.getEnforcing<Spec>(

@@ -11,13 +11,12 @@ import React
 
 @objc public class RTNCastledNotificationManager: NSObject {
     static let shared = RTNCastledNotificationManager()
-    var clickedNotifications = [[AnyHashable: Any]]()
-    var receivedNotifications = [[AnyHashable: Any]]()
+    private var listeners = [[AnyHashable: Any]]()
 
     var isReactSdkInitialized: Bool = false {
         didSet {
             if isReactSdkInitialized {
-                RTNCastledNotificationManager.shared.triggerClickedNotifications()
+                RTNCastledNotificationManager.shared.triggerListeners()
             }
         }
     }
@@ -38,43 +37,25 @@ import React
         Castled.initializeForCrossPlatform()
     }
 
-    // MARK: - Clicked notifcation handling
-
-    private func processClickedItem(item: [AnyHashable: Any]) {
-        DispatchQueue.main.async {
-            RTNCastledNotificationManager.shared.clickedNotifications.append(item)
-            if RTNCastledNotificationManager.shared.isReactSdkInitialized {
-                RTNCastledNotificationManager.shared.triggerClickedNotifications()
-            }
-        }
-    }
-
-    private func triggerClickedNotifications() {
-        DispatchQueue.main.async {
-            RTNCastledNotificationManager.shared.clickedNotifications.forEach { notification in
-                RTNCastledNotifications.handleNotificationClick(notification)
-            }
-            RTNCastledNotificationManager.shared.clickedNotifications.removeAll()
-        }
-    }
-
     // MARK: - Received notifcation handling
 
-    private func processReceivedItem(item: [AnyHashable: Any]) {
+    private func processListeners(item: [AnyHashable: Any]) {
         DispatchQueue.main.async {
-            RTNCastledNotificationManager.shared.receivedNotifications.append(item)
+            RTNCastledNotificationManager.shared.listeners.append(item)
             if RTNCastledNotificationManager.shared.isReactSdkInitialized {
-                RTNCastledNotificationManager.shared.triggerReceivedNotifications()
+                RTNCastledNotificationManager.shared.triggerListeners()
             }
         }
     }
 
-    private func triggerReceivedNotifications() {
+    private func triggerListeners() {
         DispatchQueue.main.async {
-            RTNCastledNotificationManager.shared.receivedNotifications.forEach { notification in
-                RTNCastledNotifications.handleReceivedNotification(notification)
-            }
-            RTNCastledNotificationManager.shared.receivedNotifications.removeAll()
+            RTNCastledNotificationManager.shared.listeners.forEach { notification in
+                if let name = notification[CastledEventNameListenerKey] as? String{
+                     RTNCastledNotifications.handleReactObserver(name, notification)
+                 }
+             }
+            RTNCastledNotificationManager.shared.listeners.removeAll()
         }
     }
 }
@@ -84,11 +65,16 @@ import React
 extension RTNCastledNotificationManager: CastledNotificationDelegate {
     public func notificationClicked(withNotificationType type: CastledNotificationType, action: CastledClickActionType, kvPairs: [AnyHashable: Any]?, userInfo: [AnyHashable: Any]) {
         if type == CastledNotificationType.push {
-            processClickedItem(item: CastledNotificationUtils.getFinalPushPayloadFrom(type, action: action, kvPairs, userInfo))
+            processListeners(item: CastledNotificationUtils.getPushClickedPayload(action, kvPairs, userInfo))
+        }
+        else if type == CastledNotificationType.inapp {
+            if let clickEvent = kvPairs {
+                processListeners(item: CastledNotificationUtils.getInappClickedPayload(action, clickEvent))
+            }
         }
     }
 
     public func didReceiveCastledRemoteNotification(withInfo userInfo: [AnyHashable: Any]) {
-        processReceivedItem(item: CastledNotificationUtils.getFinalPushPayloadFrom(.push, action: .none, nil, userInfo))
+        processListeners(item: CastledNotificationUtils.getPushReceiedPayload(userInfo))
     }
 }

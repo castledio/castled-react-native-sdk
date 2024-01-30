@@ -64,7 +64,7 @@ public class RTNCastledNotifications: RCTEventEmitter {
         //  Castled.sharedInstance.logout()
     }
 
-    @objc func promptForPushNotification() {
+    @objc func requestPushPermission() {
         Castled.sharedInstance.promptForPushNotification()
     }
 

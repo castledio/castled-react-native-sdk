@@ -8,16 +8,37 @@
 import Castled
 import Foundation
 
+let CastledNotificationListenerKey = "notification"
+let CastledClickActionListenerKey  = "clickAction"
+let CastledEventNameListenerKey    = "castledEventListenerName"
+
 enum CastledNotificationUtils {
-    static func getFinalPushPayloadFrom(_ type: CastledNotificationType, action: CastledClickActionType, _ clickAction: [AnyHashable: Any]?, _ notificaion: [AnyHashable: Any]) -> [AnyHashable: Any] {
+    static func getPushClickedPayload(_ actionType: CastledClickActionType, _ clickAction: [AnyHashable: Any]?, _ notificaion: [AnyHashable: Any])-> [AnyHashable: Any] {
         var payload = [AnyHashable: Any]()
-        payload["notification"] = notificaion.getNotificationObject()
+        payload[CastledNotificationListenerKey] = notificaion.getNotificationObject()
         if let clickEvent = clickAction {
-            payload["clickAction"] = clickEvent.getNotificationClickObject(action)
+            payload[CastledClickActionListenerKey] = clickEvent.getNotificationClickObject()
         }
+        payload[CastledEventNameListenerKey] = CastledListeners.CastledListenerPushClicked.rawValue
+        return payload
+
+    }
+    
+    static func getPushReceiedPayload(_ notificaion: [AnyHashable: Any])-> [AnyHashable: Any] {
+        var payload = [AnyHashable: Any]()
+        payload.merge(notificaion.getNotificationObject()) { (_, new) in new }
+        payload[CastledEventNameListenerKey] = CastledListeners.CastledListenerPushReceived.rawValue
         return payload
     }
+    
+    static func getInappClickedPayload(_ actionType: CastledClickActionType, _ clickAction: [AnyHashable: Any])-> [AnyHashable: Any] {
+        var payload = [AnyHashable: Any]()
+        payload.merge(clickAction.getNotificationClickObject()) { (_, new) in new }
+        payload[CastledEventNameListenerKey] = CastledListeners.CastledListenerInAppMessageClicked.rawValue
+        return payload
 
+    }
+    
     static func convertToArray(text: String) -> Any? {
         guard let data = text.data(using: .utf8, allowLossyConversion: false) else { return nil }
         return try? JSONSerialization.jsonObject(with: data, options: .mutableContainers)

@@ -6,10 +6,7 @@ import {
 } from 'react-native';
 import { CastledConfigs, CastledPushTokenType } from './CastledConfigs';
 import CastledUserAttributes from './CastledUserAttributes';
-import type {
-  CastledEventParams,
-  CastledNotificationEvent,
-} from './types/CastledEventParams';
+import type { CastledEventParams } from './types/CastledEventParams';
 
 const LINKING_ERROR =
   `The package 'castled-react-native-sdk' doesn't seem to be linked. Make sure: \n\n` +
@@ -73,16 +70,16 @@ class CastledNotifications {
     CastledReactNativeInstance.setUserAttributes(attrs);
   }
 
-  static promptForPushNotification(): void {
+  static requestPushPermission(): void {
     if (Platform.OS === 'ios') {
-      CastledReactNativeInstance.promptForPushNotification();
+      CastledReactNativeInstance.requestPushPermission();
     } else {
     }
   }
 
-  static addListener(
+  static addListener<T>(
     eventName: string,
-    listener: (event: CastledNotificationEvent) => void
+    listener: (event: T) => void
   ): EmitterSubscription {
     return CastledNotifications.eventEmitter.addListener(eventName, listener);
   }
