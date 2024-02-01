@@ -51,10 +51,10 @@ import React
     private func triggerListeners() {
         DispatchQueue.main.async {
             RTNCastledNotificationManager.shared.listeners.forEach { notification in
-                if let name = notification[CastledEventNameListenerKey] as? String{
-                     RTNCastledNotifications.handleReactObserver(name, notification)
-                 }
-             }
+                if let name = notification[CastledEventNameListenerKey] as? String {
+                    RTNCastledNotifications.handleReactObserver(name, notification)
+                }
+            }
             RTNCastledNotificationManager.shared.listeners.removeAll()
         }
     }
@@ -65,7 +65,9 @@ import React
 extension RTNCastledNotificationManager: CastledNotificationDelegate {
     public func notificationClicked(withNotificationType type: CastledNotificationType, action: CastledClickActionType, kvPairs: [AnyHashable: Any]?, userInfo: [AnyHashable: Any]) {
         if type == CastledNotificationType.push {
-            processListeners(item: CastledNotificationUtils.getPushClickedPayload(action, kvPairs, userInfo))
+            if let listenerPayload = CastledNotificationUtils.getPushClickedPayload(action, kvPairs, userInfo) {
+                processListeners(item: listenerPayload)
+            }
         }
         else if type == CastledNotificationType.inapp {
             if let clickEvent = kvPairs {
@@ -75,6 +77,8 @@ extension RTNCastledNotificationManager: CastledNotificationDelegate {
     }
 
     public func didReceiveCastledRemoteNotification(withInfo userInfo: [AnyHashable: Any]) {
-        processListeners(item: CastledNotificationUtils.getPushReceiedPayload(userInfo))
+        if let listenerPayload = CastledNotificationUtils.getPushReceiedPayload(userInfo) {
+            processListeners(item: listenerPayload)
+        }
     }
 }

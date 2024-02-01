@@ -4,8 +4,11 @@ import {
   Platform,
   type EmitterSubscription,
 } from 'react-native';
+
 import { CastledConfigs, CastledPushTokenType } from './CastledConfigs';
+
 import CastledUserAttributes from './CastledUserAttributes';
+
 import type { CastledEventParams } from './types/CastledEventParams';
 
 const LINKING_ERROR =
@@ -36,6 +39,7 @@ class CastledNotifications {
   static eventEmitter: NativeEventEmitter = new NativeEventEmitter(
     CastledReactNativeModule
   );
+
   static initialize(configs: CastledConfigs): void {
     CastledReactNativeInstance.initialize(configs);
   }

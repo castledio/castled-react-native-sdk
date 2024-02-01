@@ -42,7 +42,7 @@ export default function App() {
     },
   };
 
-  /* const pushClickedListener = CastledNotifications.addListener(
+  /*const pushClickedListener = CastledNotifications.addListener(
     CastledEvents.PUSH_NOTIFICATION_CLICKED,
     (event: CastledPushNotificationClickEvent) => {
       setTimeout(() => {
@@ -53,10 +53,7 @@ export default function App() {
         );
       }, 1000);
 
-      console.log(
-        'Push notification clicked: clickAction',
-        event.clickAction?.keyVals
-      );
+      console.log('Push notification clicked: clickAction', event.clickAction);
       console.log(
         'Push notification clicked: notification object ',
         event.notification
@@ -74,7 +71,7 @@ export default function App() {
   const inAppClickedListener = CastledNotifications.addListener(
     CastledEvents.IN_APP_MESSAGE_CLICKED,
     (inappClickEvent: CastledClickAction) => {
-      console.log('Inapp clicked:', inappClickEvent.keyVals);
+      console.log('Inapp clicked:', inappClickEvent);
     }
   );*/
 
