@@ -1,3 +1,10 @@
+## [1.9.2](https://github.com/castledio/castled-react-native-sdk/compare/v1.9.1...v1.9.2) (2024-01-26)
+
+
+### Bug Fixes
+
+* push reporting optimization ([05f6155](https://github.com/castledio/castled-react-native-sdk/commit/05f6155a387bc92b985613b52577a5973de0410a))
+
 ## [1.9.1](https://github.com/castledio/castled-react-native-sdk/compare/v1.9.0...v1.9.1) (2024-01-23)
 
 
