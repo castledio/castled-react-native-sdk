@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.9.2...v1.10.0) (2024-02-06)
+
+
+### Features
+
+* push notification listeners ([1a5f876](https://github.com/castledio/castled-react-native-sdk/commit/1a5f876335173f665a325a68ff05fd779c84ffbf))
+
 ## [1.9.2](https://github.com/castledio/castled-react-native-sdk/compare/v1.9.1...v1.9.2) (2024-01-26)
 
 
