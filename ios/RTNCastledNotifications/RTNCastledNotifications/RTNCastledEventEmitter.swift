@@ -12,7 +12,6 @@ public extension RTNCastledNotifications {
     static var isObserverInitiated = false
     @objc override func supportedEvents() -> [String] {
         let listenersArray = CastledListeners.allCases.map { $0.rawValue }
-
         return listenersArray
     }
 
@@ -38,18 +37,15 @@ public extension RTNCastledNotifications {
 
     @objc func handleEventNotification(_ notification: Notification) {
         guard RTNCastledNotifications.isObserverInitiated else { return }
-        if let notificationName = notification.name.rawValue as? String {
-            sendEvent(withName: notificationName, body: notification.userInfo)
+        if let notificationName = notification.name.rawValue as? String,var info = notification.userInfo {
+            info.removeValue(forKey: CastledEventNameListenerKey)
+            sendEvent(withName: notificationName, body: info)
         }
     }
 
-    @objc internal static func handleReceivedNotification(_ userInfo: [AnyHashable: Any]) {
+    @objc internal static func handleReactObserver(_ name: String,_ userInfo: [AnyHashable: Any]) {
         // Notify JavaScript side
-        NotificationCenter.default.post(name: NSNotification.Name(CastledListeners.CastledListenerPushReceived.rawValue), object: nil, userInfo: userInfo)
+        NotificationCenter.default.post(name: NSNotification.Name(name), object: nil, userInfo: userInfo)
     }
-
-    @objc internal static func handleNotificationClick(_ userInfo: [AnyHashable: Any]) {
-        // Notify JavaScript side
-        NotificationCenter.default.post(name: NSNotification.Name(CastledListeners.CastledListenerPushClicked.rawValue), object: nil, userInfo: userInfo)
-    }
+    
 }

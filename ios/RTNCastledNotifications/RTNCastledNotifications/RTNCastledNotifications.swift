@@ -42,17 +42,6 @@ public class RTNCastledNotifications: RCTEventEmitter {
         }
     }
 
-    private static func doTheSetupAfterInitialization() {
-        if let categories = RTNCastledNotifications.notificationCategories {
-            RTNCastledNotifications.setNotificationCategories(withItems: categories)
-        }
-        if let launcOptions = RTNCastledNotifications.launchOptions {
-            RTNCastledNotifications.setLaunchOptions(launchOptions: launcOptions)
-        }
-        Castled.sharedInstance.appBecomeActive()
-        RTNCastledNotificationManager.shared.isReactSdkInitialized = true
-    }
-
     @objc func setUserId(_ userId: String, userToken: String?) {
         DispatchQueue.main.async {
             Castled.sharedInstance.setUserId(userId, userToken: userToken)
@@ -67,12 +56,36 @@ public class RTNCastledNotifications: RCTEventEmitter {
 
     @objc func setUserAttributes(_ attributes: NSDictionary) {
         DispatchQueue.main.async {
-            Castled.sharedInstance.setUserAttributes(params: attributes as? [String: Any] ?? [:])
+            let castleduserattributes = CastledUserAttributes()
+            if let attributesDict = attributes as? [String: Any] {
+                castleduserattributes.setAttributes(attributesDict)
+            }
+            else {
+                attributes.enumerateKeysAndObjects { key, value, _ in
+                    castleduserattributes.setCustomAttribute("\(key)", value)
+                }
+            }
+            Castled.sharedInstance.setUserAttributes(castleduserattributes)
         }
     }
 
     @objc func logout() {
-        //  Castled.sharedInstance.logout()
+        Castled.sharedInstance.logout()
+    }
+
+    @objc func requestPushPermission() {
+        Castled.sharedInstance.promptForPushNotification()
+    }
+
+    private static func doTheSetupAfterInitialization() {
+        if let categories = RTNCastledNotifications.notificationCategories {
+            RTNCastledNotifications.setNotificationCategories(withItems: categories)
+        }
+        if let launcOptions = RTNCastledNotifications.launchOptions {
+            RTNCastledNotifications.setLaunchOptions(launchOptions: launcOptions)
+        }
+        Castled.sharedInstance.appBecomeActive()
+        RTNCastledNotificationManager.shared.isReactSdkInitialized = true
     }
 
     // MARK: - PUSH METHODS
@@ -83,7 +96,7 @@ public class RTNCastledNotifications: RCTEventEmitter {
 
     @objc public static func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) {
         Castled.sharedInstance.userNotificationCenter(center, didReceive: response)
-        RTNCastledNotificationManager.shared.processClickedItem(item: response.notification.request.content.userInfo)
+//        RTNCastledNotificationManager.shared.processClickedItem(item: response.notification.request.content.userInfo)
     }
 
     @objc public static func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) {

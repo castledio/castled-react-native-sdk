@@ -1,4 +1,5 @@
 import { CastledNotifications } from './CastledNotifications';
+
 import {
   CastledConfigs,
   CastledLocation,
@@ -6,8 +7,21 @@ import {
   XiaomiRegion,
   CastledLogLevel,
 } from './CastledConfigs';
+
 import CastledUserAttributes from './CastledUserAttributes';
-import type { CastledEventParams } from './types/CastledEventParams';
+
+import type {
+  CastledEventParams,
+  CastledPushNotificationClickEvent,
+  CastledPushNotification,
+  CastledClickAction,
+  CastledCustomAttributes,
+} from './types/CastledEventParams';
+
+import {
+  CastledEvents,
+  CastledClickActionType,
+} from './types/CastledEventParams';
 
 export {
   CastledNotifications,
@@ -17,6 +31,14 @@ export {
   CastledConfigs,
   CastledUserAttributes,
   CastledLogLevel,
+  CastledEvents,
+  CastledClickActionType,
 };
 
-export type { CastledEventParams };
+export type {
+  CastledEventParams,
+  CastledPushNotificationClickEvent,
+  CastledPushNotification,
+  CastledClickAction,
+  CastledCustomAttributes,
+};
