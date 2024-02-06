@@ -56,12 +56,21 @@ public class RTNCastledNotifications: RCTEventEmitter {
 
     @objc func setUserAttributes(_ attributes: NSDictionary) {
         DispatchQueue.main.async {
-            Castled.sharedInstance.setUserAttributes(params: attributes as? [String: Any] ?? [:])
+            let castleduserattributes = CastledUserAttributes()
+            if let attributesDict = attributes as? [String: Any] {
+                castleduserattributes.setAttributes(attributesDict)
+            }
+            else {
+                attributes.enumerateKeysAndObjects { key, value, _ in
+                    castleduserattributes.setCustomAttribute("\(key)", value)
+                }
+            }
+            Castled.sharedInstance.setUserAttributes(castleduserattributes)
         }
     }
 
     @objc func logout() {
-        //  Castled.sharedInstance.logout()
+        Castled.sharedInstance.logout()
     }
 
     @objc func requestPushPermission() {
