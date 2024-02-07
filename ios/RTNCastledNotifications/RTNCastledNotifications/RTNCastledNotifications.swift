@@ -50,7 +50,7 @@ public class RTNCastledNotifications: RCTEventEmitter {
 
     @objc func logCustomAppEvent(_ eventName: String, eventParams: NSDictionary?) {
         DispatchQueue.main.async {
-            Castled.sharedInstance.logCustomAppEvent(eventName: eventName, params: eventParams as? [String: Any] ?? [:])
+            Castled.sharedInstance.logCustomAppEvent(eventName, params: eventParams as? [String: Any] ?? [:])
         }
     }
 
