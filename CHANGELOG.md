@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.11.0...v1.12.0) (2024-02-07)
+
+
+### Features
+
+* event tracking fixes ([402e1d4](https://github.com/castledio/castled-react-native-sdk/commit/402e1d4912a9d35f1baf84ba3fbbb3d1e84c4b95))
+
 # [1.11.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.10.0...v1.11.0) (2024-02-07)
 
 
