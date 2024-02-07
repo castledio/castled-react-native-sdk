@@ -25,21 +25,21 @@ configs.appgroupId = '';
 configs.logLevel = CastledLogLevel.DEBUG;
 
 const userAttrs = new CastledUserAttributes();
-userAttrs.setFirstName('rn-fname');
-userAttrs.setLastName('rn-lanme');
-userAttrs.setPhone('+19008006000');
-userAttrs.setCustomAttribute('rn-custom-1', 100);
-userAttrs.setCustomAttribute('rn-custom-2', true);
-userAttrs.setCustomAttribute('rn-custom-3', 'string');
+userAttrs.setFirstName('antony');
+userAttrs.setLastName('mathew');
+userAttrs.setPhone('+919496371536');
+userAttrs.setCustomAttribute('ios_rn-custom-1', 100);
+userAttrs.setCustomAttribute('ios_rn-custom-2', true);
+userAttrs.setCustomAttribute('ios_rn-custom-3', 'string');
 
 export default function App() {
   const testData = {
     user: 'antony@castled.io',
     event: 'rn_test_event_2',
     params: {
-      str: 'val1',
-      num: 10,
-      bool: true,
+      str: 'ios_val1',
+      num: 20,
+      bool: false,
     },
   };
 
