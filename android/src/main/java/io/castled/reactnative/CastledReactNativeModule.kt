@@ -9,6 +9,7 @@ import com.facebook.react.bridge.ReactMethod
 import com.facebook.react.bridge.ReadableMap
 import io.castled.android.notifications.CastledNotifications
 import io.castled.android.notifications.push.models.PushTokenType
+import io.castled.android.notifications.CastledUserAttributes
 import io.castled.reactnative.extensions.toCastledConfigs
 import io.castled.reactnative.extensions.toMap
 
@@ -31,7 +32,7 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
 
   @ReactMethod
   override fun logout() {
-      CastledNotifications.logout(reactApplicationContext)
+      CastledNotifications.logout()
   }
 
   @ReactMethod
@@ -47,8 +48,9 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
 
   @ReactMethod
   override fun setUserAttributes(attributes: ReadableMap) {
-      // TODO
-      // CastledNotifications.setUserAttributes(reactApplicationContext, attributes.toMap())
+      val attrs = CastledUserAttributes()
+      attrs.setAttributes(attributes.toMap())
+      CastledNotifications.setUserAttributes(reactApplicationContext, attrs)
   }
 
   companion object {

@@ -119,7 +119,7 @@ dependencies {
     } else {
         implementation jscFlavor
     }
-    // implementation "io.castled.android:castled-notifications:2.2.6"
+    implementation "io.castled.android:castled-notifications:2.2.8"
 
 }
 

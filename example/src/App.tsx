@@ -1,19 +1,12 @@
 import * as React from 'react';
 
-import {
-  StyleSheet,
-  View,
-  Text,
-  Button,
-  SafeAreaView,
-  Alert,
-} from 'react-native';
-
+import { StyleSheet, View, Text, Button, SafeAreaView } from 'react-native';
 import {
   CastledNotifications,
   CastledConfigs,
   CastledLocation,
   CastledLogLevel,
+  CastledUserAttributes,
 } from 'castled-react-native-sdk';
 
 import Header from './Header';
@@ -30,6 +23,14 @@ configs.enablePush = true;
 configs.inAppFetchIntervalSec = 300;
 configs.appgroupId = '';
 configs.logLevel = CastledLogLevel.DEBUG;
+
+const userAttrs = new CastledUserAttributes();
+userAttrs.setFirstName('rn-fname');
+userAttrs.setLastName('rn-lanme');
+userAttrs.setPhone('+19008006000');
+userAttrs.setCustomAttribute('rn-custom-1', 100);
+userAttrs.setCustomAttribute('rn-custom-2', true);
+userAttrs.setCustomAttribute('rn-custom-3', 'string');
 
 export default function App() {
   const testData = {
@@ -107,7 +108,9 @@ export default function App() {
         <Text style={styles.title}>Testing user attributes tracking</Text>
         <Button
           title="Log User Attributes"
-          onPress={() => Alert.alert('Not Implemented!')}
+          onPress={() => {
+            CastledNotifications.setUserAttributes(userAttrs);
+          }}
         />
         <Separator />
         <Text style={styles.title}>Testing logout</Text>

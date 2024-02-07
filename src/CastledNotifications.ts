@@ -71,7 +71,9 @@ class CastledNotifications {
   }
 
   static setUserAttributes(attrs: CastledUserAttributes): void {
-    CastledReactNativeInstance.setUserAttributes(attrs);
+    CastledReactNativeInstance.setUserAttributes(
+      Object.fromEntries(attrs.getAttributes())
+    );
   }
 
   static requestPushPermission(): void {
