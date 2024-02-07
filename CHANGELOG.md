@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.10.0...v1.11.0) (2024-02-07)
+
+
+### Features
+
+* user attributes ([51b8d68](https://github.com/castledio/castled-react-native-sdk/commit/51b8d68df140df7064d8f293b0a704e5a30855d9))
+
 # [1.10.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.9.2...v1.10.0) (2024-02-06)
 
 
