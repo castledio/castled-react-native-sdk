@@ -1,12 +1,23 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text, Button, SafeAreaView } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Button,
+  SafeAreaView,
+  Alert,
+} from 'react-native';
 import {
   CastledNotifications,
   CastledConfigs,
   CastledLocation,
   CastledLogLevel,
   CastledUserAttributes,
+  CastledEvents,
+  type CastledClickAction,
+  type CastledPushNotification,
+  type CastledPushNotificationClickEvent,
 } from 'castled-react-native-sdk';
 
 import Header from './Header';
@@ -15,14 +26,14 @@ const Separator = () => <View style={styles.separator} />;
 
 const configs = new CastledConfigs();
 configs.appId = 'e8a4f68bfb6a58b40a77a0e6150eca0b';
-configs.enableTracking = true;
 configs.location = CastledLocation.TEST;
 configs.enableInApp = true;
 configs.enablePushBoost = true;
 configs.enableSessionTracking = true;
 configs.enablePush = true;
 configs.inAppFetchIntervalSec = 300;
-configs.sessionTimeOutSec = 60;
+configs.sessionTimeOutSec = 10;
+
 configs.appgroupId = '';
 configs.logLevel = CastledLogLevel.DEBUG;
 
@@ -45,7 +56,7 @@ export default function App() {
     },
   };
 
-  /*const pushClickedListener = CastledNotifications.addListener(
+  const pushClickedListener = CastledNotifications.addListener(
     CastledEvents.PUSH_NOTIFICATION_CLICKED,
     (event: CastledPushNotificationClickEvent) => {
       setTimeout(() => {
@@ -56,11 +67,11 @@ export default function App() {
         );
       }, 1000);
 
-      console.log('Push notification clicked: clickAction', event.clickAction);
       console.log(
         'Push notification clicked: notification object ',
         event.notification
       );
+      console.log('Push notification clicked: clickAction', event.clickAction);
     }
   );
 
@@ -70,24 +81,37 @@ export default function App() {
       console.log('Push notification received:', notification);
     }
   );
-
+  const pushDismissedListener = CastledNotifications.addListener(
+    CastledEvents.PUSH_NOTIFICATION_DISMISSED,
+    (notification: CastledPushNotification) => {
+      console.log('Push notification dismissed:', notification);
+    }
+  );
   const inAppClickedListener = CastledNotifications.addListener(
     CastledEvents.IN_APP_MESSAGE_CLICKED,
     (inappClickEvent: CastledClickAction) => {
       console.log('Inapp clicked:', inappClickEvent);
     }
-  );*/
+  );
 
   React.useEffect(() => {
     CastledNotifications.initialize(configs);
     CastledNotifications.requestPushPermission();
 
+    // Return cleanup function
     return () => {
-      // pushClickedListener.remove();
-      // pushReceivedListener.remove();
-      // inAppClickedListener.remove();
+      // Cleanup tasks (unsubscribe from subscriptions, remove event listeners, etc.)
+      pushClickedListener.remove();
+      pushReceivedListener.remove();
+      pushDismissedListener.remove();
+      inAppClickedListener.remove();
     };
-  }, []);
+  }, [
+    pushClickedListener,
+    pushReceivedListener,
+    pushDismissedListener,
+    inAppClickedListener,
+  ]);
 
   return (
     <SafeAreaView style={styles.container}>
