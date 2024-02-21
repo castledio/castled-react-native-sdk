@@ -88,10 +88,7 @@ class CastledNotifications {
   }
 
   static requestPushPermission(): void {
-    if (Platform.OS === 'ios') {
-      CastledReactNativeInstance.requestPushPermission();
-    } else {
-    }
+    CastledReactNativeInstance.requestPushPermission();
   }
 
   static addListener<T>(

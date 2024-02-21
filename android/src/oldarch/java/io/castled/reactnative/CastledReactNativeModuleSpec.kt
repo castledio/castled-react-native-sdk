@@ -1,14 +1,10 @@
-
 // NativeCastledNotificationsSpec
 
 package io.castled.reactnative
 
-import android.app.Application
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
-import com.facebook.react.bridge.ReactMethod
 import com.facebook.react.bridge.ReadableMap
-import io.castled.android.notifications.push.models.PushTokenType
 
 abstract class CastledReactNativeModuleSpec internal constructor(context: ReactApplicationContext) :
   ReactContextBaseJavaModule(context) {
@@ -24,5 +20,12 @@ abstract class CastledReactNativeModuleSpec internal constructor(context: ReactA
   abstract fun logCustomAppEvent(eventName: String, eventParams: ReadableMap?)
 
   abstract fun setUserAttributes(attributes: ReadableMap)
+
+  abstract fun requestPushPermission()
+
+  abstract fun removeListeners(count: Double)
+
+  abstract fun addListener(eventType: String?)
+
 
 }

@@ -2,7 +2,12 @@
 
 package io.castled.reactnative
 
+import android.Manifest
 import android.app.Application
+import android.content.pm.PackageManager
+import android.os.Build
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactMethod
 import com.facebook.react.bridge.ReadableMap
@@ -47,6 +52,27 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
   }
 
   @ReactMethod
+  override fun requestPushPermission() {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+      val permissionState =
+        ContextCompat.checkSelfPermission(
+          reactApplicationContext,
+          Manifest.permission.POST_NOTIFICATIONS
+        )
+      // If the permission is not granted, request it.
+      if (permissionState == PackageManager.PERMISSION_DENIED) {
+        reactApplicationContext.currentActivity?.let {
+          ActivityCompat.requestPermissions(
+            it,
+            arrayOf(Manifest.permission.POST_NOTIFICATIONS), 1
+          )
+        }
+      }
+    }
+
+  }
+
+  @ReactMethod
   override fun onTokenFetch(token: String, pushTokenType: String) {
     CastledNotifications.onTokenFetch(token, PushTokenType.valueOf(pushTokenType))
   }
@@ -69,13 +95,13 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
 
 
   @ReactMethod
-  fun addListener(eventType: String?) {
+  override fun addListener(eventType: String?) {
     // Don't Delete: Required for React built in Event Emitter Calls.
 
   }
 
   @ReactMethod
-  fun removeListeners(count: Double) {
+  override fun removeListeners(count: Double) {
     // Don't Delete: Required for React built in Event Emitter Calls.
 
   }
