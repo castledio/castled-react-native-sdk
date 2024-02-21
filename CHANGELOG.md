@@ -1,3 +1,17 @@
+## [1.12.1](https://github.com/castledio/castled-react-native-sdk/compare/v1.12.0...v1.12.1) (2024-02-08)
+
+
+### Bug Fixes
+
+* bumping android SDK version ([043f4d9](https://github.com/castledio/castled-react-native-sdk/commit/043f4d941ea721d66f2be2c1d20638c261bd6463))
+
+# [1.12.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.11.0...v1.12.0) (2024-02-07)
+
+
+### Features
+
+* event tracking fixes ([402e1d4](https://github.com/castledio/castled-react-native-sdk/commit/402e1d4912a9d35f1baf84ba3fbbb3d1e84c4b95))
+
 # [1.11.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.10.0...v1.11.0) (2024-02-07)
 
 
