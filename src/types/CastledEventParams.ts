@@ -1,3 +1,5 @@
+import type { Double } from 'react-native/Libraries/Types/CodegenTypes';
+
 export type CastledEventParams = { [key: string]: string | number | boolean };
 
 export type CastledCustomAttributes = {
@@ -18,6 +20,7 @@ export enum CastledClickActionType {
 export enum CastledEvents {
   PUSH_NOTIFICATION_CLICKED = 'onNotificationClick',
   PUSH_NOTIFICATION_RECEIVED = 'onReceivedNotification',
+  PUSH_NOTIFICATION_DISMISSED = 'onDismissedNotification',
   IN_APP_MESSAGE_CLICKED = 'onInAppMessageClick',
 }
 
@@ -52,16 +55,11 @@ export type CastledPushNotification = {
   threadId?: string;
 
   // Android
-  groupKey?: string;
-  groupMessage?: string;
-  ledColor?: string;
-  priority?: number;
-  smallIcon?: string;
-  largeIcon?: string;
-  bigPicture?: string;
-  collapseId?: string;
-  fromProjectNumber?: string;
-  smallIconAccentColor?: string;
-  lockScreenVisibility?: string;
-  androidNotificationId?: number;
+  channelId?: string;
+  channelName?: string;
+  channelDescription?: string;
+  smallIconResourceId?: string;
+  largeIconUri?: string;
+  summary?: string;
+  ttl?: Double;
 };

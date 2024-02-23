@@ -26,8 +26,10 @@ public class RTNCastledNotifications: RCTEventEmitter {
             config.enableInApp = (configs["enableInApp"] as? Bool) ?? false
             config.enablePush = (configs["enablePush"] as? Bool) ?? false
             config.enableTracking = (configs["enableTracking"] as? Bool) ?? false
-            config.permittedBGIdentifier = (configs["permittedBGIdentifier"] as? String) ?? ""
-            config.inAppFetchIntervalSec = Int((configs["inAppFetchIntervalSec"] as? String) ?? "") ?? 900
+            config.enableSessionTracking = (configs["enableSessionTracking"] as? Bool) ?? true
+            config.skipUrlHandling = (configs["skipUrlHandling"] as? Bool) ?? false
+            config.inAppFetchIntervalSec = Int((configs["inAppFetchIntervalSec"] as? String) ?? "900") ?? 900
+            config.sessionTimeOutSec = (configs["sessionTimeOutSec"] as? Int) ?? 900
             config.appGroupId = (configs["appgroupId"] as? String) ?? ""
             config.location = CastledLocation.getLocation(from: (configs["location"] as? String) ?? "US")
             config.logLevel = CastledLogLevel.getLogLevel(from: (configs["logLevel"] as? String) ?? "debug")

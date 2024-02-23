@@ -3,6 +3,7 @@ import {
   NativeModules,
   Platform,
   type EmitterSubscription,
+  DeviceEventEmitter,
 } from 'react-native';
 
 import { CastledConfigs, CastledPushTokenType } from './CastledConfigs';
@@ -36,9 +37,10 @@ const CastledReactNativeInstance = CastledReactNativeModule
     );
 
 class CastledNotifications {
-  static eventEmitter: NativeEventEmitter = new NativeEventEmitter(
-    CastledReactNativeModule
-  );
+  static eventEmitter: NativeEventEmitter = Platform.select({
+    ios: new NativeEventEmitter(CastledReactNativeModule),
+    android: DeviceEventEmitter as unknown as NativeEventEmitter,
+  })!;
 
   static initialize(configs: CastledConfigs): void {
     CastledReactNativeInstance.initialize(configs);
@@ -77,16 +79,16 @@ class CastledNotifications {
   }
 
   static requestPushPermission(): void {
-    if (Platform.OS === 'ios') {
-      CastledReactNativeInstance.requestPushPermission();
-    } else {
-    }
+    CastledReactNativeInstance.requestPushPermission();
   }
 
   static addListener<T>(
     eventName: string,
     listener: (event: T) => void
   ): EmitterSubscription {
+    if (Platform.OS === 'android') {
+      CastledReactNativeModule.addListener(eventName);
+    }
     return CastledNotifications.eventEmitter.addListener(eventName, listener);
   }
 }
