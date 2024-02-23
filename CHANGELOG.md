@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.12.1...v1.13.0) (2024-02-23)
+
+
+### Features
+
+* session tracking and push listeners ([c0221e4](https://github.com/castledio/castled-react-native-sdk/commit/c0221e45f271e79fa25723fee31a284aac778231))
+
 ## [1.12.1](https://github.com/castledio/castled-react-native-sdk/compare/v1.12.0...v1.12.1) (2024-02-08)
 
 
