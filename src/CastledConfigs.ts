@@ -30,7 +30,8 @@ class CastledConfigs {
   enableInApp: boolean = false;
   enableTracking: boolean = false;
   enableAppInbox: boolean = false;
-  enableSessionTracking: boolean = false;
+  enableSessionTracking: boolean = true;
+  skipUrlHandling: boolean = false;
   inAppFetchIntervalSec: number = 3600;
   inBoxFetchIntervalSec: number = 3600;
   sessionTimeOutSec: number = 900;

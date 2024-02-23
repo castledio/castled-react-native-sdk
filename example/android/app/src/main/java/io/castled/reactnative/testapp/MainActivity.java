@@ -31,11 +31,7 @@ public class MainActivity extends ReactActivity {
   protected void onCreate(Bundle savedInstanceState) {
 
     super.onCreate(savedInstanceState);
-//    int permissionState = ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS);
-//    // If the permission is not granted, request it.
-//    if (permissionState == PackageManager.PERMISSION_DENIED) {
-//      ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.POST_NOTIFICATIONS}, 1);
-//    }
+
   }
 
   @Override

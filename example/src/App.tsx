@@ -29,11 +29,11 @@ configs.appId = 'e8a4f68bfb6a58b40a77a0e6150eca0b';
 configs.location = CastledLocation.TEST;
 configs.enableInApp = true;
 configs.enablePushBoost = true;
-configs.enableSessionTracking = true;
+// configs.enableSessionTracking = true;
 configs.enablePush = true;
 configs.inAppFetchIntervalSec = 300;
 configs.sessionTimeOutSec = 10;
-
+configs.skipUrlHandling = true;
 configs.appgroupId = '';
 configs.logLevel = CastledLogLevel.DEBUG;
 

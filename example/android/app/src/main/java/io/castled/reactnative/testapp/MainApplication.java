@@ -1,8 +1,6 @@
 package io.castled.reactnative.testapp;
 
-import android.app.Activity;
 import android.app.Application;
-import android.content.Context;
 
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
@@ -67,7 +65,4 @@ public class MainApplication extends Application implements ReactApplication {
     CastledNotifications.startObserver(this);
   }
 
-  private void requestPushNotificationPermission(Context context) {
-    PushNotificationHelper.requestNotificationPermission((Activity) context);
-  }
 }

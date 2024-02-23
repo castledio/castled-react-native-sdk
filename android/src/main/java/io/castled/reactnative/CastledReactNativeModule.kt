@@ -14,7 +14,6 @@ import com.facebook.react.bridge.ReadableMap
 import io.castled.android.notifications.CastledNotifications
 import io.castled.android.notifications.CastledUserAttributes
 import io.castled.android.notifications.push.models.PushTokenType
-import io.castled.reactnative.consts.ConfigKeys
 import io.castled.reactnative.extensions.toCastledConfigs
 import io.castled.reactnative.extensions.toMap
 import io.castled.reactnative.listeners.CastledReactNativePushNotificationListener
@@ -32,11 +31,12 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
 
   @ReactMethod
   override fun initialize(configs: ReadableMap) {
+    val castledConfigs = configs.toCastledConfigs()
     CastledNotifications.initialize(
       reactApplicationContext.applicationContext as Application,
-      configs.toCastledConfigs()
+      castledConfigs
     )
-    if (configs.hasKey(ConfigKeys.ENABLE_PUSH) && configs.getBoolean(ConfigKeys.ENABLE_PUSH)) {
+    if (castledConfigs.enablePush) {
       pushListener.startListeningToPush()
     }
   }
@@ -69,7 +69,6 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
         }
       }
     }
-
   }
 
   @ReactMethod
@@ -93,16 +92,13 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
     const val NAME = "RTNCastledNotifications"
   }
 
-
   @ReactMethod
   override fun addListener(eventType: String?) {
     // Don't Delete: Required for React built in Event Emitter Calls.
-
   }
 
   @ReactMethod
   override fun removeListeners(count: Double) {
     // Don't Delete: Required for React built in Event Emitter Calls.
-
   }
 }

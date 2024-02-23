@@ -8,12 +8,16 @@ import io.castled.android.notifications.CastledPushNotificationListener
 import io.castled.android.notifications.push.models.CastledActionContext
 import io.castled.android.notifications.push.models.CastledPushMessage
 import io.castled.reactnative.consts.CastledEmitterKeys
-import io.castled.reactnative.consts.CastledEmitterUtils
+import io.castled.reactnative.utils.CastledEmitterUtils
 
 internal class CastledReactNativePushNotificationListener(private val reactApplicationContext: ReactApplicationContext) {
 
-
+  @Synchronized
   fun startListeningToPush() {
+    if (isListenerInitialized) {
+      return
+    }
+    isListenerInitialized = true
     CastledNotifications.subscribeToPushNotificationEvents(object :
       CastledPushNotificationListener {
 
@@ -55,6 +59,7 @@ internal class CastledReactNativePushNotificationListener(private val reactAppli
 
   companion object {
     private var instance: CastledReactNativePushNotificationListener? = null
+    private var isListenerInitialized: Boolean = false
 
     @Synchronized
     fun getInstance(context: ReactApplicationContext): CastledReactNativePushNotificationListener {

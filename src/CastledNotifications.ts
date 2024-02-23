@@ -37,16 +37,7 @@ const CastledReactNativeInstance = CastledReactNativeModule
     );
 
 class CastledNotifications {
-  static eventEmitter2: NativeEventEmitter = new NativeEventEmitter(
-    CastledReactNativeModule
-  );
-
   static eventEmitter: NativeEventEmitter = Platform.select({
-    ios: new NativeEventEmitter(CastledReactNativeModule),
-    android: DeviceEventEmitter as unknown as NativeEventEmitter,
-  })!;
-
-  static eventEmitter3: NativeEventEmitter = Platform.select({
     ios: new NativeEventEmitter(CastledReactNativeModule),
     android: DeviceEventEmitter as unknown as NativeEventEmitter,
   })!;
