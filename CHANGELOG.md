@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.13.0...v1.14.0) (2024-02-27)
+
+
+### Features
+
+* iOS v3.40 support ([33caed8](https://github.com/castledio/castled-react-native-sdk/commit/33caed8daefca0805260fcb899897d09d22f5e23))
+
 # [1.13.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.12.1...v1.13.0) (2024-02-23)
 
 
