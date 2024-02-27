@@ -14,15 +14,15 @@ let CastledEventNameListenerKey = "castledEventListenerName"
 let CastledKey = "castled"
 
 enum CastledNotificationUtils {
-    static func getPushClickedPayload(_ actionType: CastledClickActionType, _ clickAction: [AnyHashable: Any]?, _ notificaion: [AnyHashable: Any]) -> [AnyHashable: Any]? {
+    static func getPushClickedPayload(_ clickAction: CastledButtonAction?, _ notificaion: [AnyHashable: Any]) -> [AnyHashable: Any]? {
         guard notificaion[CastledKey] != nil else {
             return nil
         }
 
         var payload = [AnyHashable: Any]()
-        payload[CastledNotificationListenerKey] = notificaion.getNotificationObject()
+        payload[CastledNotificationListenerKey] = notificaion.toNotificationDictionary()
         if let clickEvent = clickAction {
-            payload[CastledClickActionListenerKey] = clickEvent.getNotificationClickObject()
+            payload[CastledClickActionListenerKey] = clickEvent.toDictionary()
         }
         payload[CastledEventNameListenerKey] = CastledListeners.CastledListenerPushClicked.rawValue
         return payload
@@ -33,14 +33,14 @@ enum CastledNotificationUtils {
         guard notificaion[CastledKey] != nil else {
             return nil
         }
-        payload.merge(notificaion.getNotificationObject()) { _, new in new }
+        payload.merge(notificaion.toNotificationDictionary()) { _, new in new }
         payload[CastledEventNameListenerKey] = CastledListeners.CastledListenerPushReceived.rawValue
         return payload
     }
 
-    static func getInappClickedPayload(_ actionType: CastledClickActionType, _ clickAction: [AnyHashable: Any]) -> [AnyHashable: Any] {
+    static func getInappClickedPayload(clickAction: CastledButtonAction) -> [AnyHashable: Any] {
         var payload = [AnyHashable: Any]()
-        payload.merge(clickAction.getNotificationClickObject()) { _, new in new }
+        payload.merge(clickAction.toDictionary()) { _, new in new }
         payload[CastledEventNameListenerKey] = CastledListeners.CastledListenerInAppMessageClicked.rawValue
         return payload
     }
