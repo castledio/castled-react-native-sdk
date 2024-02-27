@@ -8,10 +8,8 @@
 import Castled
 import Foundation
 
-
-
 extension [AnyHashable: Any] {
-    func getNotificationObject() -> [String: Any] {
+    func toNotificationDictionary() -> [String: Any] {
         var notification = [String: Any]()
         notification["notificationId"] = ""
         notification["body"] = ""
@@ -32,21 +30,21 @@ extension [AnyHashable: Any] {
             }
         }
         if let castled = self["castled"] as? [AnyHashable: Any] {
-            if let category_actions = castled["category_actions"] as? String, let actionButtons = CastledNotificationUtils.convertToDictionary(text: category_actions),let actionComponents = actionButtons["actionComponents"] as? [[String: Any]]  {
-                notification["actionButtons"] = actionComponents.getActionButtonsArray()
+            if let category_actions = castled["category_actions"] as? String, let actionButtons = CastledNotificationUtils.convertToDictionary(text: category_actions), let actionComponents = actionButtons["actionComponents"] as? [[String: Any]] {
+                notification["actionButtons"] = actionComponents.toArray()
             }
             if let castled_notification_id = castled["castled_notification_id"] as? String {
                 notification["notificationId"] = castled_notification_id
             }
-           /* if let msgFramesString = castled["msg_frames"] as? String, let detailsArray = CastledNotificationUtils.convertToArray(text: msgFramesString) as? [Any] {
-                notification["attachments"] = detailsArray
-            }*/
+            /* if let msgFramesString = castled["msg_frames"] as? String, let detailsArray = CastledNotificationUtils.convertToArray(text: msgFramesString) as? [Any] {
+                 notification["attachments"] = detailsArray
+             }*/
         }
         notification["shouldIncrementBadge"] = notification["badge"] as! String == "1" ? true : false
         return notification
     }
 
-    func getNotificationClickObject() -> [String: Any] {
+    func toClickedDictionary() -> [String: Any] {
         var clickAction = [String: Any]()
         clickAction["clickActionUri"] = self["clickActionUrl"] as? String ?? self["url"] as? String ?? ""
         clickAction["keyVals"] = self["keyVals"] ?? [:]
@@ -55,13 +53,25 @@ extension [AnyHashable: Any] {
         return clickAction
     }
 }
+
+extension CastledButtonAction {
+    func toDictionary() -> [String: Any] {
+        var clickAction = [String: Any]()
+        clickAction["clickActionUri"] = self.actionUri ?? ""
+        clickAction["keyVals"] = self.keyVals ?? [:]
+        clickAction["buttonTitle"] = self.buttonTitle ?? ""
+        clickAction["actionType"] = self.actionType.stringValue
+        return clickAction
+    }
+}
+
 extension [[String: Any]] {
-    func getActionButtonsArray() ->Array {
+    func toArray() -> Array {
         var buttons = [[String: Any]]()
         forEach { button in
             let anyHashableDictionary: [AnyHashable: Any] = button.mapValues { $0 }
-            buttons.append(anyHashableDictionary.getNotificationClickObject())
-          }
+            buttons.append(anyHashableDictionary.toClickedDictionary())
+        }
         return buttons
     }
 }

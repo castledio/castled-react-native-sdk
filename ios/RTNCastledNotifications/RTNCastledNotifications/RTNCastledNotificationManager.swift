@@ -63,16 +63,14 @@ import React
 // MARK: - Castled Delegates
 
 extension RTNCastledNotificationManager: CastledNotificationDelegate {
-    public func notificationClicked(withNotificationType type: CastledNotificationType, action: CastledClickActionType, kvPairs: [AnyHashable: Any]?, userInfo: [AnyHashable: Any]) {
+    public func notificationClicked(withNotificationType type: CastledNotificationType, buttonAction: CastledButtonAction, userInfo: [AnyHashable: Any]) {
         if type == CastledNotificationType.push {
-            if let listenerPayload = CastledNotificationUtils.getPushClickedPayload(action, kvPairs, userInfo) {
+            if let listenerPayload = CastledNotificationUtils.getPushClickedPayload(buttonAction, userInfo) {
                 processListeners(item: listenerPayload)
             }
         }
         else if type == CastledNotificationType.inapp {
-            if let clickEvent = kvPairs {
-                processListeners(item: CastledNotificationUtils.getInappClickedPayload(action, clickEvent))
-            }
+            processListeners(item: CastledNotificationUtils.getInappClickedPayload(clickAction: buttonAction))
         }
     }
 
