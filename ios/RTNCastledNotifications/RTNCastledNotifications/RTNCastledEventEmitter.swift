@@ -38,7 +38,7 @@ public extension RTNCastledNotifications {
 
     @objc func handleEventNotification(_ notification: Notification) {
         guard RTNCastledNotifications.isObserverInitiated else { return }
-        if let notificationName = notification.name.rawValue, var info = notification.userInfo {
+        if let notificationName = notification.name.rawValue as? String, var info = notification.userInfo {
             info.removeValue(forKey: CastledEventNameListenerKey)
             sendEvent(withName: notificationName, body: info)
         }
