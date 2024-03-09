@@ -20,6 +20,7 @@ public extension RTNCastledNotifications {
         for eventName in supportedEvents() {
             NotificationCenter.default.addObserver(self, selector: #selector(handleEventNotification(_:)), name: NSNotification.Name(eventName), object: nil)
         }
+        RTNCastledNotificationManager.shared.triggerListeners()
     }
 
     @objc override func stopObserving() {
@@ -37,15 +38,14 @@ public extension RTNCastledNotifications {
 
     @objc func handleEventNotification(_ notification: Notification) {
         guard RTNCastledNotifications.isObserverInitiated else { return }
-        if let notificationName = notification.name.rawValue as? String,var info = notification.userInfo {
+        if let notificationName = notification.name.rawValue, var info = notification.userInfo {
             info.removeValue(forKey: CastledEventNameListenerKey)
             sendEvent(withName: notificationName, body: info)
         }
     }
 
-    @objc internal static func handleReactObserver(_ name: String,_ userInfo: [AnyHashable: Any]) {
+    @objc internal static func handleReactObserver(_ name: String, _ userInfo: [AnyHashable: Any]) {
         // Notify JavaScript side
         NotificationCenter.default.post(name: NSNotification.Name(name), object: nil, userInfo: userInfo)
     }
-    
 }
