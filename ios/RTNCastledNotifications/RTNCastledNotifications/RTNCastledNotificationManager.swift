@@ -48,7 +48,8 @@ import React
         }
     }
 
-    private func triggerListeners() {
+    func triggerListeners() {
+        guard RTNCastledNotifications.isObserverInitiated, isReactSdkInitialized else { return }
         DispatchQueue.main.async {
             RTNCastledNotificationManager.shared.listeners.forEach { notification in
                 if let name = notification[CastledEventNameListenerKey] as? String {
