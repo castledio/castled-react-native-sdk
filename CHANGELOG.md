@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.14.0...v1.15.0) (2024-03-09)
+
+
+### Features
+
+* api auth support ([9adb5ff](https://github.com/castledio/castled-react-native-sdk/commit/9adb5ffdb8258f0c7026e07490d57db7834900c0))
+
 # [1.14.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.13.0...v1.14.0) (2024-02-27)
 
 
