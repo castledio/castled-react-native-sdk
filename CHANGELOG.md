@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.16.0...v1.17.0) (2024-03-09)
+
+
+### Features
+
+* ios  listener fixes ([fbb6bc8](https://github.com/castledio/castled-react-native-sdk/commit/fbb6bc8d3a6cc6b02b34cb85ff38a05ad25b0c16))
+
 # [1.16.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.15.0...v1.16.0) (2024-03-09)
 
 
