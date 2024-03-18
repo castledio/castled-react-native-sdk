@@ -1,3 +1,10 @@
+## [1.17.1](https://github.com/castledio/castled-react-native-sdk/compare/v1.17.0...v1.17.1) (2024-03-18)
+
+
+### Bug Fixes
+
+* npm version fix ([9f003ac](https://github.com/castledio/castled-react-native-sdk/commit/9f003acf8755533019d27bab50b0c5025b9dbb7b))
+
 # [1.17.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.16.0...v1.17.0) (2024-03-09)
 
 
