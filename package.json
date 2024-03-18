@@ -178,7 +178,7 @@
   "dependencies": {
     "@react-native-community/cli-platform-ios": "^12.3.1",
     "@react-native-community/masked-view": "^0.1.11",
-    "npm": "^8.6.0",
+    "npm": "^10.3.0",
     "react-native-gesture-handler": "^2.14.1",
     "react-native-reanimated": "^3.6.1",
     "react-native-safe-area-context": "^4.8.2",
