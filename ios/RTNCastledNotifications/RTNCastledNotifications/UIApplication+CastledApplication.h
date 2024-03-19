@@ -6,7 +6,6 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import "castled_react_native_sdk-Swift.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

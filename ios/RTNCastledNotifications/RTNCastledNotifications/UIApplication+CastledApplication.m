@@ -6,10 +6,18 @@
 //
 
 #import "UIApplication+CastledApplication.h"
-#import "castled_react_native_sdk-Swift.h"
 #import <UserNotifications/UserNotifications.h>
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
+#ifdef __has_include
+    #if __has_include(<castled_react_native_sdk/castled_react_native_sdk-Swift.h>)
+        #import <castled_react_native_sdk/castled_react_native_sdk-Swift.h>
+    #else
+        #import "castled_react_native_sdk-Swift.h"
+    #endif
+#else
+    #import "castled_react_native_sdk-Swift.h"
+#endif
 
 @implementation UIApplication (CastledApplication)
 
