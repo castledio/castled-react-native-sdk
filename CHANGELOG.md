@@ -1,3 +1,10 @@
+## [1.17.3](https://github.com/castledio/castled-react-native-sdk/compare/v1.17.2...v1.17.3) (2024-03-19)
+
+
+### Bug Fixes
+
+* firebase dependency to compile only ([896357f](https://github.com/castledio/castled-react-native-sdk/commit/896357fa957ddbcbb9df5fb27dc4b68d4ff688fd))
+
 ## [1.17.2](https://github.com/castledio/castled-react-native-sdk/compare/v1.17.1...v1.17.2) (2024-03-19)
 
 
