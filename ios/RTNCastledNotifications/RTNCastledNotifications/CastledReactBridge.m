@@ -6,8 +6,15 @@
 //
 
 #import "CastledReactBridge.h"
-#import "castled_react_native_sdk-Swift.h"
-
+#ifdef __has_include
+    #if __has_include(<castled_react_native_sdk/castled_react_native_sdk-Swift.h>)
+        #import <castled_react_native_sdk/castled_react_native_sdk-Swift.h>
+    #else
+        #import "castled_react_native_sdk-Swift.h"
+    #endif
+#else
+    #import "castled_react_native_sdk-Swift.h"
+#endif
 static CastledReactBridge *sharedInstance = nil;
 @interface CastledReactBridge() {
 
