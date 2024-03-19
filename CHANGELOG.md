@@ -1,3 +1,10 @@
+## [1.17.2](https://github.com/castledio/castled-react-native-sdk/compare/v1.17.1...v1.17.2) (2024-03-19)
+
+
+### Bug Fixes
+
+* swift.h import for dynamic build ([104a1fe](https://github.com/castledio/castled-react-native-sdk/commit/104a1fe0ee115dc84db574e3b60f226079d8bf5d))
+
 ## [1.17.1](https://github.com/castledio/castled-react-native-sdk/compare/v1.17.0...v1.17.1) (2024-03-18)
 
 
