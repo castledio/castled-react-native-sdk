@@ -8,6 +8,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactMethod
 import com.facebook.react.bridge.ReadableMap
@@ -17,7 +18,6 @@ import io.castled.android.notifications.push.models.PushTokenType
 import io.castled.reactnative.extensions.toCastledConfigs
 import io.castled.reactnative.extensions.toMap
 import io.castled.reactnative.listeners.CastledReactNativePushNotificationListener
-import com.facebook.react.bridge.Promise
 
 class CastledReactNativeModule internal constructor(context: ReactApplicationContext) :
   CastledReactNativeModuleSpec(context) {
@@ -62,13 +62,18 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
         )
       // If the permission is not granted, request it.
       if (permissionState == PackageManager.PERMISSION_DENIED) {
+        promise.resolve(false)
         reactApplicationContext.currentActivity?.let {
           ActivityCompat.requestPermissions(
             it,
             arrayOf(Manifest.permission.POST_NOTIFICATIONS), 1
           )
         }
+      } else {
+        promise.resolve(true)
       }
+    } else {
+      promise.resolve(true)
     }
   }
 

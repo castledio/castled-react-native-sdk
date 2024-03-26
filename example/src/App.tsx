@@ -93,10 +93,20 @@ export default function App() {
       console.log('Inapp clicked:', inappClickEvent);
     }
   );
+  async function promptForNotificationPermission() {
+    const granted = await CastledNotifications.requestPushPermission();
+    if (granted) {
+      console.log('Push notification permission granted');
+      // Handle the case when permission is granted
+    } else {
+      console.log('Push notification permission not granted');
+      // Handle the case when permission is not granted
+    }
+  }
 
   React.useEffect(() => {
     CastledNotifications.initialize(configs);
-    CastledNotifications.requestPushPermission();
+    promptForNotificationPermission();
 
     // Return cleanup function
     return () => {

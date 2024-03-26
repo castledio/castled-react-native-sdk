@@ -78,8 +78,13 @@ class CastledNotifications {
     );
   }
 
-  static requestPushPermission(): void {
-    CastledReactNativeInstance.requestPushPermission();
+  static async requestPushPermission(): Promise<boolean> {
+    try {
+      const granted = await CastledReactNativeInstance.requestPushPermission();
+      return granted;
+    } catch (error) {
+      return false;
+    }
   }
 
   static addListener<T>(
