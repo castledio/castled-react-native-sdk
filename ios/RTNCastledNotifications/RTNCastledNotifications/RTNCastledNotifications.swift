@@ -87,8 +87,8 @@ public class RTNCastledNotifications: RCTEventEmitter {
                 })
             }
             else {
-                resolve(false)
-                Castled.sharedInstance.logMessage("AppDelegate does not conform to UNUserNotificationCenterDelegate. Please confirm to UIApplicationDelegate protocol. https://docs.castled.io/developer-resources/sdk-integration/ios/push-notifications#registering-push-notification", .error)
+                let error = NSError(domain: "Castled", code: -1, userInfo: [NSLocalizedDescriptionKey: "AppDelegate does not conform to UNUserNotificationCenterDelegate. Please confirm to UIApplicationDelegate protocol. https://docs.castled.io/developer-resources/sdk-integration/ios/push-notifications#registering-push-notification"])
+                reject("\(error.code)", error.localizedDescription, error)
             }
         }
     }
