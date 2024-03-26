@@ -17,6 +17,7 @@ import io.castled.android.notifications.push.models.PushTokenType
 import io.castled.reactnative.extensions.toCastledConfigs
 import io.castled.reactnative.extensions.toMap
 import io.castled.reactnative.listeners.CastledReactNativePushNotificationListener
+import com.facebook.react.bridge.Promise
 
 class CastledReactNativeModule internal constructor(context: ReactApplicationContext) :
   CastledReactNativeModuleSpec(context) {
@@ -52,7 +53,7 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
   }
 
   @ReactMethod
-  override fun requestPushPermission() {
+  override fun requestPushPermission(promise: Promise) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
       val permissionState =
         ContextCompat.checkSelfPermission(
