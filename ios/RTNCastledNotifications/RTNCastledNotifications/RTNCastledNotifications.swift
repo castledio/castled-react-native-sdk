@@ -94,9 +94,9 @@ public class RTNCastledNotifications: RCTEventEmitter {
     }
 
     @objc func getPushPermission(_ resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) {
-        DispatchQueue.main.async { UNUserNotificationCenter.current().getNotificationSettings { settings in
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
             resolve(settings.authorizationStatus == .authorized)
-        }}
+        }
     }
 
     private static func doTheSetupAfterInitialization() {
