@@ -78,6 +78,10 @@ class CastledNotifications {
     );
   }
 
+  static getPushPermission(): Promise<boolean> {
+    return CastledReactNativeInstance.getPushPermission();
+  }
+
   static requestPushPermission(): Promise<boolean> {
     return CastledReactNativeInstance.requestPushPermission();
   }
