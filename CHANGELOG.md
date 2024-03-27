@@ -1,3 +1,17 @@
+# [1.18.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.17.3...v1.18.0) (2024-03-27)
+
+
+### Bug Fixes
+
+* js lib fix ([3ab67b3](https://github.com/castledio/castled-react-native-sdk/commit/3ab67b36241cdf6885713f3d3461c0d441e35ff9))
+
+
+### Features
+
+* android push perm promise ([99e1482](https://github.com/castledio/castled-react-native-sdk/commit/99e14826771949c486521118d02bf8aea15fd60f))
+* push permission listeners ([adbb550](https://github.com/castledio/castled-react-native-sdk/commit/adbb55014a3b030289b6d083e68d28907529586a))
+* request spec ([f753835](https://github.com/castledio/castled-react-native-sdk/commit/f753835d3f3a614530350fbec7726a7a906b237f))
+
 ## [1.17.3](https://github.com/castledio/castled-react-native-sdk/compare/v1.17.2...v1.17.3) (2024-03-19)
 
 
