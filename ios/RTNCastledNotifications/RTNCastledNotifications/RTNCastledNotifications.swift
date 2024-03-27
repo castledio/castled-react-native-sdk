@@ -75,8 +75,22 @@ public class RTNCastledNotifications: RCTEventEmitter {
         Castled.sharedInstance.logout()
     }
 
-    @objc func requestPushPermission() {
-        Castled.sharedInstance.promptForPushNotification()
+    @objc func requestPushPermission(_ resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) {
+        DispatchQueue.main.async {
+            if let appDelegate = UIApplication.shared.delegate as? UNUserNotificationCenterDelegate {
+                UNUserNotificationCenter.current().delegate = appDelegate
+                UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .badge, .alert], completionHandler: { granted, _ in
+                    resolve(granted)
+                    DispatchQueue.main.async {
+                        UIApplication.shared.registerForRemoteNotifications()
+                    }
+                })
+            }
+            else {
+                let error = NSError(domain: "Castled", code: -1, userInfo: [NSLocalizedDescriptionKey: "AppDelegate does not conform to UNUserNotificationCenterDelegate. Please confirm to UIApplicationDelegate protocol. https://docs.castled.io/developer-resources/sdk-integration/ios/push-notifications#registering-push-notification"])
+                reject("\(error.code)", error.localizedDescription, error)
+            }
+        }
     }
 
     private static func doTheSetupAfterInitialization() {

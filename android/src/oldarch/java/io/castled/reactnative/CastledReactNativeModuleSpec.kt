@@ -5,6 +5,7 @@ package io.castled.reactnative
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReadableMap
+import com.facebook.react.bridge.Promise
 
 abstract class CastledReactNativeModuleSpec internal constructor(context: ReactApplicationContext) :
   ReactContextBaseJavaModule(context) {
@@ -21,7 +22,7 @@ abstract class CastledReactNativeModuleSpec internal constructor(context: ReactA
 
   abstract fun setUserAttributes(attributes: ReadableMap)
 
-  abstract fun requestPushPermission()
+  abstract fun requestPushPermission(promise: Promise)
 
   abstract fun removeListeners(count: Double)
 

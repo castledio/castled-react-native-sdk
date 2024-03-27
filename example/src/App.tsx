@@ -25,8 +25,8 @@ import Header from './Header';
 const Separator = () => <View style={styles.separator} />;
 
 const configs = new CastledConfigs();
-configs.appId = 'e8a4f68bfb6a58b40a77a0e6150eca0b';
-configs.location = CastledLocation.TEST;
+configs.appId = '829c38e2e359d94372a2e0d35e1f74df';
+configs.location = CastledLocation.US;
 configs.enableInApp = true;
 configs.enablePushBoost = true;
 // configs.enableSessionTracking = true;
@@ -47,7 +47,7 @@ userAttrs.setCustomAttribute('ios_rn-custom-3', 'string');
 
 export default function App() {
   const testData = {
-    user: 'antony@castled.io',
+    user: 'frank@castled.io',
     event: 'rn_test_event_2',
     params: {
       str: 'ios_val1',
@@ -94,9 +94,23 @@ export default function App() {
     }
   );
 
+  function promptForNotificationPermission() {
+    CastledNotifications.requestPushPermission()
+      .then((isGranted) => {
+        if (isGranted) {
+          console.log('Push notification permission granted');
+        } else {
+          console.log('Push notification permission not granted');
+        }
+      })
+      .catch((error) => {
+        console.log('Request failed, error: ' + error.message);
+      });
+  }
+
   React.useEffect(() => {
     CastledNotifications.initialize(configs);
-    CastledNotifications.requestPushPermission();
+    // promptForNotificationPermission();
 
     // Return cleanup function
     return () => {
@@ -117,6 +131,12 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <Header title={'Castled React SDK Test'}></Header>
       <View style={styles.container}>
+        <Text style={styles.title}>Request Push Permission</Text>
+        <Button
+          title="Request"
+          onPress={() => promptForNotificationPermission()}
+        />
+        <Separator />
         <Text style={styles.title}>Testing user identification</Text>
         <Button
           title="Identify"
