@@ -7,6 +7,7 @@ import android.app.Application
 import android.content.pm.PackageManager
 import android.os.Build
 import android.util.SparseArray
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReactApplicationContext
@@ -58,29 +59,25 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
   }
 
   @ReactMethod
+  override fun getPushPermission(promise: Promise) {
+    promise.resolve(hasPushPermission())
+  }
+
+  @ReactMethod
   override fun requestPushPermission(promise: Promise) {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-      val permissionState =
-        ContextCompat.checkSelfPermission(
-          reactApplicationContext,
-          Manifest.permission.POST_NOTIFICATIONS
+    if (!hasPushPermission()) {
+      // If the permission is not granted, request it.
+      try {
+        val activity = getPermissionAwareActivity(reactApplicationContext)
+        activity.requestPermissions(
+          arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+          requestCode,
+          this
         )
-      if (permissionState == PackageManager.PERMISSION_GRANTED) {
-        promise.resolve(true)
-      } else {
-        // If the permission is not granted, request it.
-        try {
-          val activity = getPermissionAwareActivity(reactApplicationContext)
-          activity.requestPermissions(
-            arrayOf(Manifest.permission.POST_NOTIFICATIONS),
-            requestCode,
-            this
-          )
-          requestPromises.put(requestCode, promise)
-          requestCode++
-        } catch (e: Exception) {
-          promise.reject("Push permission request error", e)
-        }
+        requestPromises.put(requestCode, promise)
+        requestCode++
+      } catch (e: Exception) {
+        promise.reject("Push permission request error", e)
       }
     } else {
       promise.resolve(true)
@@ -127,6 +124,17 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
       ("Tried to use permissions API but the host Activity doesn't implement PermissionAwareActivity.")
     }
     return activity
+  }
+
+  private fun hasPushPermission() : Boolean {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        ContextCompat.checkSelfPermission(
+          reactApplicationContext,
+          Manifest.permission.POST_NOTIFICATIONS
+        ) == PackageManager.PERMISSION_GRANTED
+    } else {
+      true
+    }
   }
 
   override fun onRequestPermissionsResult(

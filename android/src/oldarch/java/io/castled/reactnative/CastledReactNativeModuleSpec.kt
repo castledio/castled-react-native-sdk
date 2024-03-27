@@ -24,6 +24,8 @@ abstract class CastledReactNativeModuleSpec internal constructor(context: ReactA
 
   abstract fun requestPushPermission(promise: Promise)
 
+  abstract fun getPushPermission(promise: Promise)
+
   abstract fun removeListeners(count: Double)
 
   abstract fun addListener(eventType: String?)

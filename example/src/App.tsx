@@ -100,12 +100,22 @@ export default function App() {
         if (isGranted) {
           console.log('Push notification permission granted');
         } else {
-          console.log('Push notification permission not granted');
+          console.log('Push notification permission denied');
         }
       })
       .catch((error) => {
         console.log('Request failed, error: ' + error.message);
       });
+  }
+
+  function checkForNotificationPermission() {
+    CastledNotifications.getPushPermission().then((pushEnabled) => {
+      if (pushEnabled) {
+        console.log('Does have push notification permission');
+      } else {
+        console.log('Does not have push notification permission');
+      }
+    });
   }
 
   React.useEffect(() => {
@@ -131,6 +141,12 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <Header title={'Castled React SDK Test'}></Header>
       <View style={styles.container}>
+        <Text style={styles.title}>Get Push Permission Status</Text>
+        <Button
+          title="Get Status"
+          onPress={() => checkForNotificationPermission()}
+        />
+        <Separator />
         <Text style={styles.title}>Request Push Permission</Text>
         <Button
           title="Request"

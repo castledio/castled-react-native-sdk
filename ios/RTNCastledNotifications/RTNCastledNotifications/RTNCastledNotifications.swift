@@ -93,6 +93,12 @@ public class RTNCastledNotifications: RCTEventEmitter {
         }
     }
 
+    @objc func getPushPermission(_ resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            resolve(settings.authorizationStatus == .authorized)
+        }
+    }
+
     private static func doTheSetupAfterInitialization() {
         if let categories = RTNCastledNotifications.notificationCategories {
             RTNCastledNotifications.setNotificationCategories(withItems: categories)
