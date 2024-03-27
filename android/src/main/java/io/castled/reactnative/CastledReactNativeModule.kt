@@ -20,7 +20,6 @@ import io.castled.android.notifications.push.models.PushTokenType
 import io.castled.reactnative.extensions.toCastledConfigs
 import io.castled.reactnative.extensions.toMap
 import io.castled.reactnative.listeners.CastledReactNativePushNotificationListener
-import java.lang.IllegalStateException
 
 class CastledReactNativeModule internal constructor(context: ReactApplicationContext) :
   CastledReactNativeModuleSpec(context), PermissionListener {
@@ -80,7 +79,7 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
           requestPromises.put(requestCode, promise)
           requestCode++
         } catch (e: Exception) {
-          promise.reject("Push permission request error", "Push permission request failed!", e)
+          promise.reject("Push permission request error", e)
         }
       }
     } else {

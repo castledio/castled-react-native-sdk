@@ -104,7 +104,7 @@ export default function App() {
         }
       })
       .catch((error) => {
-        console.log('error: ' + error.message);
+        console.log('Request failed, error: ' + error.message);
       });
   }
 
