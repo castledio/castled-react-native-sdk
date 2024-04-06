@@ -25,16 +25,8 @@ import React
         super.init()
     }
 
-    @objc public static func initializeCastledSDK() {
-        RTNCastledNotificationManager.enableCastledSwizzling()
-    }
-
     @objc public static func setCastledDelegate() {
         Castled.setDelegate(RTNCastledNotificationManager.shared)
-    }
-
-    private static func enableCastledSwizzling() {
-        Castled.initializeForCrossPlatform()
     }
 
     // MARK: - Received notifcation handling

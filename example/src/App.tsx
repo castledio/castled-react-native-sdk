@@ -25,11 +25,11 @@ import Header from './Header';
 const Separator = () => <View style={styles.separator} />;
 
 const configs = new CastledConfigs();
-configs.appId = '829c38e2e359d94372a2e0d35e1f74df';
+configs.appId = '718c38e2e359d94367a2e0d35e1fd4df';
 configs.location = CastledLocation.US;
 configs.enableInApp = true;
 configs.enablePushBoost = true;
-// configs.enableSessionTracking = true;
+configs.enableTracking = true;
 configs.enablePush = true;
 configs.inAppFetchIntervalSec = 300;
 configs.sessionTimeOutSec = 10;
@@ -47,7 +47,7 @@ userAttrs.setCustomAttribute('ios_rn-custom-3', 'string');
 
 export default function App() {
   const testData = {
-    user: 'frank@castled.io',
+    user: 'antony@castled.io',
     event: 'rn_test_event_2',
     params: {
       str: 'ios_val1',
