@@ -127,7 +127,7 @@ public class RTNCastledNotifications: RCTEventEmitter {
                 UNUserNotificationCenter.current().delegate = notificationDelegate
             }
             else {
-                Castled.sharedInstance.logMessage("AppDelegate does not conform to UNUserNotificationCenterDelegate. Please confirm to UIApplicationDelegate protocol(Native setup > iOS > Step 2) https://docs.castled.io/developer-resources/sdk-integration/reactnative/push-notifications#native-setup", .error)
+                Castled.sharedInstance.logMessage("AppDelegate does not conform to UNUserNotificationCenterDelegate. Please confirm to UIApplicationDelegate protocol(Native setup > iOS > Step 5: AppDelegate Swizzling in Castled SDK) https://docs.castled.io/developer-resources/sdk-integration/reactnative/push-notifications#native-setup", .error)
             }
         }
     }

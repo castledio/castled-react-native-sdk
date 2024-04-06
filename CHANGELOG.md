@@ -1,3 +1,10 @@
+## [1.18.1](https://github.com/castledio/castled-react-native-sdk/compare/v1.18.0...v1.18.1) (2024-03-27)
+
+
+### Bug Fixes
+
+* add getPushPermission method ([#22](https://github.com/castledio/castled-react-native-sdk/issues/22)) ([3f619a5](https://github.com/castledio/castled-react-native-sdk/commit/3f619a5117982ee7b9b05efba750e8cbdd766325))
+
 # [1.18.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.17.3...v1.18.0) (2024-03-27)
 
 
