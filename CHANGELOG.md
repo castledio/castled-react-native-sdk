@@ -1,3 +1,19 @@
+# [1.19.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.18.1...v1.19.0) (2024-04-07)
+
+
+### Bug Fixes
+
+* add getPushPermission method ([b6f6b45](https://github.com/castledio/castled-react-native-sdk/commit/b6f6b45f4a0653f1d8370f57365fdd39adcda4bc))
+* release fix for ga ([#24](https://github.com/castledio/castled-react-native-sdk/issues/24)) ([2904ee8](https://github.com/castledio/castled-react-native-sdk/commit/2904ee8fcbccd626d7b93e14f03b66b4a0101942))
+
+
+### Features
+
+* get push permission- iOS ([aafed87](https://github.com/castledio/castled-react-native-sdk/commit/aafed876a44822b64c61f327035ef87d32f55980))
+* get push permission- iOS ([d502bfa](https://github.com/castledio/castled-react-native-sdk/commit/d502bfa4cce7f4e9106d94cda3edbaca29f30eba))
+* support fo iOS V3.5.0 ([48414e1](https://github.com/castledio/castled-react-native-sdk/commit/48414e1d8516e37720d1c7da1d3a905bc2eb5901))
+* support fo iOS V3.5.0 ([c8f3168](https://github.com/castledio/castled-react-native-sdk/commit/c8f31689d41d4799f4f821301f6a1657337f78c4))
+
 ## [1.18.1](https://github.com/castledio/castled-react-native-sdk/compare/v1.18.0...v1.18.1) (2024-03-27)
 
 
