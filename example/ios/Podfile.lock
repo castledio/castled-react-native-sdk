@@ -1,10 +1,10 @@
 PODS:
   - boost (1.76.0)
-  - Castled (3.4.3):
+  - Castled (3.5.0):
     - RealmSwift (~> 10.43.0)
     - SDWebImage (~> 5.11)
   - castled-react-native-sdk (0.1.0):
-    - Castled (>= 3.4.1)
+    - Castled (>= 3.5.0)
     - React-Core
   - CocoaAsyncSocket (7.6.5)
   - DoubleConversion (1.1.6)
@@ -678,8 +678,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: 57d2868c099736d80fcd648bf211b4431e51a558
-  Castled: 303af07ae617f2739b735f1df0334233a5e855be
-  castled-react-native-sdk: 9cf2fc36d2f5c3896878c0be77d781a526fc2aab
+  Castled: 36e981ec83ce2c04273739fbb4f39bea791576c7
+  castled-react-native-sdk: 5ec651d96faf70f79e8de233f17dc31c04e52845
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: 5fbbff1d7734827299274638deb8ba3024f6c597

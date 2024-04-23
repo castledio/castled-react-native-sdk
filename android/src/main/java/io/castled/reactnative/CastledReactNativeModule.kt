@@ -6,11 +6,15 @@ import android.Manifest
 import android.app.Application
 import android.content.pm.PackageManager
 import android.os.Build
-import androidx.core.app.ActivityCompat
+import android.util.SparseArray
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
+import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactMethod
 import com.facebook.react.bridge.ReadableMap
+import com.facebook.react.modules.core.PermissionAwareActivity
+import com.facebook.react.modules.core.PermissionListener
 import io.castled.android.notifications.CastledNotifications
 import io.castled.android.notifications.CastledUserAttributes
 import io.castled.android.notifications.push.models.PushTokenType
@@ -19,7 +23,10 @@ import io.castled.reactnative.extensions.toMap
 import io.castled.reactnative.listeners.CastledReactNativePushNotificationListener
 
 class CastledReactNativeModule internal constructor(context: ReactApplicationContext) :
-  CastledReactNativeModuleSpec(context) {
+  CastledReactNativeModuleSpec(context), PermissionListener {
+
+  private val requestPromises = SparseArray<Promise>()
+  private var requestCode = 0
 
   private val pushListener by lazy {
     CastledReactNativePushNotificationListener.getInstance(context)
@@ -52,22 +59,28 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
   }
 
   @ReactMethod
-  override fun requestPushPermission() {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-      val permissionState =
-        ContextCompat.checkSelfPermission(
-          reactApplicationContext,
-          Manifest.permission.POST_NOTIFICATIONS
-        )
+  override fun getPushPermission(promise: Promise) {
+    promise.resolve(hasPushPermission())
+  }
+
+  @ReactMethod
+  override fun requestPushPermission(promise: Promise) {
+    if (!hasPushPermission()) {
       // If the permission is not granted, request it.
-      if (permissionState == PackageManager.PERMISSION_DENIED) {
-        reactApplicationContext.currentActivity?.let {
-          ActivityCompat.requestPermissions(
-            it,
-            arrayOf(Manifest.permission.POST_NOTIFICATIONS), 1
-          )
-        }
+      try {
+        val activity = getPermissionAwareActivity(reactApplicationContext)
+        activity.requestPermissions(
+          arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+          requestCode,
+          this
+        )
+        requestPromises.put(requestCode, promise)
+        requestCode++
+      } catch (e: Exception) {
+        promise.reject("Push permission request error", e)
       }
+    } else {
+      promise.resolve(true)
     }
   }
 
@@ -100,5 +113,41 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
   @ReactMethod
   override fun removeListeners(count: Double) {
     // Don't Delete: Required for React built in Event Emitter Calls.
+  }
+
+  private fun getPermissionAwareActivity(
+    reactContext: ReactApplicationContext
+  ): PermissionAwareActivity {
+    val activity = reactContext.currentActivity
+    checkNotNull(activity) { "Tried to use permissions API while not attached to an " + "Activity." }
+    check(activity is PermissionAwareActivity) {
+      ("Tried to use permissions API but the host Activity doesn't implement PermissionAwareActivity.")
+    }
+    return activity
+  }
+
+  private fun hasPushPermission() : Boolean {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        ContextCompat.checkSelfPermission(
+          reactApplicationContext,
+          Manifest.permission.POST_NOTIFICATIONS
+        ) == PackageManager.PERMISSION_GRANTED
+    } else {
+      true
+    }
+  }
+
+  override fun onRequestPermissionsResult(
+    requestCode: Int, permissions: Array<out String>?,
+    grantResults: IntArray?
+  ): Boolean {
+    val promise = requestPromises.get(requestCode)
+    if (grantResults?.get(0) == PackageManager.PERMISSION_GRANTED) {
+      promise.resolve(true)
+    } else {
+      promise.resolve(false)
+    }
+    requestPromises.remove(requestCode)
+    return requestPromises.size() == 0
   }
 }

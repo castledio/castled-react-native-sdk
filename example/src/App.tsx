@@ -25,11 +25,11 @@ import Header from './Header';
 const Separator = () => <View style={styles.separator} />;
 
 const configs = new CastledConfigs();
-configs.appId = 'e8a4f68bfb6a58b40a77a0e6150eca0b';
-configs.location = CastledLocation.TEST;
+configs.appId = '718c38e2e359d94367a2e0d35e1fd4df';
+configs.location = CastledLocation.US;
 configs.enableInApp = true;
 configs.enablePushBoost = true;
-// configs.enableSessionTracking = true;
+configs.enableTracking = true;
 configs.enablePush = true;
 configs.inAppFetchIntervalSec = 300;
 configs.sessionTimeOutSec = 10;
@@ -94,9 +94,33 @@ export default function App() {
     }
   );
 
+  function promptForNotificationPermission() {
+    CastledNotifications.requestPushPermission()
+      .then((isGranted) => {
+        if (isGranted) {
+          console.log('Push notification permission granted');
+        } else {
+          console.log('Push notification permission denied');
+        }
+      })
+      .catch((error) => {
+        console.log('Request failed, error: ' + error.message);
+      });
+  }
+
+  function checkForNotificationPermission() {
+    CastledNotifications.getPushPermission().then((pushEnabled) => {
+      if (pushEnabled) {
+        console.log('Does have push notification permission');
+      } else {
+        console.log('Does not have push notification permission');
+      }
+    });
+  }
+
   React.useEffect(() => {
     CastledNotifications.initialize(configs);
-    CastledNotifications.requestPushPermission();
+    // promptForNotificationPermission();
 
     // Return cleanup function
     return () => {
@@ -117,6 +141,18 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <Header title={'Castled React SDK Test'}></Header>
       <View style={styles.container}>
+        <Text style={styles.title}>Get Push Permission Status</Text>
+        <Button
+          title="Get Status"
+          onPress={() => checkForNotificationPermission()}
+        />
+        <Separator />
+        <Text style={styles.title}>Request Push Permission</Text>
+        <Button
+          title="Request"
+          onPress={() => promptForNotificationPermission()}
+        />
+        <Separator />
         <Text style={styles.title}>Testing user identification</Text>
         <Button
           title="Identify"

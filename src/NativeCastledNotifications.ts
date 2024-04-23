@@ -14,7 +14,9 @@ export interface Spec extends TurboModule {
 
   setUserAttributes(attributes: Object): void;
 
-  requestPushPermission(): void;
+  requestPushPermission(): Promise<boolean>;
+
+  getPushPermission(): Promise<boolean>;
 
   // NativeEventEmitter methods for the New Architecture.
   // The implementations are handled implicitly by React Native.

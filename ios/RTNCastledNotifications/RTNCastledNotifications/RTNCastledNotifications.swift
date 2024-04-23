@@ -12,6 +12,7 @@ import React
 public class RTNCastledNotifications: RCTEventEmitter {
     private static var launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     private static var notificationCategories: Set<UNNotificationCategory>?
+    private var swizzzlingDisabled = Bundle.main.object(forInfoDictionaryKey: "CastledSwizzlingDisabled") as? Bool ?? false
 
     override private init() {
         super.init()
@@ -34,13 +35,9 @@ public class RTNCastledNotifications: RCTEventEmitter {
             config.location = CastledLocation.getLocation(from: (configs["location"] as? String) ?? "US")
             config.logLevel = CastledLogLevel.getLogLevel(from: (configs["logLevel"] as? String) ?? "debug")
             Castled.initialize(withConfig: config, andDelegate: nil)
-            if let notificationDelegate = UIApplication.shared.delegate as? UNUserNotificationCenterDelegate {
-                UNUserNotificationCenter.current().delegate = notificationDelegate
-            }
-            else {
-                Castled.sharedInstance.logMessage("AppDelegate does not conform to UNUserNotificationCenterDelegate. Please confirm to UIApplicationDelegate protocol(Native setup > iOS > Step 2) https://docs.castled.io/developer-resources/sdk-integration/reactnative/push-notifications#native-setup", .error)
-            }
+
             RTNCastledNotifications.doTheSetupAfterInitialization()
+            self.setTheNotificiationDelegate()
         }
     }
 
@@ -75,8 +72,41 @@ public class RTNCastledNotifications: RCTEventEmitter {
         Castled.sharedInstance.logout()
     }
 
-    @objc func requestPushPermission() {
-        Castled.sharedInstance.promptForPushNotification()
+    @objc func requestPushPermission(_ resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) {
+        DispatchQueue.main.async {
+            if self.swizzzlingDisabled {
+                if let appDelegate = UIApplication.shared.delegate as? UNUserNotificationCenterDelegate {
+                    UNUserNotificationCenter.current().delegate = appDelegate
+                    self.requestAPNSPermission { success in
+                        resolve(success)
+                    }
+                }
+                else {
+                    let error = NSError(domain: "Castled", code: -1, userInfo: [NSLocalizedDescriptionKey: "AppDelegate does not conform to UNUserNotificationCenterDelegate. Please confirm to UIApplicationDelegate protocol(Native setup > iOS > Step 5: AppDelegate Swizzling in Castled SDK) https://docs.castled.io/developer-resources/sdk-integration/reactnative/push-notifications#native-setup"])
+                    reject("\(error.code)", error.localizedDescription, error)
+                }
+            }
+            else {
+                self.requestAPNSPermission { success in
+                    resolve(success)
+                }
+            }
+        }
+    }
+
+    private func requestAPNSPermission(completion: @escaping (_ success: Bool) -> Void) {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .badge, .alert], completionHandler: { granted, _ in
+            completion(granted)
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+        })
+    }
+
+    @objc func getPushPermission(_ resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            resolve(settings.authorizationStatus == .authorized)
+        }
     }
 
     private static func doTheSetupAfterInitialization() {
@@ -88,6 +118,18 @@ public class RTNCastledNotifications: RCTEventEmitter {
         }
         Castled.sharedInstance.appBecomeActive()
         RTNCastledNotificationManager.shared.isReactSdkInitialized = true
+    }
+
+    private func setTheNotificiationDelegate() {
+        if swizzzlingDisabled {
+            // enabled case is handled by the Castled iOS SDK, This is to prevent other push SDKs from overriding the push delegate to their own class
+            if let notificationDelegate = UIApplication.shared.delegate as? UNUserNotificationCenterDelegate {
+                UNUserNotificationCenter.current().delegate = notificationDelegate
+            }
+            else {
+                Castled.sharedInstance.logMessage("AppDelegate does not conform to UNUserNotificationCenterDelegate. Please confirm to UIApplicationDelegate protocol(Native setup > iOS > Step 5: AppDelegate Swizzling in Castled SDK) https://docs.castled.io/developer-resources/sdk-integration/reactnative/push-notifications#native-setup", .error)
+            }
+        }
     }
 
     // MARK: - PUSH METHODS
