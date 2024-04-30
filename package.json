@@ -74,7 +74,8 @@
     "typescript": "^5.0.2"
   },
   "resolutions": {
-    "@types/react": "17.0.21"
+    "@types/react": "17.0.21",
+    "ip": "^2.0.1"
   },
   "peerDependencies": {
     "react": "*",
@@ -183,5 +184,8 @@
     "react-native-reanimated": "^3.6.1",
     "react-native-safe-area-context": "^4.8.2",
     "react-native-screens": "^3.29.0"
+  },
+  "overrides": {
+    "ip": "^2.0.1"
   }
 }
