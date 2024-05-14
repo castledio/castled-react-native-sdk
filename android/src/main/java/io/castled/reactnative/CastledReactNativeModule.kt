@@ -107,12 +107,12 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
 
   @ReactMethod
   override fun addListener(eventType: String?) {
-    // Don't Delete: Required for React built in Event Emitter Calls.
+    // Don't delete: Required for React built in Event Emitter Calls.
   }
 
   @ReactMethod
   override fun removeListeners(count: Double) {
-    // Don't Delete: Required for React built in Event Emitter Calls.
+    // Don't delete: Required for React built in Event Emitter Calls.
   }
 
   private fun getPermissionAwareActivity(
