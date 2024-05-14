@@ -1,3 +1,10 @@
+## [1.19.1](https://github.com/castledio/castled-react-native-sdk/compare/v1.19.0...v1.19.1) (2024-05-14)
+
+
+### Bug Fixes
+
+* cleanups ([#30](https://github.com/castledio/castled-react-native-sdk/issues/30)) ([2086a75](https://github.com/castledio/castled-react-native-sdk/commit/2086a758c722c9d5b3a1c1fb05d55eb57c0077c9))
+
 # [1.19.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.18.1...v1.19.0) (2024-04-07)
 
 
