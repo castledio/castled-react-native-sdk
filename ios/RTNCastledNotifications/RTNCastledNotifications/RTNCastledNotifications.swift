@@ -4,9 +4,9 @@
 //
 //  Created by antony on 18/12/2023.
 //
-import Castled
 import Foundation
 import React
+@_spi(CastledInternal) import Castled
 
 @objc(RTNCastledNotifications)
 public class RTNCastledNotifications: RCTEventEmitter {
@@ -116,7 +116,7 @@ public class RTNCastledNotifications: RCTEventEmitter {
         if let launcOptions = RTNCastledNotifications.launchOptions {
             RTNCastledNotifications.setLaunchOptions(launchOptions: launcOptions)
         }
-        Castled.sharedInstance.appBecomeActive()
+        CastledLifeCycleManager.sharedInstance.appDidBecomeActive()
         RTNCastledNotificationManager.shared.isReactSdkInitialized = true
     }
 
@@ -147,11 +147,8 @@ public class RTNCastledNotifications: RCTEventEmitter {
         Castled.sharedInstance.userNotificationCenter(center, willPresent: notification)
     }
 
-    @objc public static func didReceiveRemoteNotification(inApplication application: UIApplication, withInfo userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        Castled.sharedInstance.didReceiveRemoteNotification(inApplication: application, withInfo: userInfo, fetchCompletionHandler: { data in
-            completionHandler(data)
-
-        })
+    @objc public static func didReceiveRemoteNotification(_ userInfo: [AnyHashable: Any]) {
+        Castled.sharedInstance.didReceiveRemoteNotification(userInfo)
     }
 
     @objc public static func setLaunchOptions(launchOptions: [UIApplication.LaunchOptionsKey: Any]) {

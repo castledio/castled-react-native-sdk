@@ -114,10 +114,9 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
-  [[CastledReactBridge sharedInstance] didReceiveRemoteNotificationInApplication:application withInfo:userInfo fetchCompletionHandler:^(UIBackgroundFetchResult) {
-    completionHandler(UIBackgroundFetchResultNewData);
-
-  }];
+  [[CastledReactBridge sharedInstance] didReceiveRemoteNotification:userInfo];
+ 
+  completionHandler(UIBackgroundFetchResultNoData);
 }
  
 

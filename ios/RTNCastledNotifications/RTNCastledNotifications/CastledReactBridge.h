@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setPushToken:(NSString *)token;
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response;
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification;
-- (void)didReceiveRemoteNotificationInApplication:(UIApplication *)application withInfo:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler;
+- (void)didReceiveRemoteNotification:(NSDictionary *)userInfo;
 - (void)setNotificationCategoriesWithItems:(NSSet<UNNotificationCategory *> *)items;
 - (void)setLaunchOptions:(nullable NSDictionary<UIApplicationLaunchOptionsKey, id> * )launchOptions;
 

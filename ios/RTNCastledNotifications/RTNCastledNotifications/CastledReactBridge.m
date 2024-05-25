@@ -52,10 +52,9 @@ static CastledReactBridge *sharedInstance = nil;
     [RTNCastledNotifications userNotificationCenter:center willPresent:notification];
 }
 
-- (void)didReceiveRemoteNotificationInApplication:(UIApplication *)application withInfo:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler{
-    [RTNCastledNotifications didReceiveRemoteNotificationInApplication:application withInfo:userInfo fetchCompletionHandler:^(UIBackgroundFetchResult result) {
-        completionHandler(result);
-    }];
+- (void)didReceiveRemoteNotification:(NSDictionary *)userInfo{
+    [RTNCastledNotifications didReceiveRemoteNotification:userInfo];
+ 
 }
 
 - (void)setNotificationCategoriesWithItems:(NSSet<UNNotificationCategory *> *)items{
