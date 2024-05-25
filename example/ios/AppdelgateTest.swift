@@ -39,9 +39,7 @@ extension AppDelegateC: UNUserNotificationCenterDelegate {
   }
 
   func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-    CastledReactBridge.sharedInstance().didReceiveRemoteNotification(in: application, withInfo: userInfo, fetchCompletionHandler: { _ in
-      completionHandler(.newData)
-
-    })
+    CastledReactBridge.sharedInstance().didReceiveRemoteNotification(userInfo)
+    completionHandler(.noData)
   }
 }
