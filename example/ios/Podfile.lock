@@ -1,9 +1,9 @@
 PODS:
   - boost (1.76.0)
-  - Castled (4.1.2):
+  - Castled (4.1.5):
     - SDWebImage (~> 5.11)
   - castled-react-native-sdk (0.1.0):
-    - Castled (>= 4.1.2)
+    - Castled (~> 4.1.5)
     - React-Core
   - DoubleConversion (1.1.6)
   - FBLazyVector (0.72.7)
@@ -574,8 +574,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: 57d2868c099736d80fcd648bf211b4431e51a558
-  Castled: 16c20fbb422acf47796cfee8a5be01dafed19010
-  castled-react-native-sdk: 190686651aacea73cf6456dfb43c1e0b7d8f8fba
+  Castled: b99da39f4ae022c16ef2cf88938b059139fb5ad5
+  castled-react-native-sdk: 4688e1a72c67ef58f796322ff391c1f69a980c3e
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: 5fbbff1d7734827299274638deb8ba3024f6c597
   FBReactNativeSpec: 638095fe8a01506634d77b260ef8a322019ac671
