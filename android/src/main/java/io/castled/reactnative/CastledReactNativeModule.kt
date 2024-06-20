@@ -7,7 +7,6 @@ import android.app.Application
 import android.content.pm.PackageManager
 import android.os.Build
 import android.util.SparseArray
-import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReactApplicationContext
@@ -19,6 +18,7 @@ import io.castled.android.notifications.CastledNotifications
 import io.castled.android.notifications.CastledUserAttributes
 import io.castled.android.notifications.push.models.PushTokenType
 import io.castled.reactnative.extensions.toCastledConfigs
+import io.castled.reactnative.extensions.toCastledInboxConfigs
 import io.castled.reactnative.extensions.toMap
 import io.castled.reactnative.listeners.CastledReactNativePushNotificationListener
 
@@ -101,6 +101,31 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
     CastledNotifications.setUserAttributes(reactApplicationContext, attrs)
   }
 
+  @ReactMethod
+  override fun getInboxUnreadCount(promise: Promise) {
+    CastledNotifications.getInboxUnreadCount { unreadCount ->
+      promise.resolve(unreadCount)
+    }
+  }
+
+  @ReactMethod
+  override fun showAppInbox(configs: ReadableMap?) {
+    val inboxConfigs = configs?.let { it.toCastledInboxConfigs() }
+    reactApplicationContext.currentActivity?.let {
+      CastledNotifications.showAppInbox(
+        it,
+        inboxConfigs
+      )
+    }
+  }
+
+  @ReactMethod
+  override fun logPageViewedEvent() {
+    reactApplicationContext.currentActivity?.let {
+      CastledNotifications.logAppPageViewedEvent(reactApplicationContext, it.javaClass.simpleName)
+    }
+  }
+
   companion object {
     const val NAME = "RTNCastledNotifications"
   }
@@ -115,6 +140,7 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
     // Don't delete: Required for React built in Event Emitter Calls.
   }
 
+
   private fun getPermissionAwareActivity(
     reactContext: ReactApplicationContext
   ): PermissionAwareActivity {
@@ -126,12 +152,12 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
     return activity
   }
 
-  private fun hasPushPermission() : Boolean {
+  private fun hasPushPermission(): Boolean {
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-        ContextCompat.checkSelfPermission(
-          reactApplicationContext,
-          Manifest.permission.POST_NOTIFICATIONS
-        ) == PackageManager.PERMISSION_GRANTED
+      ContextCompat.checkSelfPermission(
+        reactApplicationContext,
+        Manifest.permission.POST_NOTIFICATIONS
+      ) == PackageManager.PERMISSION_GRANTED
     } else {
       true
     }

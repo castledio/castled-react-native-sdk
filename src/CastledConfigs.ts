@@ -42,11 +42,32 @@ class CastledConfigs {
   appgroupId: string = '';
   logLevel: CastledLogLevel = CastledLogLevel.DEBUG;
 }
+class CastledInboxConfigs {
+  emptyMessageViewText: string =
+    'We have no updates. Please check again later.';
+  emptyMessageViewTextColor: string = '#000000';
+  inboxViewBackgroundColor: string = '#ffffff';
+  navigationBarBackgroundColor: string = '#ffffff';
+  navigationBarTitle: string = 'App Inbox';
+  navigationBarTitleColor: string = '#ffffff';
+  hideNavigationBar: boolean = false;
+  hideBackButton: boolean = false;
+  backButtonResourceId: number = -1; // android
+  backButtonImage: string = ''; // ios
 
+  // Tabbar Configuraitions
+  showCategoriesTab: boolean = true;
+  tabBarDefaultBackgroundColor: string = '#ffffff';
+  tabBarSelectedBackgroundColor: string = '#ffffff';
+  tabBarDefaultTextColor: string = '#000000';
+  tabBarSelectedTextColor: string = '#3366CC';
+  tabBarIndicatorBackgroundColor: string = '#3366CC';
+}
 export {
   CastledLocation,
   XiaomiRegion,
   CastledPushTokenType,
   CastledConfigs,
+  CastledInboxConfigs,
   CastledLogLevel,
 };

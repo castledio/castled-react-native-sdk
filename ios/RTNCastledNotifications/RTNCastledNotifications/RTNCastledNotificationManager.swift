@@ -57,13 +57,19 @@ import React
 
 extension RTNCastledNotificationManager: CastledNotificationDelegate {
     public func notificationClicked(withNotificationType type: CastledNotificationType, buttonAction: CastledButtonAction, userInfo: [AnyHashable: Any]) {
-        if type == CastledNotificationType.push {
+        switch type {
+        case CastledNotificationType.push:
             if let listenerPayload = CastledNotificationUtils.getPushClickedPayload(buttonAction, userInfo) {
                 processListeners(item: listenerPayload)
             }
-        }
-        else if type == CastledNotificationType.inapp {
+        case CastledNotificationType.inapp:
             processListeners(item: CastledNotificationUtils.getInappClickedPayload(clickAction: buttonAction))
+
+        case CastledNotificationType.inbox:
+            processListeners(item: CastledNotificationUtils.getInboxClickedPayload(clickAction: buttonAction))
+
+        default:
+            break
         }
     }
 

@@ -23,7 +23,11 @@ RCT_EXTERN_METHOD(onTokenFetch:(NSString *)token);
 RCT_EXTERN_METHOD(logout);
 RCT_EXTERN_METHOD(requestPushPermission: (RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 RCT_EXTERN_METHOD(getPushPermission: (RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
-
+RCT_EXTERN_METHOD(showAppInbox:(NSDictionary *)configs)
+RCT_EXTERN_METHOD(getInboxUnreadCount:(RCTPromiseResolveBlock)resolve
+                              rejecter:(RCTPromiseRejectBlock)reject)
+RCT_EXTERN_METHOD(logPageViewedEvent)
+ 
 #ifdef RCT_NEW_ARCH_ENABLED
 - (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:
 (const facebook::react::ObjCTurboModule::InitParams &)params

@@ -16,6 +16,8 @@
 		0A9CC2D82B5F8D7500B24010 /* RTNCastledNotifications.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CC2D72B5F8D7500B24010 /* RTNCastledNotifications.mm */; };
 		0AA7A5CA2B675ECE00F8EFC7 /* CastledNotification+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA7A5C92B675ECE00F8EFC7 /* CastledNotification+Extensions.swift */; };
 		0AA7A5CC2B675EF600F8EFC7 /* CastledNotificationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA7A5CB2B675EF600F8EFC7 /* CastledNotificationUtils.swift */; };
+		0ACD86592C21504600B4487A /* CastledInbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD86582C21504600B4487A /* CastledInbox.swift */; };
+		0ACD865B2C217F8700B4487A /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD865A2C217F8700B4487A /* Color+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +45,8 @@
 		0A9CC2D72B5F8D7500B24010 /* RTNCastledNotifications.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RTNCastledNotifications.mm; sourceTree = "<group>"; };
 		0AA7A5C92B675ECE00F8EFC7 /* CastledNotification+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CastledNotification+Extensions.swift"; sourceTree = "<group>"; };
 		0AA7A5CB2B675EF600F8EFC7 /* CastledNotificationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastledNotificationUtils.swift; sourceTree = "<group>"; };
+		0ACD86582C21504600B4487A /* CastledInbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastledInbox.swift; sourceTree = "<group>"; };
+		0ACD865A2C217F8700B4487A /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		0AFA8D9A2B335C7000DF4DBE /* libRTNCastledNotifications.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRTNCastledNotifications.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -79,11 +83,13 @@
 				0A0F1DD02B51567E00C461A3 /* CastledReactBridge.h */,
 				0A0F1DD52B51567E00C461A3 /* CastledReactBridge.m */,
 				0A0F1DD32B51567E00C461A3 /* CastledUtils.swift */,
+				0ACD865A2C217F8700B4487A /* Color+Extensions.swift */,
 				0A9CC2D72B5F8D7500B24010 /* RTNCastledNotifications.mm */,
 				0A0F1DD42B51567E00C461A3 /* RTNCastledNotifications.swift */,
 				0A5CC3AA2B52C2F000ED942D /* RTNCastledEventEmitter.swift */,
 				0A6FA7CF2B63E9B8003BE76B /* RTNCastledNotificationManager.swift */,
 				0AA7A5C92B675ECE00F8EFC7 /* CastledNotification+Extensions.swift */,
+				0ACD86582C21504600B4487A /* CastledInbox.swift */,
 				0AA7A5CB2B675EF600F8EFC7 /* CastledNotificationUtils.swift */,
 				0A42D6A12B61057800514180 /* UIApplication+CastledApplication.h */,
 				0A42D6A22B61057800514180 /* UIApplication+CastledApplication.m */,
@@ -155,9 +161,11 @@
 				0A6FA7D02B63E9B8003BE76B /* RTNCastledNotificationManager.swift in Sources */,
 				0A0F1DD92B51567E00C461A3 /* CastledReactBridge.m in Sources */,
 				0A0F1DD82B51567E00C461A3 /* RTNCastledNotifications.swift in Sources */,
+				0ACD86592C21504600B4487A /* CastledInbox.swift in Sources */,
 				0A0F1DD72B51567E00C461A3 /* CastledUtils.swift in Sources */,
 				0A42D6A32B61057800514180 /* UIApplication+CastledApplication.m in Sources */,
 				0A5CC3AC2B52C2F000ED942D /* RTNCastledEventEmitter.swift in Sources */,
+				0ACD865B2C217F8700B4487A /* Color+Extensions.swift in Sources */,
 				0AA7A5CC2B675EF600F8EFC7 /* CastledNotificationUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
