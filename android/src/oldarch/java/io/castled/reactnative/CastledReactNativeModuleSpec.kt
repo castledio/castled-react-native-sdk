@@ -2,10 +2,10 @@
 
 package io.castled.reactnative
 
+import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReadableMap
-import com.facebook.react.bridge.Promise
 
 abstract class CastledReactNativeModuleSpec internal constructor(context: ReactApplicationContext) :
   ReactContextBaseJavaModule(context) {
@@ -20,6 +20,8 @@ abstract class CastledReactNativeModuleSpec internal constructor(context: ReactA
 
   abstract fun logCustomAppEvent(eventName: String, eventParams: ReadableMap?)
 
+  abstract fun logPageViewedEvent()
+
   abstract fun setUserAttributes(attributes: ReadableMap)
 
   abstract fun requestPushPermission(promise: Promise)
@@ -30,5 +32,7 @@ abstract class CastledReactNativeModuleSpec internal constructor(context: ReactA
 
   abstract fun addListener(eventType: String?)
 
+  abstract fun showAppInbox(configs: ReadableMap?)
 
+  abstract fun getInboxUnreadCount(promise: Promise)
 }

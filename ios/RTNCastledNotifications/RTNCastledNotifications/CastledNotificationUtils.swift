@@ -45,6 +45,13 @@ enum CastledNotificationUtils {
         return payload
     }
 
+    static func getInboxClickedPayload(clickAction: CastledButtonAction) -> [AnyHashable: Any] {
+        var payload = [AnyHashable: Any]()
+        payload.merge(clickAction.toDictionary()) { _, new in new }
+        payload[CastledEventNameListenerKey] = CastledListeners.CastledListenerInboxNotificationClicked.rawValue
+        return payload
+    }
+
     static func convertToArray(text: String) -> Any? {
         guard let data = text.data(using: .utf8, allowLossyConversion: false) else { return nil }
         return try? JSONSerialization.jsonObject(with: data, options: .mutableContainers)

@@ -68,7 +68,7 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>CastledSwizzlingDisabled</key>
-	<true/>
+	<false/>
 	<key>CastledSkipUrlHandling</key>
 	<false/>
 </dict>

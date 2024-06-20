@@ -15,6 +15,7 @@ enum CastledListeners: String, CaseIterable {
     case CastledListenerInAppMessageReceived = "onReceivedInAppMessage"
     case CastledListenerInAppMessageClicked = "onInAppMessageClick"
     case CastledListenerInAppMessageDismissed = "onDismissedInAppMessage"
+    case CastledListenerInboxNotificationClicked = "onInboxNotificationClick"
 }
 
 extension CastledLocation {

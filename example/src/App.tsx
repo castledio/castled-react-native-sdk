@@ -18,6 +18,7 @@ import {
   type CastledClickAction,
   type CastledPushNotification,
   type CastledPushNotificationClickEvent,
+  CastledInboxConfigs,
 } from 'castled-react-native-sdk';
 
 import Header from './Header';
@@ -30,6 +31,7 @@ configs.location = CastledLocation.US;
 configs.enableInApp = true;
 configs.enablePushBoost = true;
 configs.enableTracking = true;
+configs.enableAppInbox = true;
 configs.enablePush = true;
 configs.inAppFetchIntervalSec = 300;
 configs.sessionTimeOutSec = 10;
@@ -44,6 +46,20 @@ userAttrs.setPhone('+919496371536');
 userAttrs.setCustomAttribute('ios_rn-custom-1', 100);
 userAttrs.setCustomAttribute('ios_rn-custom-2', true);
 userAttrs.setCustomAttribute('ios_rn-custom-3', 'string');
+
+const inboxConfigs = new CastledInboxConfigs();
+inboxConfigs.emptyMessageViewText = 'No inbox items';
+inboxConfigs.navigationBarTitle = 'React App Inbox';
+inboxConfigs.emptyMessageViewTextColor = '#e5a46e';
+inboxConfigs.navigationBarTitleColor = '#d1dddb';
+inboxConfigs.inboxViewBackgroundColor = '#85b8cb';
+inboxConfigs.navigationBarBackgroundColor = '#283b42';
+
+inboxConfigs.tabBarSelectedBackgroundColor = '#D5B942';
+inboxConfigs.tabBarDefaultBackgroundColor = '#edfbc1';
+inboxConfigs.tabBarDefaultTextColor = '#fec0c1';
+inboxConfigs.tabBarSelectedTextColor = '#fe5858';
+inboxConfigs.tabBarIndicatorBackgroundColor = '#db5a9a';
 
 export default function App() {
   const testData = {
@@ -90,10 +106,15 @@ export default function App() {
   const inAppClickedListener = CastledNotifications.addListener(
     CastledEvents.IN_APP_MESSAGE_CLICKED,
     (inappClickEvent: CastledClickAction) => {
-      console.log('Inapp clicked:', inappClickEvent);
+      console.log('Inapp clicked.:', inappClickEvent);
     }
   );
-
+  const inboxClickedListener = CastledNotifications.addListener(
+    CastledEvents.INBOX_NOTIFICATION_CLICKED,
+    (inboxClickEvent: CastledClickAction) => {
+      console.log('Inbox notification clicked:', inboxClickEvent);
+    }
+  );
   function promptForNotificationPermission() {
     CastledNotifications.requestPushPermission()
       .then((isGranted) => {
@@ -118,6 +139,11 @@ export default function App() {
     });
   }
 
+  function getInboxUnreadCount() {
+    CastledNotifications.getInboxUnreadCount().then((unreadCount) => {
+      console.log('Inbox unread count: ' + unreadCount);
+    });
+  }
   React.useEffect(() => {
     CastledNotifications.initialize(configs);
     // promptForNotificationPermission();
@@ -129,12 +155,14 @@ export default function App() {
       pushReceivedListener.remove();
       pushDismissedListener.remove();
       inAppClickedListener.remove();
+      inboxClickedListener.remove();
     };
   }, [
     pushClickedListener,
     pushReceivedListener,
     pushDismissedListener,
     inAppClickedListener,
+    inboxClickedListener,
   ]);
 
   return (
@@ -162,9 +190,19 @@ export default function App() {
         <Text style={styles.title}>Testing event tracking</Text>
         <Button
           title="Log Event"
-          onPress={() =>
-            CastledNotifications.logEvent(testData.event, testData.params)
-          }
+          onPress={() => {
+            CastledNotifications.logPageViewedEvent();
+            CastledNotifications.logEvent(testData.event, testData.params);
+          }}
+        />
+        <Separator />
+        <Text style={styles.title}>Navigate to Inbox</Text>
+        <Button
+          title="Inbox"
+          onPress={() => {
+            getInboxUnreadCount();
+            CastledNotifications.showAppInbox(inboxConfigs);
+          }}
         />
         <Separator />
         <Text style={styles.title}>Testing user attributes tracking</Text>

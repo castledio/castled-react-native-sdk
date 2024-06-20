@@ -12,6 +12,8 @@ export interface Spec extends TurboModule {
 
   logCustomAppEvent(eventName: string, eventParams?: Object): void;
 
+  logPageViewedEvent(): void;
+
   setUserAttributes(attributes: Object): void;
 
   requestPushPermission(): Promise<boolean>;
@@ -23,6 +25,10 @@ export interface Spec extends TurboModule {
   addListener: (eventType: string) => void;
 
   removeListeners: (count: number) => void;
+
+  showAppInbox(configs?: Object): void;
+
+  getInboxUnreadCount(): Promise<number>;
 }
 
 export default TurboModuleRegistry.getEnforcing<Spec>(

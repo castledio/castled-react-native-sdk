@@ -6,11 +6,13 @@ import com.facebook.react.bridge.WritableMap
 import com.facebook.react.bridge.WritableNativeArray
 import com.facebook.react.bridge.WritableNativeMap
 import io.castled.android.notifications.CastledConfigs
+import io.castled.android.notifications.inbox.model.CastledInboxDisplayConfig
 import io.castled.android.notifications.push.models.CastledActionButton
 import io.castled.android.notifications.push.models.CastledActionContext
 import io.castled.android.notifications.push.models.CastledClickAction
 import io.castled.android.notifications.push.models.CastledPushMessage
 import io.castled.reactnative.consts.ConfigKeys
+import io.castled.reactnative.consts.InboxConfigKeys
 
 internal fun ReadableMap?.toMap(): Map<String, Any> {
   return this?.toHashMap() ?: emptyMap()
@@ -79,6 +81,70 @@ internal fun ReadableMap.toCastledConfigs(): CastledConfigs {
       }
     )
     .build()
+}
+
+internal fun ReadableMap.toCastledInboxConfigs(): CastledInboxDisplayConfig {
+  val config = CastledInboxDisplayConfig()
+  config.emptyMessageViewText = if (hasKey(InboxConfigKeys.EMPTY_TEXT))
+    getString(InboxConfigKeys.EMPTY_TEXT).toString()
+  else "We have no updates. Please check again later."
+
+  config.emptyMessageViewTextColor = if (hasKey(InboxConfigKeys.EMPTY_TEXT_COLOR))
+    getString(InboxConfigKeys.EMPTY_TEXT_COLOR).toString()
+  else "#000000"
+
+  config.inboxViewBackgroundColor = if (hasKey(InboxConfigKeys.INBOX_VIEW_BG))
+    getString(InboxConfigKeys.INBOX_VIEW_BG).toString()
+  else "#ffffff"
+
+  config.navigationBarBackgroundColor = if (hasKey(InboxConfigKeys.NAV_BAR_BG))
+    getString(InboxConfigKeys.NAV_BAR_BG).toString()
+  else "#ffffff"
+
+  config.navigationBarTitle = if (hasKey(InboxConfigKeys.NAV_BAR_TITLE))
+    getString(InboxConfigKeys.NAV_BAR_TITLE).toString()
+  else "App Inbox"
+
+  config.navigationBarTitleColor = if (hasKey(InboxConfigKeys.NAV_BAR_TITLE_COLOR))
+    getString(InboxConfigKeys.NAV_BAR_TITLE_COLOR).toString()
+  else "#ffffff"
+
+  config.hideNavigationBar = if (hasKey(InboxConfigKeys.HIDE_NAV_BAR))
+    getBoolean(InboxConfigKeys.HIDE_NAV_BAR)
+  else
+    false
+
+  config.hideBackButton = if (hasKey(InboxConfigKeys.HIDE_BACK_BUTTON))
+    getBoolean(InboxConfigKeys.HIDE_BACK_BUTTON)
+  else
+    false
+
+  config.showCategoriesTab = if (hasKey(InboxConfigKeys.SHOW_CATEGORIES_TAB))
+    getBoolean(InboxConfigKeys.SHOW_CATEGORIES_TAB)
+  else
+    true
+
+  config.tabBarDefaultBackgroundColor = if (hasKey(InboxConfigKeys.TAB_DEFAULT_BG_COLOR))
+    getString(InboxConfigKeys.TAB_DEFAULT_BG_COLOR).toString()
+  else "#ffffff"
+
+  config.tabBarSelectedBackgroundColor = if (hasKey(InboxConfigKeys.TAB_SELECTED_BG_COLOR))
+    getString(InboxConfigKeys.TAB_SELECTED_BG_COLOR).toString()
+  else "#ffffff"
+
+  config.tabBarDefaultTextColor = if (hasKey(InboxConfigKeys.TAB_DEFAULT_TEXT_COLOR))
+    getString(InboxConfigKeys.TAB_DEFAULT_TEXT_COLOR).toString()
+  else "#000000"
+
+  config.tabBarSelectedTextColor = if (hasKey(InboxConfigKeys.TAB_SELECTED_TEXT_COLOR))
+    getString(InboxConfigKeys.TAB_SELECTED_TEXT_COLOR).toString()
+  else "#3366CC"
+
+  config.tabBarIndicatorBackgroundColor = if (hasKey(InboxConfigKeys.TAB_INDICATOR_BG_COLOR))
+    getString(InboxConfigKeys.TAB_INDICATOR_BG_COLOR).toString()
+  else "#3366CC"
+
+  return config
 }
 
 internal fun CastledPushMessage.toWriteableNativeMap(): WritableNativeMap {

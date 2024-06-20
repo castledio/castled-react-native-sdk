@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 import { CastledConfigs, CastledPushTokenType } from './CastledConfigs';
+import CastledInboxConfigs from './CastledInboxConfigs';
 
 import CastledUserAttributes from './CastledUserAttributes';
 
@@ -72,6 +73,10 @@ class CastledNotifications {
     CastledReactNativeInstance.logCustomAppEvent(eventName, eventParams);
   }
 
+  static logPageViewedEvent(): void {
+    CastledReactNativeInstance.logPageViewedEvent();
+  }
+
   static setUserAttributes(attrs: CastledUserAttributes): void {
     CastledReactNativeInstance.setUserAttributes(
       Object.fromEntries(attrs.getAttributes())
@@ -94,6 +99,15 @@ class CastledNotifications {
       CastledReactNativeModule.addListener(eventName);
     }
     return CastledNotifications.eventEmitter.addListener(eventName, listener);
+  }
+
+  //Inbox
+  static showAppInbox(styleConfig?: CastledInboxConfigs) {
+    CastledReactNativeInstance.showAppInbox(styleConfig);
+  }
+
+  static getInboxUnreadCount(): Promise<number> {
+    return CastledReactNativeInstance.getInboxUnreadCount();
   }
 }
 

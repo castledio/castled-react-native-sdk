@@ -9,6 +9,7 @@ import {
 } from './CastledConfigs';
 
 import CastledUserAttributes from './CastledUserAttributes';
+import CastledInboxConfigs from './CastledInboxConfigs';
 
 import type {
   CastledEventParams,
@@ -33,6 +34,7 @@ export {
   CastledLogLevel,
   CastledEvents,
   CastledClickActionType,
+  CastledInboxConfigs,
 };
 
 export type {
