@@ -1,3 +1,10 @@
+# [1.23.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.22.0...v1.23.0) (2024-06-20)
+
+
+### Features
+
+* inbox support ([a5c0fb9](https://github.com/castledio/castled-react-native-sdk/commit/a5c0fb9809436398dbcb8750134bbfe91c6ba60c))
+
 # [1.22.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.21.0...v1.22.0) (2024-06-12)
 
 
