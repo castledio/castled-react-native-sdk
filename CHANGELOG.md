@@ -1,3 +1,10 @@
+# [1.24.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.23.0...v1.24.0) (2024-06-25)
+
+
+### Features
+
+* latest sdk support ([e2dfda9](https://github.com/castledio/castled-react-native-sdk/commit/e2dfda9280cef4c53d1fb2de7234418e65ffacb9))
+
 # [1.23.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.22.0...v1.23.0) (2024-06-20)
 
 
