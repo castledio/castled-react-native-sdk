@@ -135,12 +135,11 @@ public class RTNCastledNotifications: RCTEventEmitter {
     // MARK: - PUSH METHODS
 
     @objc public static func onTokenFetch(_ token: String) {
-        Castled.sharedInstance.setPushToken(token)
+        Castled.sharedInstance.setPushToken(token, type: .apns)
     }
 
     @objc public static func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) {
         Castled.sharedInstance.userNotificationCenter(center, didReceive: response)
-//        RTNCastledNotificationManager.shared.processClickedItem(item: response.notification.request.content.userInfo)
     }
 
     @objc public static func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) {
