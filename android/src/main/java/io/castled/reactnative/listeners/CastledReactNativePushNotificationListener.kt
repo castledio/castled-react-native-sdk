@@ -53,9 +53,8 @@ internal class CastledReactNativePushNotificationListener(private val reactAppli
 
 
   private fun sendPushEventWith(eventName: String, value: WritableNativeMap) {
-    reactApplicationContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
-      .emit(eventName, value)
-  }
+    CastledEmitterUtils.sendEventWithName(eventName,value,reactApplicationContext)
+    }
 
   companion object {
     private var instance: CastledReactNativePushNotificationListener? = null

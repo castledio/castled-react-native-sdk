@@ -35,7 +35,7 @@ configs.enableAppInbox = true;
 configs.enablePush = true;
 configs.inAppFetchIntervalSec = 300;
 configs.sessionTimeOutSec = 10;
-configs.skipUrlHandling = true;
+configs.skipUrlHandling = false;
 configs.appgroupId = '';
 configs.logLevel = CastledLogLevel.DEBUG;
 
@@ -104,13 +104,13 @@ export default function App() {
     }
   );
   const inAppClickedListener = CastledNotifications.addListener(
-    CastledEvents.IN_APP_MESSAGE_CLICKED,
+    CastledEvents.IN_APP_CLICKED,
     (inappClickEvent: CastledClickAction) => {
       console.log('Inapp clicked.:', inappClickEvent);
     }
   );
   const inboxClickedListener = CastledNotifications.addListener(
-    CastledEvents.INBOX_NOTIFICATION_CLICKED,
+    CastledEvents.INBOX_CLICKED,
     (inboxClickEvent: CastledClickAction) => {
       console.log('Inbox notification clicked:', inboxClickEvent);
     }

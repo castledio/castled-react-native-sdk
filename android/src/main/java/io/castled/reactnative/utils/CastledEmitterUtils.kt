@@ -1,6 +1,8 @@
 package io.castled.reactnative.utils
 
+import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.WritableNativeMap
+import com.facebook.react.modules.core.DeviceEventManagerModule
 import io.castled.android.notifications.push.models.CastledActionContext
 import io.castled.android.notifications.push.models.CastledPushMessage
 import io.castled.reactnative.extensions.toWriteableNativeMap
@@ -25,6 +27,9 @@ internal object CastledEmitterUtils {
   ): WritableNativeMap {
     return notification.toWriteableNativeMap()
   }
-
+   fun sendEventWithName(eventName: String, value: WritableNativeMap, reactApplicationContext: ReactApplicationContext) {
+    reactApplicationContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
+      .emit(eventName, value)
+  }
 
 }
