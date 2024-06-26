@@ -186,7 +186,7 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
 
   private fun initializeListeners(castledConfigs: CastledConfigs) {
     if (castledConfigs.enablePush) {
-      pushListener.startListeningToPush()
+      pushListener.startListeningToPushEvents()
     }
     if (castledConfigs.enableInApp) {
       inappListener.startListeningToInAppEvents()
