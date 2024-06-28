@@ -20,7 +20,7 @@ abstract class CastledReactNativeModuleSpec internal constructor(context: ReactA
 
   abstract fun logCustomAppEvent(eventName: String, eventParams: ReadableMap?)
 
-  abstract fun logPageViewedEvent()
+  abstract fun logPageViewedEvent(screenName:String)
 
   abstract fun setUserAttributes(attributes: ReadableMap)
 

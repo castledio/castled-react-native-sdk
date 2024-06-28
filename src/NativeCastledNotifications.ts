@@ -12,7 +12,7 @@ export interface Spec extends TurboModule {
 
   logCustomAppEvent(eventName: string, eventParams?: Object): void;
 
-  logPageViewedEvent(): void;
+  logPageViewedEvent(screenName: string): void;
 
   setUserAttributes(attributes: Object): void;
 

@@ -127,9 +127,9 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
   }
 
   @ReactMethod
-  override fun logPageViewedEvent() {
+  override fun logPageViewedEvent(screenName: String) {
     reactApplicationContext.currentActivity?.let {
-      CastledNotifications.logAppPageViewedEvent(reactApplicationContext, it.javaClass.simpleName)
+      CastledNotifications.logPageViewedEvent(reactApplicationContext, screenName)
     }
   }
 

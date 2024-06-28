@@ -191,7 +191,6 @@ export default function App() {
         <Button
           title="Log Event"
           onPress={() => {
-            CastledNotifications.logPageViewedEvent();
             CastledNotifications.logEvent(testData.event, testData.params);
           }}
         />
@@ -215,6 +214,14 @@ export default function App() {
         <Separator />
         <Text style={styles.title}>Testing logout</Text>
         <Button title="Logout" onPress={() => CastledNotifications.logout()} />
+        <Separator />
+        <Text style={styles.title}>Log Screen Viewed Inapp example</Text>
+        <Button
+          title="Log Screen Viewed Inapp"
+          onPress={() => {
+            CastledNotifications.logPageViewedEvent('DetailsScreen');
+          }}
+        />
       </View>
     </SafeAreaView>
   );
