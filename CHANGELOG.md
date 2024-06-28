@@ -1,3 +1,10 @@
+# [1.25.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.24.0...v1.25.0) (2024-06-28)
+
+
+### Features
+
+* inapp& inbox listeners ([a6c8004](https://github.com/castledio/castled-react-native-sdk/commit/a6c8004b004aadda4a0894c662e00c9dc24058c3))
+
 # [1.24.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.23.0...v1.24.0) (2024-06-25)
 
 
