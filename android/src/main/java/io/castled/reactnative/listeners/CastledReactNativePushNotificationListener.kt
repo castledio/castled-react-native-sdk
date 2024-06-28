@@ -2,7 +2,6 @@ package io.castled.reactnative.listeners
 
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.WritableNativeMap
-import com.facebook.react.modules.core.DeviceEventManagerModule
 import io.castled.android.notifications.CastledNotifications
 import io.castled.android.notifications.CastledPushNotificationListener
 import io.castled.android.notifications.push.models.CastledActionContext
@@ -13,7 +12,7 @@ import io.castled.reactnative.utils.CastledEmitterUtils
 internal class CastledReactNativePushNotificationListener(private val reactApplicationContext: ReactApplicationContext) {
 
   @Synchronized
-  fun startListeningToPush() {
+  fun startListeningToPushEvents() {
     if (isListenerInitialized) {
       return
     }
@@ -53,8 +52,7 @@ internal class CastledReactNativePushNotificationListener(private val reactAppli
 
 
   private fun sendPushEventWith(eventName: String, value: WritableNativeMap) {
-    reactApplicationContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
-      .emit(eventName, value)
+    CastledEmitterUtils.sendEventWithName(eventName, value, reactApplicationContext)
   }
 
   companion object {

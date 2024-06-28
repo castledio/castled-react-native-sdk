@@ -26,7 +26,7 @@ RCT_EXTERN_METHOD(getPushPermission: (RCTPromiseResolveBlock)resolve rejecter:(R
 RCT_EXTERN_METHOD(showAppInbox:(NSDictionary *)configs)
 RCT_EXTERN_METHOD(getInboxUnreadCount:(RCTPromiseResolveBlock)resolve
                               rejecter:(RCTPromiseRejectBlock)reject)
-RCT_EXTERN_METHOD(logPageViewedEvent)
+RCT_EXTERN_METHOD(logPageViewedEvent:(NSString*)screenName)
  
 #ifdef RCT_NEW_ARCH_ENABLED
 - (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:

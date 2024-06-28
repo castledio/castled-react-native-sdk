@@ -21,8 +21,8 @@ export enum CastledEvents {
   PUSH_NOTIFICATION_CLICKED = 'onNotificationClick',
   PUSH_NOTIFICATION_RECEIVED = 'onReceivedNotification',
   PUSH_NOTIFICATION_DISMISSED = 'onDismissedNotification',
-  IN_APP_MESSAGE_CLICKED = 'onInAppMessageClick',
-  INBOX_NOTIFICATION_CLICKED = 'onInboxNotificationClick',
+  IN_APP_CLICKED = 'onInAppMessageClick',
+  INBOX_CLICKED = 'onInboxNotificationClick',
 }
 
 export type CastledPushNotificationClickEvent = {

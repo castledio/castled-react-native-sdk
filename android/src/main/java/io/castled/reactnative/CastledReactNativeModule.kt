@@ -14,12 +14,15 @@ import com.facebook.react.bridge.ReactMethod
 import com.facebook.react.bridge.ReadableMap
 import com.facebook.react.modules.core.PermissionAwareActivity
 import com.facebook.react.modules.core.PermissionListener
+import io.castled.android.notifications.CastledConfigs
 import io.castled.android.notifications.CastledNotifications
 import io.castled.android.notifications.CastledUserAttributes
 import io.castled.android.notifications.push.models.PushTokenType
 import io.castled.reactnative.extensions.toCastledConfigs
 import io.castled.reactnative.extensions.toCastledInboxConfigs
 import io.castled.reactnative.extensions.toMap
+import io.castled.reactnative.listeners.CastledReactNativeInAppListener
+import io.castled.reactnative.listeners.CastledReactNativeInboxListener
 import io.castled.reactnative.listeners.CastledReactNativePushNotificationListener
 
 class CastledReactNativeModule internal constructor(context: ReactApplicationContext) :
@@ -30,6 +33,12 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
 
   private val pushListener by lazy {
     CastledReactNativePushNotificationListener.getInstance(context)
+  }
+  private val inappListener by lazy {
+    CastledReactNativeInAppListener.getInstance(context)
+  }
+  private val inboxListener by lazy {
+    CastledReactNativeInboxListener.getInstance(context)
   }
 
   override fun getName(): String {
@@ -43,9 +52,7 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
       reactApplicationContext.applicationContext as Application,
       castledConfigs
     )
-    if (castledConfigs.enablePush) {
-      pushListener.startListeningToPush()
-    }
+    initializeListeners(castledConfigs)
   }
 
   @ReactMethod
@@ -120,9 +127,9 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
   }
 
   @ReactMethod
-  override fun logPageViewedEvent() {
+  override fun logPageViewedEvent(screenName: String) {
     reactApplicationContext.currentActivity?.let {
-      CastledNotifications.logAppPageViewedEvent(reactApplicationContext, it.javaClass.simpleName)
+      CastledNotifications.logPageViewedEvent(reactApplicationContext, screenName)
     }
   }
 
@@ -175,5 +182,17 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
     }
     requestPromises.remove(requestCode)
     return requestPromises.size() == 0
+  }
+
+  private fun initializeListeners(castledConfigs: CastledConfigs) {
+    if (castledConfigs.enablePush) {
+      pushListener.startListeningToPushEvents()
+    }
+    if (castledConfigs.enableInApp) {
+      inappListener.startListeningToInAppEvents()
+    }
+    if (castledConfigs.enableAppInbox) {
+      inboxListener.startListeningToInboxEvents()
+    }
   }
 }

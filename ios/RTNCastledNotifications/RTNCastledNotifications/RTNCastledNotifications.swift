@@ -170,25 +170,7 @@ public class RTNCastledNotifications: RCTEventEmitter {
         }
     }
 
-    @objc func logPageViewedEvent() {
-        DispatchQueue.main.async {
-            guard let vc = RCTPresentedViewController() else {
-                return
-            }
-            Castled.sharedInstance.logPageViewedEvent(vc)
-        }
-    }
-}
-
-extension String {
-    func getViewController() -> UIViewController? {
-        if let appName = Bundle.main.infoDictionary?["CFBundleName"] as? String {
-            print("CFBundleName - \(appName)")
-            if let viewControllerType = NSClassFromString("\(appName).\(self)") as? UIViewController.Type {
-                return viewControllerType.init()
-            }
-        }
-
-        return nil
+    @objc func logPageViewedEvent(_ screenName: String) {
+        Castled.sharedInstance.logPageViewedEvent(screenName)
     }
 }

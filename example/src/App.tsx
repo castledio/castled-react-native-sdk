@@ -35,7 +35,7 @@ configs.enableAppInbox = true;
 configs.enablePush = true;
 configs.inAppFetchIntervalSec = 300;
 configs.sessionTimeOutSec = 10;
-configs.skipUrlHandling = true;
+configs.skipUrlHandling = false;
 configs.appgroupId = '';
 configs.logLevel = CastledLogLevel.DEBUG;
 
@@ -104,13 +104,13 @@ export default function App() {
     }
   );
   const inAppClickedListener = CastledNotifications.addListener(
-    CastledEvents.IN_APP_MESSAGE_CLICKED,
+    CastledEvents.IN_APP_CLICKED,
     (inappClickEvent: CastledClickAction) => {
       console.log('Inapp clicked.:', inappClickEvent);
     }
   );
   const inboxClickedListener = CastledNotifications.addListener(
-    CastledEvents.INBOX_NOTIFICATION_CLICKED,
+    CastledEvents.INBOX_CLICKED,
     (inboxClickEvent: CastledClickAction) => {
       console.log('Inbox notification clicked:', inboxClickEvent);
     }
@@ -191,7 +191,6 @@ export default function App() {
         <Button
           title="Log Event"
           onPress={() => {
-            CastledNotifications.logPageViewedEvent();
             CastledNotifications.logEvent(testData.event, testData.params);
           }}
         />
@@ -215,6 +214,14 @@ export default function App() {
         <Separator />
         <Text style={styles.title}>Testing logout</Text>
         <Button title="Logout" onPress={() => CastledNotifications.logout()} />
+        <Separator />
+        <Text style={styles.title}>Log Screen Viewed Inapp example</Text>
+        <Button
+          title="Log Screen Viewed Inapp"
+          onPress={() => {
+            CastledNotifications.logPageViewedEvent('DetailsScreen');
+          }}
+        />
       </View>
     </SafeAreaView>
   );

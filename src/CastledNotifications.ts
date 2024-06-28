@@ -73,8 +73,8 @@ class CastledNotifications {
     CastledReactNativeInstance.logCustomAppEvent(eventName, eventParams);
   }
 
-  static logPageViewedEvent(): void {
-    CastledReactNativeInstance.logPageViewedEvent();
+  static logPageViewedEvent(screenName: string): void {
+    CastledReactNativeInstance.logPageViewedEvent(screenName);
   }
 
   static setUserAttributes(attrs: CastledUserAttributes): void {
