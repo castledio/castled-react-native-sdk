@@ -41,7 +41,7 @@ static CastledReactBridge *sharedInstance = nil;
 }
 
 - (void)setPushToken:(NSString *)token type:(CastledTokenType)type{
-    [RTNCastledNotifications onTokenFetch:token : (type == CastledTokenTypeFCM) ? @"FCM" : @"APNS"];
+    [RTNCastledNotifications onTokenFetch:token : (type == fcm) ? @"FCM" : @"APNS"];
  }
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response{

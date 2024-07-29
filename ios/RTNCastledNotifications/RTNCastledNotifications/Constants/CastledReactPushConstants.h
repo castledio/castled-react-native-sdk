@@ -9,8 +9,8 @@
 #define CastledReactPushConstants_h
 
 enum{
-    CastledTokenTypeApns,
-    CastledTokenTypeFCM
+    apns,
+    fcm
 }typedef CastledTokenType;
 
 #endif /* CastledReactConstants_h */

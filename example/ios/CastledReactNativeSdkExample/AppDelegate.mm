@@ -98,7 +98,7 @@
     }
 
   NSLog(@"didRegisterForRemoteNotificationsWithDeviceToken: %@", deviceTokenString);
-  [[CastledReactBridge sharedInstance] setPushToken:deviceTokenString type: CastledTokenTypeApns];
+  [[CastledReactBridge sharedInstance] setPushToken:deviceTokenString type: apns];
 }
 -(void) application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
   NSLog(@"failed to register for remote notifications: %@ %@", self.description, error.localizedDescription);
