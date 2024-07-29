@@ -1,3 +1,10 @@
+# [1.26.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.25.0...v1.26.0) (2024-07-29)
+
+
+### Features
+
+* inapp rendering& fcm support for ios ([27cf291](https://github.com/castledio/castled-react-native-sdk/commit/27cf2910e8e9c889b9952e37549b305671182356))
+
 # [1.25.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.24.0...v1.25.0) (2024-06-28)
 
 
