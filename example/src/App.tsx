@@ -169,59 +169,104 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <Header title={'Castled React SDK Test'}></Header>
       <View style={styles.container}>
-        <Text style={styles.title}>Get Push Permission Status</Text>
-        <Button
-          title="Get Status"
-          onPress={() => checkForNotificationPermission()}
-        />
-        <Separator />
-        <Text style={styles.title}>Request Push Permission</Text>
-        <Button
-          title="Request"
-          onPress={() => promptForNotificationPermission()}
-        />
-        <Separator />
         <Text style={styles.title}>Testing user identification</Text>
         <Button
           title="Identify"
           onPress={() => CastledNotifications.setUserId(testData.user)}
         />
         <Separator />
-        <Text style={styles.title}>Testing event tracking</Text>
-        <Button
-          title="Log Event"
-          onPress={() => {
-            CastledNotifications.logEvent(testData.event, testData.params);
-          }}
-        />
+        <Text style={styles.title}>Push</Text>
+        <View style={styles.buttonContainer}>
+          <View style={styles.equal}>
+            <Button
+              title="Get Status"
+              onPress={() => {
+                checkForNotificationPermission();
+              }}
+            />
+          </View>
+          <View style={styles.horizontalSeparator} />
+          <View style={styles.equal}>
+            <Button
+              title="Request"
+              onPress={() => {
+                promptForNotificationPermission();
+              }}
+            />
+          </View>
+        </View>
         <Separator />
-        <Text style={styles.title}>Navigate to Inbox</Text>
+        <Text style={styles.title}>Inbox</Text>
         <Button
-          title="Inbox"
+          title="Navigate to Inbox"
           onPress={() => {
             getInboxUnreadCount();
             CastledNotifications.showAppInbox(inboxConfigs);
           }}
         />
         <Separator />
-        <Text style={styles.title}>Testing user attributes tracking</Text>
-        <Button
-          title="Log User Attributes"
-          onPress={() => {
-            CastledNotifications.setUserAttributes(userAttrs);
-          }}
-        />
-        <Separator />
-        <Text style={styles.title}>Testing logout</Text>
-        <Button title="Logout" onPress={() => CastledNotifications.logout()} />
+        <Text style={styles.title}>InApp Rendering</Text>
+        <View style={styles.buttonContainer}>
+          <View style={styles.equal}>
+            <Button
+              title="Pause"
+              onPress={() => {
+                CastledNotifications.pauseInApp();
+              }}
+            />
+          </View>
+          <View style={styles.horizontalSeparator} />
+          <View style={styles.equal}>
+            <Button
+              title="Resume"
+              onPress={() => {
+                CastledNotifications.resumeInApp();
+              }}
+            />
+          </View>
+          <View style={styles.horizontalSeparator} />
+          <View style={styles.equal}>
+            <Button
+              title="Stop"
+              onPress={() => {
+                CastledNotifications.stopInApp();
+              }}
+            />
+          </View>
+        </View>
         <Separator />
         <Text style={styles.title}>Log Screen Viewed Inapp example</Text>
         <Button
-          title="Log Screen Viewed Inapp"
+          title=" Screen Viewed"
           onPress={() => {
             CastledNotifications.logPageViewedEvent('DetailsScreen');
           }}
         />
+        <Separator />
+        <Text style={styles.title}>Event tracking/ Custom In-app</Text>
+        <View style={styles.buttonContainer}>
+          <View style={styles.equal}>
+            <Button
+              title="Log Event"
+              onPress={() => {
+                CastledNotifications.logEvent(testData.event, testData.params);
+              }}
+            />
+          </View>
+          <View style={styles.horizontalSeparator} />
+          <View style={styles.equal}>
+            <Button
+              title="Log User Attributes"
+              onPress={() => {
+                CastledNotifications.setUserAttributes(userAttrs);
+              }}
+            />
+          </View>
+        </View>
+
+        <Separator />
+        <Text style={styles.title}>Testing logout</Text>
+        <Button title="Logout" onPress={() => CastledNotifications.logout()} />
       </View>
     </SafeAreaView>
   );
@@ -246,5 +291,19 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     borderBottomColor: '#737373',
     borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+  buttonContainer: {
+    // flex: 1,
+    flexDirection: 'row',
+    //justifyContent: 'space-evenly',
+    alignItems: 'center',
+    width: '100%', // Make sure the container takes full width
+  },
+  horizontalSeparator: {
+    width: 10, // Width of the separator line
+    backgroundColor: 'transparent', // Color of the separator line
+  },
+  equal: {
+    flex: 1,
   },
 });

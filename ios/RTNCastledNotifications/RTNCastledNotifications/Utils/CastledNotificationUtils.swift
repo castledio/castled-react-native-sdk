@@ -11,11 +11,10 @@ import Foundation
 let CastledNotificationListenerKey = "notification"
 let CastledClickActionListenerKey = "clickAction"
 let CastledEventNameListenerKey = "castledEventListenerName"
-let CastledKey = "castled"
 
 enum CastledNotificationUtils {
     static func getPushClickedPayload(_ clickAction: CastledButtonAction?, _ notificaion: [AnyHashable: Any]) -> [AnyHashable: Any]? {
-        guard notificaion[CastledKey] != nil else {
+        guard notificaion[CastledReactConstants.castled] != nil else {
             return nil
         }
 
@@ -24,31 +23,31 @@ enum CastledNotificationUtils {
         if let clickEvent = clickAction {
             payload[CastledClickActionListenerKey] = clickEvent.toDictionary()
         }
-        payload[CastledEventNameListenerKey] = CastledListeners.CastledListenerPushClicked.rawValue
+        payload[CastledEventNameListenerKey] = CastledReactConstants.CastledListeners.CastledListenerPushClicked.rawValue
         return payload
     }
 
     static func getPushReceiedPayload(_ notificaion: [AnyHashable: Any]) -> [AnyHashable: Any]? {
         var payload = [AnyHashable: Any]()
-        guard notificaion[CastledKey] != nil else {
+        guard notificaion[CastledReactConstants.castled] != nil else {
             return nil
         }
         payload.merge(notificaion.toNotificationDictionary()) { _, new in new }
-        payload[CastledEventNameListenerKey] = CastledListeners.CastledListenerPushReceived.rawValue
+        payload[CastledEventNameListenerKey] = CastledReactConstants.CastledListeners.CastledListenerPushReceived.rawValue
         return payload
     }
 
     static func getInappClickedPayload(clickAction: CastledButtonAction) -> [AnyHashable: Any] {
         var payload = [AnyHashable: Any]()
         payload.merge(clickAction.toDictionary()) { _, new in new }
-        payload[CastledEventNameListenerKey] = CastledListeners.CastledListenerInAppMessageClicked.rawValue
+        payload[CastledEventNameListenerKey] = CastledReactConstants.CastledListeners.CastledListenerInAppMessageClicked.rawValue
         return payload
     }
 
     static func getInboxClickedPayload(clickAction: CastledButtonAction) -> [AnyHashable: Any] {
         var payload = [AnyHashable: Any]()
         payload.merge(clickAction.toDictionary()) { _, new in new }
-        payload[CastledEventNameListenerKey] = CastledListeners.CastledListenerInboxNotificationClicked.rawValue
+        payload[CastledEventNameListenerKey] = CastledReactConstants.CastledListeners.CastledListenerInboxNotificationClicked.rawValue
         return payload
     }
 

@@ -60,7 +60,10 @@ class CastledNotifications {
     pushTokenType?: CastledPushTokenType
   ): void {
     if (Platform.OS === 'ios') {
-      CastledReactNativeInstance.onTokenFetch(token);
+      if (!pushTokenType) {
+        pushTokenType = CastledPushTokenType.APNS;
+      }
+      CastledReactNativeInstance.onTokenFetch(token, pushTokenType);
     } else {
       if (!pushTokenType) {
         pushTokenType = CastledPushTokenType.FCM;
@@ -75,6 +78,18 @@ class CastledNotifications {
 
   static logPageViewedEvent(screenName: string): void {
     CastledReactNativeInstance.logPageViewedEvent(screenName);
+  }
+
+  static pauseInApp(): void {
+    CastledReactNativeInstance.pauseInApp();
+  }
+
+  static resumeInApp(): void {
+    CastledReactNativeInstance.resumeInApp();
+  }
+
+  static stopInApp(): void {
+    CastledReactNativeInstance.stopInApp();
   }
 
   static setUserAttributes(attrs: CastledUserAttributes): void {

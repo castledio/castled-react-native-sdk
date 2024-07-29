@@ -12,7 +12,7 @@ import React
 public class RTNCastledNotifications: RCTEventEmitter {
     private static var launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     private static var notificationCategories: Set<UNNotificationCategory>?
-    private var swizzzlingDisabled = Bundle.main.object(forInfoDictionaryKey: "CastledSwizzlingDisabled") as? Bool ?? false
+    private var swizzzlingDisabled = Bundle.main.object(forInfoDictionaryKey: CastledConstants.kCastledSwzzlingDisableKey) as? Bool ?? false
 
     override private init() {
         super.init()
@@ -22,20 +22,7 @@ public class RTNCastledNotifications: RCTEventEmitter {
 
     @objc func initialize(_ configs: NSDictionary) {
         DispatchQueue.main.async {
-            let config = CastledConfigs.initialize(appId: (configs["appId"] as? String) ?? "")
-            config.enableAppInbox = (configs["enableAppInbox"] as? Bool) ?? false
-            config.enableInApp = (configs["enableInApp"] as? Bool) ?? false
-            config.enablePush = (configs["enablePush"] as? Bool) ?? false
-            config.enableTracking = (configs["enableTracking"] as? Bool) ?? false
-            config.enableSessionTracking = (configs["enableSessionTracking"] as? Bool) ?? true
-            config.skipUrlHandling = (configs["skipUrlHandling"] as? Bool) ?? false
-            config.inAppFetchIntervalSec = Int((configs["inAppFetchIntervalSec"] as? String) ?? "900") ?? 900
-            config.sessionTimeOutSec = (configs["sessionTimeOutSec"] as? Int) ?? 900
-            config.appGroupId = (configs["appgroupId"] as? String) ?? ""
-            config.location = CastledLocation.getLocation(from: (configs["location"] as? String) ?? "US")
-            config.logLevel = CastledLogLevel.getLogLevel(from: (configs["logLevel"] as? String) ?? "debug")
-            Castled.initialize(withConfig: config, andDelegate: nil)
-
+            Castled.initialize(withConfig: configs.toCastledConfig(), andDelegate: nil)
             RTNCastledNotifications.doTheSetupAfterInitialization()
             self.setTheNotificiationDelegate()
         }
@@ -97,9 +84,7 @@ public class RTNCastledNotifications: RCTEventEmitter {
     private func requestAPNSPermission(completion: @escaping (_ success: Bool) -> Void) {
         UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .badge, .alert], completionHandler: { granted, _ in
             completion(granted)
-            DispatchQueue.main.async {
-                UIApplication.shared.registerForRemoteNotifications()
-            }
+            Castled.sharedInstance.requestPushPermission(showSettingsAlert: true)
         })
     }
 
@@ -127,15 +112,16 @@ public class RTNCastledNotifications: RCTEventEmitter {
                 UNUserNotificationCenter.current().delegate = notificationDelegate
             }
             else {
-                Castled.sharedInstance.logMessage("AppDelegate does not conform to UNUserNotificationCenterDelegate. Please confirm to UIApplicationDelegate protocol(Native setup > iOS > Step 5: AppDelegate Swizzling in Castled SDK) https://docs.castled.io/developer-resources/sdk-integration/reactnative/push-notifications#native-setup", .error)
+                CastledShared.sharedInstance.logMessage("AppDelegate does not conform to UNUserNotificationCenterDelegate. Please confirm to UIApplicationDelegate protocol(Native setup > iOS > Step 5: AppDelegate Swizzling in Castled SDK) https://docs.castled.io/developer-resources/sdk-integration/reactnative/push-notifications#native-setup", .error)
             }
         }
     }
 
     // MARK: - PUSH METHODS
 
-    @objc public static func onTokenFetch(_ token: String) {
-        Castled.sharedInstance.setPushToken(token, type: .apns)
+    @objc public static func onTokenFetch(_ token: String, _ pushTokenType: String) {
+        let tokenType: CastledPushTokenType = pushTokenType == "FCM" ? .fcm : .apns
+        Castled.sharedInstance.setPushToken(token, type: tokenType)
     }
 
     @objc public static func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) {
@@ -151,7 +137,7 @@ public class RTNCastledNotifications: RCTEventEmitter {
     }
 
     @objc public static func setLaunchOptions(launchOptions: [UIApplication.LaunchOptionsKey: Any]) {
-        if Castled.sharedInstance.isCastledInitialized() {
+        if CastledShared.sharedInstance.isCastledInitialized() {
             Castled.sharedInstance.setLaunchOptions(launchOptions)
             RTNCastledNotifications.launchOptions = nil
         }
@@ -161,7 +147,7 @@ public class RTNCastledNotifications: RCTEventEmitter {
     }
 
     @objc public static func setNotificationCategories(withItems items: Set<UNNotificationCategory>) {
-        if Castled.sharedInstance.isCastledInitialized() {
+        if CastledShared.sharedInstance.isCastledInitialized() {
             Castled.sharedInstance.setNotificationCategories(withItems: items)
             RTNCastledNotifications.notificationCategories = nil
         }

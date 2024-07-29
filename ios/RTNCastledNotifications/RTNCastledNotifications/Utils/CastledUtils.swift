@@ -8,16 +8,6 @@
 import Castled
 import Foundation
 
-enum CastledListeners: String, CaseIterable {
-    case CastledListenerPushReceived = "onReceivedNotification"
-    case CastledListenerPushClicked = "onNotificationClick"
-    case CastledListenerPushDismissed = "onDismissedNotification"
-    case CastledListenerInAppMessageReceived = "onReceivedInAppMessage"
-    case CastledListenerInAppMessageClicked = "onInAppMessageClick"
-    case CastledListenerInAppMessageDismissed = "onDismissedInAppMessage"
-    case CastledListenerInboxNotificationClicked = "onInboxNotificationClick"
-}
-
 extension CastledLocation {
     static func getLocation(from regionStr: String) -> CastledLocation {
         switch regionStr {

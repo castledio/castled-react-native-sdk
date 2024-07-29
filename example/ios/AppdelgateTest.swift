@@ -19,7 +19,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 extension AppDelegateC: UNUserNotificationCenterDelegate {
   func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
     let deviceTokenString = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
-    CastledReactBridge.sharedInstance().setPushToken(deviceTokenString)
+    CastledReactBridge.sharedInstance().setPushToken(deviceTokenString, type: CastledTokenTypeApns)
     print("APNs token \(deviceTokenString) \(self.description)")
   }
 
