@@ -20,6 +20,7 @@ enum XiaomiRegion {
 enum CastledPushTokenType {
   FCM = 'FCM',
   MI_PUSH = 'MI_PUSH',
+  APNS = 'APNS',
 }
 
 class CastledConfigs {

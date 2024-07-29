@@ -14,6 +14,12 @@ export interface Spec extends TurboModule {
 
   logPageViewedEvent(screenName: string): void;
 
+  stopInApp(): void;
+
+  resumeInApp(): void;
+
+  pauseInApp(): void;
+
   setUserAttributes(attributes: Object): void;
 
   requestPushPermission(): Promise<boolean>;

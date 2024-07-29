@@ -11,8 +11,11 @@
 		0A0F1DD82B51567E00C461A3 /* RTNCastledNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F1DD42B51567E00C461A3 /* RTNCastledNotifications.swift */; };
 		0A0F1DD92B51567E00C461A3 /* CastledReactBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F1DD52B51567E00C461A3 /* CastledReactBridge.m */; };
 		0A42D6A32B61057800514180 /* UIApplication+CastledApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D6A22B61057800514180 /* UIApplication+CastledApplication.m */; };
+		0A50E1272C57B1AD00E45061 /* CastledInApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A50E1262C57B1AD00E45061 /* CastledInApp.swift */; };
 		0A5CC3AC2B52C2F000ED942D /* RTNCastledEventEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5CC3AA2B52C2F000ED942D /* RTNCastledEventEmitter.swift */; };
 		0A6FA7D02B63E9B8003BE76B /* RTNCastledNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6FA7CF2B63E9B8003BE76B /* RTNCastledNotificationManager.swift */; };
+		0A7BF1B72C574B860056E9CE /* CastledReactConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7BF1B62C574B860056E9CE /* CastledReactConstants.swift */; };
+		0A7BF1B92C57512C0056E9CE /* NSDictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7BF1B82C57512C0056E9CE /* NSDictionary+Extensions.swift */; };
 		0A9CC2D82B5F8D7500B24010 /* RTNCastledNotifications.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CC2D72B5F8D7500B24010 /* RTNCastledNotifications.mm */; };
 		0AA7A5CA2B675ECE00F8EFC7 /* CastledNotification+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA7A5C92B675ECE00F8EFC7 /* CastledNotification+Extensions.swift */; };
 		0AA7A5CC2B675EF600F8EFC7 /* CastledNotificationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA7A5CB2B675EF600F8EFC7 /* CastledNotificationUtils.swift */; };
@@ -38,10 +41,14 @@
 		0A0F1DD42B51567E00C461A3 /* RTNCastledNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTNCastledNotifications.swift; sourceTree = "<group>"; };
 		0A0F1DD52B51567E00C461A3 /* CastledReactBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CastledReactBridge.m; sourceTree = "<group>"; };
 		0A0F1DDA2B51570A00C461A3 /* RTNCastledNotifications-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RTNCastledNotifications-Bridging-Header.h"; sourceTree = "<group>"; };
+		0A1EA8882C576A6E009CC0C4 /* CastledReactPushConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CastledReactPushConstants.h; sourceTree = "<group>"; };
 		0A42D6A12B61057800514180 /* UIApplication+CastledApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIApplication+CastledApplication.h"; sourceTree = "<group>"; };
 		0A42D6A22B61057800514180 /* UIApplication+CastledApplication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+CastledApplication.m"; sourceTree = "<group>"; };
+		0A50E1262C57B1AD00E45061 /* CastledInApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastledInApp.swift; sourceTree = "<group>"; };
 		0A5CC3AA2B52C2F000ED942D /* RTNCastledEventEmitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTNCastledEventEmitter.swift; sourceTree = "<group>"; };
 		0A6FA7CF2B63E9B8003BE76B /* RTNCastledNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTNCastledNotificationManager.swift; sourceTree = "<group>"; };
+		0A7BF1B62C574B860056E9CE /* CastledReactConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastledReactConstants.swift; sourceTree = "<group>"; };
+		0A7BF1B82C57512C0056E9CE /* NSDictionary+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDictionary+Extensions.swift"; sourceTree = "<group>"; };
 		0A9CC2D72B5F8D7500B24010 /* RTNCastledNotifications.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RTNCastledNotifications.mm; sourceTree = "<group>"; };
 		0AA7A5C92B675ECE00F8EFC7 /* CastledNotification+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CastledNotification+Extensions.swift"; sourceTree = "<group>"; };
 		0AA7A5CB2B675EF600F8EFC7 /* CastledNotificationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastledNotificationUtils.swift; sourceTree = "<group>"; };
@@ -61,6 +68,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A50E1282C57B21100E45061 /* Observer */ = {
+			isa = PBXGroup;
+			children = (
+				0A5CC3AA2B52C2F000ED942D /* RTNCastledEventEmitter.swift */,
+			);
+			path = Observer;
+			sourceTree = "<group>";
+		};
+		0A7BF1AF2C574AA00056E9CE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0AA7A5C92B675ECE00F8EFC7 /* CastledNotification+Extensions.swift */,
+				0ACD865A2C217F8700B4487A /* Color+Extensions.swift */,
+				0A7BF1B82C57512C0056E9CE /* NSDictionary+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0A7BF1B02C574AAD0056E9CE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0A0F1DD32B51567E00C461A3 /* CastledUtils.swift */,
+				0AA7A5CB2B675EF600F8EFC7 /* CastledNotificationUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		0A7BF1B12C574AF40056E9CE /* CastledCore */ = {
+			isa = PBXGroup;
+			children = (
+				0A0F1DD02B51567E00C461A3 /* CastledReactBridge.h */,
+				0A0F1DD52B51567E00C461A3 /* CastledReactBridge.m */,
+				0A0F1DD42B51567E00C461A3 /* RTNCastledNotifications.swift */,
+				0A9CC2D72B5F8D7500B24010 /* RTNCastledNotifications.mm */,
+				0A50E1262C57B1AD00E45061 /* CastledInApp.swift */,
+				0ACD86582C21504600B4487A /* CastledInbox.swift */,
+				0A50E1282C57B21100E45061 /* Observer */,
+			);
+			path = CastledCore;
+			sourceTree = "<group>";
+		};
+		0A7BF1B42C574B3C0056E9CE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0A6FA7CF2B63E9B8003BE76B /* RTNCastledNotificationManager.swift */,
+				0A42D6A12B61057800514180 /* UIApplication+CastledApplication.h */,
+				0A42D6A22B61057800514180 /* UIApplication+CastledApplication.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		0A7BF1B52C574B520056E9CE /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				0A1EA8882C576A6E009CC0C4 /* CastledReactPushConstants.h */,
+				0A7BF1B62C574B860056E9CE /* CastledReactConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		0AFA8D912B335C7000DF4DBE = {
 			isa = PBXGroup;
 			children = (
@@ -80,19 +147,11 @@
 		0AFA8D9C2B335C7000DF4DBE /* RTNCastledNotifications */ = {
 			isa = PBXGroup;
 			children = (
-				0A0F1DD02B51567E00C461A3 /* CastledReactBridge.h */,
-				0A0F1DD52B51567E00C461A3 /* CastledReactBridge.m */,
-				0A0F1DD32B51567E00C461A3 /* CastledUtils.swift */,
-				0ACD865A2C217F8700B4487A /* Color+Extensions.swift */,
-				0A9CC2D72B5F8D7500B24010 /* RTNCastledNotifications.mm */,
-				0A0F1DD42B51567E00C461A3 /* RTNCastledNotifications.swift */,
-				0A5CC3AA2B52C2F000ED942D /* RTNCastledEventEmitter.swift */,
-				0A6FA7CF2B63E9B8003BE76B /* RTNCastledNotificationManager.swift */,
-				0AA7A5C92B675ECE00F8EFC7 /* CastledNotification+Extensions.swift */,
-				0ACD86582C21504600B4487A /* CastledInbox.swift */,
-				0AA7A5CB2B675EF600F8EFC7 /* CastledNotificationUtils.swift */,
-				0A42D6A12B61057800514180 /* UIApplication+CastledApplication.h */,
-				0A42D6A22B61057800514180 /* UIApplication+CastledApplication.m */,
+				0A7BF1B52C574B520056E9CE /* Constants */,
+				0A7BF1B42C574B3C0056E9CE /* Helpers */,
+				0A7BF1B12C574AF40056E9CE /* CastledCore */,
+				0A7BF1B02C574AAD0056E9CE /* Utils */,
+				0A7BF1AF2C574AA00056E9CE /* Extensions */,
 				0A0F1DDA2B51570A00C461A3 /* RTNCastledNotifications-Bridging-Header.h */,
 			);
 			path = RTNCastledNotifications;
@@ -156,15 +215,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A7BF1B92C57512C0056E9CE /* NSDictionary+Extensions.swift in Sources */,
 				0A9CC2D82B5F8D7500B24010 /* RTNCastledNotifications.mm in Sources */,
 				0AA7A5CA2B675ECE00F8EFC7 /* CastledNotification+Extensions.swift in Sources */,
 				0A6FA7D02B63E9B8003BE76B /* RTNCastledNotificationManager.swift in Sources */,
 				0A0F1DD92B51567E00C461A3 /* CastledReactBridge.m in Sources */,
 				0A0F1DD82B51567E00C461A3 /* RTNCastledNotifications.swift in Sources */,
 				0ACD86592C21504600B4487A /* CastledInbox.swift in Sources */,
+				0A7BF1B72C574B860056E9CE /* CastledReactConstants.swift in Sources */,
 				0A0F1DD72B51567E00C461A3 /* CastledUtils.swift in Sources */,
 				0A42D6A32B61057800514180 /* UIApplication+CastledApplication.m in Sources */,
 				0A5CC3AC2B52C2F000ED942D /* RTNCastledEventEmitter.swift in Sources */,
+				0A50E1272C57B1AD00E45061 /* CastledInApp.swift in Sources */,
 				0ACD865B2C217F8700B4487A /* Color+Extensions.swift in Sources */,
 				0AA7A5CC2B675EF600F8EFC7 /* CastledNotificationUtils.swift in Sources */,
 			);

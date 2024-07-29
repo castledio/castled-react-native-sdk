@@ -22,6 +22,12 @@ abstract class CastledReactNativeModuleSpec internal constructor(context: ReactA
 
   abstract fun logPageViewedEvent(screenName:String)
 
+  abstract fun pauseInApp()
+
+  abstract fun resumeInApp()
+
+  abstract fun stopInApp()
+
   abstract fun setUserAttributes(attributes: ReadableMap)
 
   abstract fun requestPushPermission(promise: Promise)

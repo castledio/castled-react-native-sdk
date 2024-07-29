@@ -8,6 +8,7 @@
 import Castled
 import Foundation
 import React
+@_spi(CastledInternal) import Castled
 
 @objc public class RTNCastledNotificationManager: NSObject {
     static let shared = RTNCastledNotificationManager()
@@ -25,8 +26,9 @@ import React
         super.init()
     }
 
-    @objc public static func setCastledDelegate() {
-        Castled.setDelegate(RTNCastledNotificationManager.shared)
+    @objc public static func initializeComponents() {
+        CastledShared.sharedInstance.initializeComponents()
+        CastledShared.sharedInstance.setDelegate(RTNCastledNotificationManager.shared)
     }
 
     // MARK: - Received notifcation handling

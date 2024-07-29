@@ -66,6 +66,21 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
   }
 
   @ReactMethod
+  override fun pauseInApp() {
+    CastledNotifications.pauseInApp()
+  }
+
+  @ReactMethod
+  override fun resumeInApp() {
+    CastledNotifications.resumeInApp()
+  }
+
+  @ReactMethod
+  override fun stopInApp() {
+    CastledNotifications.stopInApp()
+  }
+
+  @ReactMethod
   override fun getPushPermission(promise: Promise) {
     promise.resolve(hasPushPermission())
   }

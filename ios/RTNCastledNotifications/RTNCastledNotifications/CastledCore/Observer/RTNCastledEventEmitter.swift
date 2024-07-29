@@ -11,7 +11,7 @@ import React
 public extension RTNCastledNotifications {
     static var isObserverInitiated = false
     @objc override func supportedEvents() -> [String] {
-        let listenersArray = CastledListeners.allCases.map { $0.rawValue }
+        let listenersArray = CastledReactConstants.CastledListeners.allCases.map { $0.rawValue }
         return listenersArray
     }
 

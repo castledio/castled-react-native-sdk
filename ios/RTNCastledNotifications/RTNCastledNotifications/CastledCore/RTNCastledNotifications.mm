@@ -19,7 +19,7 @@ RCT_EXTERN_METHOD(initialize:(NSDictionary *)configs)
 RCT_EXTERN_METHOD(setUserId:(NSString *)userId userToken:(NSString *)userToken);
 RCT_EXTERN_METHOD(logCustomAppEvent:(NSString *)eventName eventParams:(NSDictionary *)eventParams);
 RCT_EXTERN_METHOD(setUserAttributes:(NSDictionary *)attributes);
-RCT_EXTERN_METHOD(onTokenFetch:(NSString *)token);
+RCT_EXTERN_METHOD(onTokenFetch:(NSString *)token pushTokenType:(NSString*)pushTokenType);
 RCT_EXTERN_METHOD(logout);
 RCT_EXTERN_METHOD(requestPushPermission: (RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 RCT_EXTERN_METHOD(getPushPermission: (RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
@@ -27,6 +27,10 @@ RCT_EXTERN_METHOD(showAppInbox:(NSDictionary *)configs)
 RCT_EXTERN_METHOD(getInboxUnreadCount:(RCTPromiseResolveBlock)resolve
                               rejecter:(RCTPromiseRejectBlock)reject)
 RCT_EXTERN_METHOD(logPageViewedEvent:(NSString*)screenName)
+
+RCT_EXTERN_METHOD(pauseInApp);
+RCT_EXTERN_METHOD(resumeInApp);
+RCT_EXTERN_METHOD(stopInApp);
  
 #ifdef RCT_NEW_ARCH_ENABLED
 - (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:
