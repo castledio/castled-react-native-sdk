@@ -26,7 +26,8 @@ import React
         super.init()
     }
 
-    @objc public static func setCastledDelegate() {
+    @objc public static func initializeComponents() {
+        CastledShared.sharedInstance.initializeComponents()
         CastledShared.sharedInstance.setDelegate(RTNCastledNotificationManager.shared)
     }
 

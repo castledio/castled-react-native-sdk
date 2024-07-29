@@ -63,7 +63,7 @@ inboxConfigs.tabBarIndicatorBackgroundColor = '#db5a9a';
 
 export default function App() {
   const testData = {
-    user: 'antony@castled.io',
+    user: 'support@castled.io',
     event: 'rn_test_event_2',
     params: {
       str: 'ios_val1',
