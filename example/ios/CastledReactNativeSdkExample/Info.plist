@@ -69,7 +69,5 @@
 	<false/>
 	<key>CastledSwizzlingDisabled</key>
 	<false/>
-	<key>CastledSkipUrlHandling</key>
-	<false/>
 </dict>
 </plist>

@@ -23,9 +23,9 @@
   // They will be passed down to the ViewController used by React Native.
 //  [UNUserNotificationCenter currentNotificationCenter].delegate = self;
   self.initialProps = @{};
-
+  [self registerForPush];
   // [self registerForPush];
-  [[CastledReactBridge sharedInstance] setNotificationCategoriesWithItems:[self getNotificationCategories]];
+ // [[CastledReactBridge sharedInstance] setNotificationCategoriesWithItems:[self getNotificationCategories]];
 //  [[CastledReactBridge sharedInstance] setLaunchOptions:launchOptions];
 
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
