@@ -1,14 +1,14 @@
 PODS:
   - boost (1.76.0)
-  - Castled (4.3.1):
-    - SDWebImage (~> 5.11)
+  - Castled (4.3.15):
+    - SDWebImage
   - castled-react-native-sdk (0.1.0):
-    - Castled (< 5.0.0, >= 4.3.1)
-    - CastledInbox (< 5.0.0, >= 4.3.1)
+    - Castled (>= 4.3.15)
+    - CastledInbox (>= 4.3.15)
     - React-Core
-  - CastledInbox (4.3.1):
-    - Castled (~> 4.3.0)
-    - SDWebImage (~> 5.11)
+  - CastledInbox (4.3.15):
+    - Castled (>= 4.3.15)
+    - SDWebImage
   - DoubleConversion (1.1.6)
   - FBLazyVector (0.72.7)
   - FBReactNativeSpec (0.72.7):
@@ -442,7 +442,6 @@ PODS:
 
 DEPENDENCIES:
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
-  - Castled (from `/Users/antony/Documents/Castled/iOS/Repo/castled-ios-sdk`)
   - castled-react-native-sdk (from `../..`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
@@ -488,6 +487,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Castled
     - CastledInbox
     - fmt
     - libevent
@@ -497,8 +497,6 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   boost:
     :podspec: "../node_modules/react-native/third-party-podspecs/boost.podspec"
-  Castled:
-    :path: "/Users/antony/Documents/Castled/iOS/Repo/castled-ios-sdk"
   castled-react-native-sdk:
     :path: "../.."
   DoubleConversion:
@@ -581,9 +579,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: 57d2868c099736d80fcd648bf211b4431e51a558
-  Castled: 630f6d04b6860015f629454481d46007f673ffe6
-  castled-react-native-sdk: dc3a3e1c68539088ec605d6285421b2ad1f18847
-  CastledInbox: 1b1f3ea229837d5e322ae66cfb663c0db92287fb
+  Castled: c788992462ae92bca3174561df3eed74a8b7a138
+  castled-react-native-sdk: a9015dfdb8503e104d7d341f1ef1e40dabd3c204
+  CastledInbox: d940597db02aa5e15ee622cf3054e8daa3e8bfb2
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: 5fbbff1d7734827299274638deb8ba3024f6c597
   FBReactNativeSpec: 638095fe8a01506634d77b260ef8a322019ac671
@@ -627,6 +625,6 @@ SPEC CHECKSUMS:
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: 4c3aa327e4a6a23eeacd71f61c81df1bcdf677d5
 
-PODFILE CHECKSUM: d4197beb13a6478b9b7e0b29e777028b1228128c
+PODFILE CHECKSUM: 749a9007dc8f08fb8968df982fe9724363abc873
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.15.2

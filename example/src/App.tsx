@@ -26,8 +26,8 @@ import Header from './Header';
 const Separator = () => <View style={styles.separator} />;
 
 const configs = new CastledConfigs();
-configs.appId = '718c38e2e359d94367a2e0d35e1fd4df';
-configs.location = CastledLocation.US;
+configs.appId = 'e8a4f68bfb6a58b40a77a0e6150eca0b';
+configs.location = CastledLocation.TEST;
 configs.enableInApp = true;
 configs.enablePushBoost = true;
 configs.enableTracking = true;
@@ -36,7 +36,7 @@ configs.enablePush = true;
 configs.inAppFetchIntervalSec = 300;
 configs.sessionTimeOutSec = 10;
 configs.skipUrlHandling = false;
-configs.appgroupId = '';
+configs.appgroupId = 'group.com.castled.CastledPushDemo.Castled';
 configs.logLevel = CastledLogLevel.DEBUG;
 
 const userAttrs = new CastledUserAttributes();
@@ -63,7 +63,7 @@ inboxConfigs.tabBarIndicatorBackgroundColor = '#db5a9a';
 
 export default function App() {
   const testData = {
-    user: 'support@castled.io',
+    user: 'antony@castled.io',
     event: 'rn_test_event_2',
     params: {
       str: 'ios_val1',
