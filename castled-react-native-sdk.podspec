@@ -13,8 +13,8 @@ Pod::Spec.new do |s|
   s.platforms    = { :ios => "13.0" }
   s.source       = { :git => "https://github.com/castledio/castled-react-native-sdk.git", :tag => "#{s.version}" }
   s.source_files =  "ios/**/*.{h,m,mm,swift}"
-   s.dependency "Castled", '>= 4.3.15'
-  s.dependency "CastledInbox", '>= 4.3.15'
+   s.dependency "Castled", '>= 4.4.6'
+  s.dependency "CastledInbox", '>= 4.4.6'
   s.dependency "React-Core"
   # Swift/Objective-C compatibility
   s.pod_target_xcconfig = {
