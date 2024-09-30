@@ -1,13 +1,13 @@
 PODS:
   - boost (1.76.0)
-  - Castled (4.3.15):
+  - Castled (4.4.6):
     - SDWebImage
   - castled-react-native-sdk (0.1.0):
-    - Castled (>= 4.3.15)
-    - CastledInbox (>= 4.3.15)
+    - Castled (>= 4.4.6)
+    - CastledInbox (>= 4.4.6)
     - React-Core
-  - CastledInbox (4.3.15):
-    - Castled (>= 4.3.15)
+  - CastledInbox (4.4.6):
+    - Castled (>= 4.4.6)
     - SDWebImage
   - DoubleConversion (1.1.6)
   - FBLazyVector (0.72.7)
@@ -434,9 +434,9 @@ PODS:
     - React-jsi (= 0.72.7)
     - React-logger (= 0.72.7)
     - React-perflogger (= 0.72.7)
-  - SDWebImage (5.19.4):
-    - SDWebImage/Core (= 5.19.4)
-  - SDWebImage/Core (5.19.4)
+  - SDWebImage (5.19.7):
+    - SDWebImage/Core (= 5.19.7)
+  - SDWebImage/Core (5.19.7)
   - SocketRocket (0.6.1)
   - Yoga (1.14.0)
 
@@ -579,9 +579,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: 57d2868c099736d80fcd648bf211b4431e51a558
-  Castled: c788992462ae92bca3174561df3eed74a8b7a138
-  castled-react-native-sdk: a9015dfdb8503e104d7d341f1ef1e40dabd3c204
-  CastledInbox: d940597db02aa5e15ee622cf3054e8daa3e8bfb2
+  Castled: dd89d2194a1d21ba487db47bdb55b009319dff91
+  castled-react-native-sdk: 4e327717e9fc0eaaac270234a8e3382ea267efb4
+  CastledInbox: aa169cc11c2d5114b3ac2091445eb76cbe0cdb9e
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: 5fbbff1d7734827299274638deb8ba3024f6c597
   FBReactNativeSpec: 638095fe8a01506634d77b260ef8a322019ac671
@@ -621,7 +621,7 @@ SPEC CHECKSUMS:
   React-runtimescheduler: 7649c3b46c8dee1853691ecf60146a16ae59253c
   React-utils: 56838edeaaf651220d1e53cd0b8934fb8ce68415
   ReactCommon: 5f704096ccf7733b390f59043b6fa9cc180ee4f6
-  SDWebImage: 066c47b573f408f18caa467d71deace7c0f8280d
+  SDWebImage: 8a6b7b160b4d710e2a22b6900e25301075c34cb3
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: 4c3aa327e4a6a23eeacd71f61c81df1bcdf677d5
 

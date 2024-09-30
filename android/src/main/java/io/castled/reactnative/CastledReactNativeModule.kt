@@ -30,6 +30,7 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
 
   private val requestPromises = SparseArray<Promise>()
   private var requestCode = 0
+  private var isInited = false
 
   private val pushListener by lazy {
     CastledReactNativePushNotificationListener.getInstance(context)
@@ -47,6 +48,10 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
 
   @ReactMethod
   override fun initialize(configs: ReadableMap) {
+    if (isInited) {
+      return
+    }
+    isInited = true
     val castledConfigs = configs.toCastledConfigs()
     CastledNotifications.initialize(
       reactApplicationContext.applicationContext as Application,
@@ -205,6 +210,9 @@ class CastledReactNativeModule internal constructor(context: ReactApplicationCon
     }
     if (castledConfigs.enableInApp) {
       inappListener.startListeningToInAppEvents()
+      reactApplicationContext.currentActivity?.let {
+        CastledNotifications.performNonNativeAppForegroundActions(it)
+      }
     }
     if (castledConfigs.enableAppInbox) {
       inboxListener.startListeningToInboxEvents()
