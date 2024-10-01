@@ -64,7 +64,6 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "^28.1.1",
-    "metro-config": "^0.80.12",
     "pod-install": "^0.1.0",
     "prettier": "2.8.8",
     "react": "18.2.0",
