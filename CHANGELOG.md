@@ -1,3 +1,10 @@
+# [1.28.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.27.0...v1.28.0) (2024-10-01)
+
+
+### Features
+
+* app opened fixes for inapp ([ac79ed9](https://github.com/castledio/castled-react-native-sdk/commit/ac79ed9cbf600600a9c13492e49e27b9734b1718))
+
 # [1.27.0](https://github.com/castledio/castled-react-native-sdk/compare/v1.26.0...v1.27.0) (2024-08-29)
 
 
